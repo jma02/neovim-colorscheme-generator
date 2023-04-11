@@ -28,6 +28,7 @@ module.exports = {
         ],
         "brace-style": ["error", "1tbs"],
         "quotes": ["error", "double"],
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        "indent": ["error", 4],
     }
 };
