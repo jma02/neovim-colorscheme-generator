@@ -1,4 +1,5 @@
 import React from "react";
+// Chakra
 import { extendTheme, ChakraProvider, Box } from "@chakra-ui/react";
 import {Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
@@ -7,13 +8,6 @@ import { Image } from "@chakra-ui/react";
 import { Select } from "@chakra-ui/react";
 import { Button, ButtonGroup } from "@chakra-ui/react";
 
-import { createRoot } from "react-dom/client";
-import {
-    createBrowserRouter,
-    RouterProvider,
-    Route,
-    Link,
-} from "react-router-dom";
 import {
     Accordion,
     AccordionItem,
@@ -31,6 +25,8 @@ const colors = {
 
 const theme = extendTheme({ colors });
 
+//Routing
+import {Link} from "react-router-dom";
 // 3. Pass the `theme` prop to the `ChakraProvider`
 export default function App() {
     return (
@@ -82,7 +78,9 @@ export default function App() {
                     <Button colorScheme="blue">Download .lua File</Button>
                 </div>
                 <div>
-                    <Button colorScheme="blue">Edit Presets</Button>
+                    <Button colorScheme="blue">
+                        <Link to="edit">Edit Presets</Link>
+                    </Button>
                     <Accordion>
                         <AccordionItem>
                             <h2>
@@ -125,7 +123,9 @@ export default function App() {
                                 <option value='option2'>Option 2</option>
                                 <option value='option3'>Option 3</option>
                             </Select>
-                            <Button colorScheme="blue">Edit Users</Button>
+                            <Button colorScheme="blue" >
+                                <Link to="users">Edit Users</Link>
+                            </Button>
                         </Grid>
                     </div>
                 </div>
