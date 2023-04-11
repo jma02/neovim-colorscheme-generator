@@ -68,8 +68,7 @@ export default function App() {
                 </div>
                 <div>
                     <b>Preview</b>
-                    <Image boxSize="lg" src="https://via.placeholder.com/500x300/0077be/ffffff?text=Placeholder+Image
-"></Image>
+                    <Image boxSize="lg" src="https://via.placeholder.com/500x300/0077be/ffffff?text=Placeholder+Image"></Image>
                 </div>
                 <div>
                     <Accordion>
