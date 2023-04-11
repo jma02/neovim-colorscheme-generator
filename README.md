@@ -9,4 +9,4 @@ A CISC275 Project by ...
 
 ## Figma Mockup
 
-![alt text](mockup.jpg)
+![alt text](mockup.png)
