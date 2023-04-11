@@ -4,6 +4,16 @@ import {Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import { Heading, Grid } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
+import { Select } from "@chakra-ui/react";
+import { Button, ButtonGroup } from "@chakra-ui/react";
+
+import { createRoot } from "react-dom/client";
+import {
+    createBrowserRouter,
+    RouterProvider,
+    Route,
+    Link,
+} from "react-router-dom";
 import {
     Accordion,
     AccordionItem,
@@ -69,8 +79,10 @@ export default function App() {
                 <div>
                     <b>Preview</b>
                     <Image boxSize="lg" src="https://via.placeholder.com/500x300/0077be/ffffff?text=Placeholder+Image"></Image>
+                    <Button colorScheme="blue">Download .lua File</Button>
                 </div>
                 <div>
+                    <Button colorScheme="blue">Edit Presets</Button>
                     <Accordion>
                         <AccordionItem>
                             <h2>
@@ -106,6 +118,16 @@ export default function App() {
                             </AccordionPanel>
                         </AccordionItem>
                     </Accordion>
+                    <div style={{bottom: 0, position: "absolute"}}>
+                        <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+                            <Select placeholder='Select option'>
+                                <option value='option1'>Option 1</option>
+                                <option value='option2'>Option 2</option>
+                                <option value='option3'>Option 3</option>
+                            </Select>
+                            <Button colorScheme="blue">Edit Users</Button>
+                        </Grid>
+                    </div>
                 </div>
             </Grid>
         </ChakraProvider>
