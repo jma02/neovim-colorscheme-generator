@@ -1,0 +1,41 @@
+return{
+    colors.accent = '#FF9940'
+    colors.bg = '#FAFAFA'
+    colors.fg = '#575F66'
+    colors.ui = '#8A9199'
+
+    colors.tag = '#55B4D4'
+    colors.func = '#F2AE49'
+    colors.entity = '#399EE6'
+    colors.string = '#86B300'
+    colors.regexp = '#4CBF99'
+    colors.markup = '#F07171'
+    colors.keyword = '#FA8D3E'
+    colors.special = '#E6BA7E'
+    colors.comment = '#ABB0B6'
+    colors.constant = '#A37ACC'
+    colors.operator = '#ED9366'
+    colors.error = '#F51818'
+
+    colors.line = '#EFF0F1'
+    colors.panel_bg = '#FFFFFF'
+    colors.panel_shadow = '#CCCED0'
+    colors.panel_border = '#F0F0F0'
+    colors.gutter_normal = '#CDD0D3'
+    colors.gutter_active = '#A0A6AC'
+    colors.selection_bg = '#D1E4F4'
+    colors.selection_inactive = '#E7E8E9'
+    colors.selection_border = '#E1E1E2'
+    colors.guide_active = '#D3D5D8'
+    colors.guide_normal = '#E6E7E9'
+
+    colors.vcs_added = '#99BF4D'
+    colors.vcs_modified = '#709ECC'
+    colors.vcs_removed = '#F27983'
+
+    colors.vcs_added_bg = '#E0E7CD'
+    colors.vcs_removed_bg = '#F9EBE4'
+
+    colors.fg_idle = '#828C99'
+    colors.warning = '#FA8D3E'
+}

@@ -1,4 +1,4 @@
-## init.lua Creator
+## Neovim Theme Generator
 
 A CISC275 Project by ...
 
@@ -7,3 +7,6 @@ A CISC275 Project by ...
 - Eli Brignac
 - Jonathan Ma
 
+## Figma Mockup
+
+![alt text](mockup.jpg)
