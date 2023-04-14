@@ -7,7 +7,7 @@ import { Heading, Grid } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import { Select } from "@chakra-ui/react";
 import { Button} from "@chakra-ui/react";
-
+import { Input } from "@chakra-ui/react";
 
 import {
     Accordion,
@@ -31,6 +31,7 @@ import {Link} from "react-router-dom";
 //DnD
 import DragColor from "../components/DragColor";
 import ColorBucket from "../components/ColorBucket";
+import ColorWheel from "../components/ColorWheel";
 
 // 3. Pass the `theme` prop to the `ChakraProvider`
 export default function Landing() {
@@ -63,14 +64,24 @@ export default function Landing() {
                             <TabPanel>
                                 <Card>
                                     <CardBody>
-                                      Col 2
+
+                                        <ColorWheel/>
+
+                                        {/* <DragColor key={"white"} fillColor={"white"}/>
+                                        
+                                        <Input
+                                            onChange={(e) => setValue(e.target.value)}
+                                            value={<DragColor key={value} fillColor={value}/>}
+                                            placeholder='Enter hex code'
+                                            type="Color"
+                                        /> */}
                                     </CardBody>
                                 </Card>
                             </TabPanel>
                             <TabPanel>
                                 <Card>
                                     <CardBody>
-                                      Col 3
+                                        Col 3
                                     </CardBody>
                                 </Card>
                             </TabPanel>
