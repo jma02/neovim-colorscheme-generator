@@ -34,7 +34,7 @@ FAIL src/App.test.tsx
     SyntaxError: Unexpected token 'export'
 
       1 | import React from "react";
-      2 | import { BackgroundProps, Card, CardBody } from "@chakra-ui/react";
+      2 | import { Card, CardBody } from "@chakra-ui/react";
     > 3 | import { useDrag } from "react-dnd";
         | ^
       4 |
@@ -61,15 +61,15 @@ All files            |       0 |        0 |       0 |       0 |
   reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
  src/components      |       0 |      100 |       0 |       0 |                   
   ColorBucket.tsx    |       0 |      100 |       0 |       0 | 10-18             
-  ColorWheel.tsx     |       0 |      100 |       0 |       0 | 11-38             
+  ColorPicker.tsx    |       0 |      100 |       0 |       0 | 7-17              
   DragColor.tsx      |       0 |      100 |       0 |       0 | 9-16              
  src/pages           |       0 |      100 |       0 |       0 |                   
   edit.tsx           |       0 |      100 |       0 |       0 | 18-83             
-  landing.tsx        |       0 |      100 |       0 |       0 | 20-95             
+  landing.tsx        |       0 |      100 |       0 |       0 | 20-77             
   users.tsx          |       0 |      100 |       0 |       0 | 5                 
 ---------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        2.649 s
+Time:        2.633 s
 Ran all test suites.
