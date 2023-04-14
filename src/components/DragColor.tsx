@@ -1,5 +1,5 @@
 import React from "react";
-import { BackgroundProps, Card, CardBody } from "@chakra-ui/react";
+import { Card, CardBody } from "@chakra-ui/react";
 import { useDrag } from "react-dnd";
 
 interface DragProps{
@@ -12,7 +12,7 @@ export default function DragColor({fillColor}: DragProps){
         collect: (monitor) => ({
             isDragging: monitor.isDragging(),
         })
-    }));
+    }), [fillColor]);
     return (
         <Card role="Handle" ref={drag} backgroundColor={fillColor} variant="filled" size="lg"
             height="10vh" width="10vh">
