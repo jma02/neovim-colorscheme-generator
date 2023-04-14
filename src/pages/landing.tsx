@@ -50,7 +50,7 @@ export default function Landing() {
                         <TabPanels>
                             <TabPanel>
 
-                                <Card>
+                                <Card variant="filled">
                                     <CardBody>
                                         <Grid templateColumns="repeat(5,1fr)" gap={2}>
                                             {presetCards.map((x: string)=>(
@@ -76,20 +76,22 @@ export default function Landing() {
                             </TabPanel>
                         </TabPanels>
                     </Tabs>
-                    <Card>
-                        <CardBody>
-                            <Grid templateColumns="repeat(3,1fr)" gap={2}>
-                                {themeProps.map((x: string)=>(
-                                    <div key={x}>
-                                        <Text fontSize="10">{x}</Text>
-                                        <div>
-                                            <ColorBucket/>
+                    <Box padding="1rem">
+                        <Card variant="filled">
+                            <CardBody>
+                                <Grid templateColumns="repeat(3,1fr)" gap={2}>
+                                    {themeProps.map((x: string)=>(
+                                        <div key={x}>
+                                            <Text fontSize="10">{x}</Text>
+                                            <div>
+                                                <ColorBucket/>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
-                            </Grid>
-                        </CardBody>
-                    </Card>
+                                    ))}
+                                </Grid>
+                            </CardBody>
+                        </Card>
+                    </Box> 
                 </div>
                 <div>
                     <b>Preview</b>
