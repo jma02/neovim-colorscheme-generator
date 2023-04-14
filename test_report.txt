@@ -61,14 +61,15 @@ All files            |       0 |        0 |       0 |       0 |
   reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
  src/components      |       0 |      100 |       0 |       0 |                   
   ColorBucket.tsx    |       0 |      100 |       0 |       0 | 10-18             
+  ColorWheel.tsx     |       0 |      100 |       0 |       0 | 11-38             
   DragColor.tsx      |       0 |      100 |       0 |       0 | 9-16              
  src/pages           |       0 |      100 |       0 |       0 |                   
   edit.tsx           |       0 |      100 |       0 |       0 | 18-83             
-  landing.tsx        |       0 |      100 |       0 |       0 | 20-84             
+  landing.tsx        |       0 |      100 |       0 |       0 | 20-95             
   users.tsx          |       0 |      100 |       0 |       0 | 5                 
 ---------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        2.718 s
+Time:        3.423 s
 Ran all test suites.
