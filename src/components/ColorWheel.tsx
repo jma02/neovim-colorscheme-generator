@@ -34,7 +34,7 @@ export default function ColorWheel() {
                         bg: "blue.700",
                     },
                 }}
-                width = "42%"
+                width = "10vh"
                 onChange={(e) => setValue(e.target.value)}
             />
         </>
