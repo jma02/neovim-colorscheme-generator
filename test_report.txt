@@ -64,11 +64,11 @@ All files            |       0 |        0 |       0 |       0 |
   DragColor.tsx      |       0 |      100 |       0 |       0 | 9-16              
  src/pages           |       0 |      100 |       0 |       0 |                   
   edit.tsx           |       0 |      100 |       0 |       0 | 18-83             
-  landing.tsx        |       0 |      100 |       0 |       0 | 20-83             
+  landing.tsx        |       0 |      100 |       0 |       0 | 20-84             
   users.tsx          |       0 |      100 |       0 |       0 | 5                 
 ---------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.588 s
+Time:        2.718 s
 Ran all test suites.
