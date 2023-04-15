@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { BackgroundProps, Card, CardBody } from "@chakra-ui/react";
+import React, { useState } from "react";
+import {  Card, CardBody } from "@chakra-ui/react";
 import { useDrop } from "react-dnd";
-import { ThemeContext } from "@emotion/react";
 
 interface droppedItem{
     fillColor: string

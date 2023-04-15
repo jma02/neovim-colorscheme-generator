@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {  Box, Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 import DragColor from "./DragColor";
 import {ChromePicker} from "react-color";
 

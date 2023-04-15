@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Card, CardBody, Grid, Tab, TabList, TabPanel, TabPanels, Tabs, Text} from "@chakra-ui/react";
+import { Box, Card, CardBody, Grid, Tab, 
+    TabList, TabPanel, TabPanels, Tabs, Text} from "@chakra-ui/react";
 import DragColor from "./DragColor";
 import ColorPicker from "./ColorPicker";
 import ColorBucket from "./ColorBucket";
