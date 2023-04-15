@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {  Card, CardBody } from "@chakra-ui/react";
 import { useDrop } from "react-dnd";
 
@@ -22,10 +22,11 @@ export default function ColorBucket({theme, setThemeFile, prop}: BucketProps) {
         drop: (item, monitor) =>{
             const dropped = item as droppedItem;
             setFillColor(dropped.fillColor);
-            const newTheme = { ...theme, [prop]: dropped.fillColor };
-            setThemeFile(newTheme);
         }
     }));
+    useEffect(()=>{
+        setThemeFile({ ...theme, [prop]: fillColor });
+    }, [fillColor]);
     return (
         <Card
             ref={dropRef}
