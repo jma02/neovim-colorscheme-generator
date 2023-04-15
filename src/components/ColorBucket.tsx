@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react";
 import {  Card, CardBody } from "@chakra-ui/react";
 import { useDrop } from "react-dnd";
+import { DroppedItem, ThemeFile } from "./Common";
 
-interface droppedItem{
-    fillColor: string
-}
-
-interface themeFile{
-    [name: string]: string;
-}
 interface BucketProps {
-    theme: themeFile;
-    setThemeFile: (x: themeFile) => void;
+    theme: ThemeFile;
+    setThemeFile: (x: ThemeFile) => void;
     prop: string
 }
 
@@ -20,7 +14,7 @@ export default function ColorBucket({theme, setThemeFile, prop}: BucketProps) {
     const [collectedProps, dropRef] = useDrop(() => ({
         accept: "CARD",
         drop: (item, monitor) =>{
-            const dropped = item as droppedItem;
+            const dropped = item as DroppedItem;
             setFillColor(dropped.fillColor);
         }
     }));

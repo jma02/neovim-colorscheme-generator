@@ -2,13 +2,10 @@ import React from "react";
 import {Image, Button} from "@chakra-ui/react";
 import download from "../functions/download";
 import { DownloadIcon } from "@chakra-ui/icons";
+import { ThemeFile } from "./Common";
 
-interface themeFile{
-    [name: string] : string; 
-}
-
-interface PreviewProps{
-    themeFile: themeFile;
+interface PreviewProps {
+    themeFile: ThemeFile;
 }
 export default function Preview({themeFile}: PreviewProps): JSX.Element{
     return(

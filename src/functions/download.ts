@@ -1,8 +1,6 @@
-interface themeFile{
-    [name: string] : string; 
-}
+import { ThemeFile } from "../components/Common";
 
-export default function download(themeFile: themeFile): void{
+export default function download(themeFile: ThemeFile): void{
     // create a new Blob object with the file content and type
     const blob = new Blob([`return{\n\
         colors.accent = '${themeFile["Accent"]}'\n\

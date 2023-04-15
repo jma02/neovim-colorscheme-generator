@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // Chakra
 import { Heading, Grid } from "@chakra-ui/react";
 
-interface themeFile{
+interface ThemeFile {
     [name: string] : string; 
 }
 
@@ -12,7 +12,7 @@ import Presets from "../components/Presets";
 
 // 3. Pass the `theme` prop to the `ChakraProvider`
 export default function Landing() {
-    const [themeFile, setThemeFile] = useState<themeFile>(
+    const [themeFile, setThemeFile] = useState<ThemeFile>(
         {
             "Accent": "#ffffff",
             "Background": "#ffffff",

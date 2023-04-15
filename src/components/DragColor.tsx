@@ -1,11 +1,9 @@
 import React from "react";
 import { Card, CardBody } from "@chakra-ui/react";
 import { useDrag } from "react-dnd";
+import { DroppedItem } from "./Common";
 
-interface DragProps{
-    fillColor: string
-}
-export default function DragColor({fillColor}: DragProps){
+export default function DragColor({fillColor}: DroppedItem){
     const [{isDragging}, drag] = useDrag(() => ({
         type: "CARD",
         item: {fillColor},
