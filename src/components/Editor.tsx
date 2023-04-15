@@ -10,8 +10,8 @@ interface themeFile{
 }
 
 const presetCards =  [
-    "red.400", "orange", "green", "teal", "blue",
-    "cyan", "purple.400", "purple.800", "pink", "white"];
+    "#DA4B4B", "#F3CA7B", "#2E9A1E", "#1E9A81", "#252DDA",
+    "#3DD8D3", "#9134AF", "#43148E", "#DE42D8", "#FFFFFF"];
 
 
 interface EditorProps{
