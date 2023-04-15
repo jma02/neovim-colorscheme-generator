@@ -4,23 +4,23 @@ interface themeFile{
 
 export default function download(themeFile: themeFile): void{
     // create a new Blob object with the file content and type
-    const blob = new Blob(["return{\n\
-        colors.accent = '#FF9940'\n\
-        colors.bg = '#FAFAFA'\n\
-        colors.fg = '#575F66'\n\
-        colors.ui = '#8A9199'\n\
+    const blob = new Blob([`return{\n\
+        colors.accent = '${themeFile["Accent"]}'\n\
+        colors.bg = '${themeFile["Background"]}'\n\
+        colors.fg = '${themeFile["Foreground"]}'\n\
+        colors.ui = '${themeFile["UI"]}'\n\
         colors.tag = '#55B4D4'\n\
-        colors.func = '#F2AE49'\n\
+        colors.func = '${themeFile["Function"]}'\n\
         colors.entity = '#399EE6'\n\
-        colors.string = '#86B300'\n\
+        colors.string = '${themeFile["String"]}'\n\
         colors.regexp = '#4CBF99'\n\
         colors.markup = '#F07171'\n\
         colors.keyword = '#FA8D3E'\n\
         colors.special = '#E6BA7E'\n\
-        colors.comment = '#ABB0B6'\n\
+        colors.comment = '${themeFile["Error"]}'\n\
         colors.constant = '#A37ACC'\n\
-        colors.operator = '#ED9366'\n\
-        colors.error = '#F51818'\n\
+        colors.operator = '${themeFile["Operator"]}'\n\
+        colors.error = '${themeFile["Error"]}'\n\
         colors.line = '#EFF0F1'\n\
         colors.panel_bg = '#FFFFFF'\n\
         colors.panel_shadow = '#CCCED0'\n\
@@ -40,7 +40,7 @@ export default function download(themeFile: themeFile): void{
         colors.fg_idle = '#828C99'\n\
         colors.warning = '#FA8D3E'\n\
     } \n\
-    "], { type: "text/plain" });
+`], { type: "text/plain" });
 
     // create a URL to the blob object
     const url = URL.createObjectURL(blob);
