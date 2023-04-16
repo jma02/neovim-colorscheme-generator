@@ -12,7 +12,8 @@ export default function Preview({themeFile}: PreviewProps): JSX.Element{
         <div>
             <b>Preview</b>
             <Image boxSize="lg" src="https://via.placeholder.com/500x300/0077be/ffffff?text=Placeholder+Image"></Image>
-            <Button       
+            <Button
+                style={{marginTop: "10px"}}
                 leftIcon={<DownloadIcon />}
                 colorScheme="blue" onClick={()=> download(themeFile)}>
                     Download .lua File
