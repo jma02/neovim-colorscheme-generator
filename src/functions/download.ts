@@ -3,22 +3,22 @@ import { ThemeFile } from "../components/Common";
 export default function download(themeFile: ThemeFile): void{
     // create a new Blob object with the file content and type
     const blob = new Blob([`return{\n\
-        colors.accent = '${themeFile["Accent"]}'\n\
-        colors.bg = '${themeFile["Background"]}'\n\
-        colors.fg = '${themeFile["Foreground"]}'\n\
-        colors.ui = '${themeFile["UI"]}'\n\
+        colors.accent = '${themeFile.accent}'\n\
+        colors.bg = '${themeFile.bg}'\n\
+        colors.fg = '${themeFile.fg}'\n\
+        colors.ui = '${themeFile.ui}'\n\
         colors.tag = '#55B4D4'\n\
-        colors.func = '${themeFile["Function"]}'\n\
+        colors.func = '${themeFile.func}'\n\
         colors.entity = '#399EE6'\n\
-        colors.string = '${themeFile["String"]}'\n\
+        colors.string = '${themeFile.string}'\n\
         colors.regexp = '#4CBF99'\n\
         colors.markup = '#F07171'\n\
         colors.keyword = '#FA8D3E'\n\
         colors.special = '#E6BA7E'\n\
-        colors.comment = '${themeFile["Error"]}'\n\
+        colors.comment = '${themeFile.error}'\n\
         colors.constant = '#A37ACC'\n\
-        colors.operator = '${themeFile["Operator"]}'\n\
-        colors.error = '${themeFile["Error"]}'\n\
+        colors.operator = '${themeFile.operator}'\n\
+        colors.error = '${themeFile.error}'\n\
         colors.line = '#EFF0F1'\n\
         colors.panel_bg = '#FFFFFF'\n\
         colors.panel_shadow = '#CCCED0'\n\

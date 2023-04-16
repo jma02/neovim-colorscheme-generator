@@ -3,5 +3,13 @@ export interface DroppedItem {
 }
 
 export interface ThemeFile {
-    [name: string]: string;
+    accent: string,
+    bg: string,
+    fg: string,
+    ui: string,
+    string: string, // lol
+    func: string,
+    operator: string,
+    comment: string,
+    error: string,
 }

@@ -2,27 +2,24 @@ import React, { useState } from "react";
 // Chakra
 import { Heading, Grid } from "@chakra-ui/react";
 
-interface ThemeFile {
-    [name: string] : string; 
-}
-
 import Editor from "../components/Editor";
 import Preview from "../components/Preview";
 import Presets from "../components/Presets";
+import { ThemeFile } from "../components/Common";
 
 // 3. Pass the `theme` prop to the `ChakraProvider`
 export default function Landing() {
     const [themeFile, setThemeFile] = useState<ThemeFile>(
         {
-            "Accent": "#FF9940",
-            "Background": "#FAFAFA",
-            "Foreground": "#575F66",
-            "UI": "#8A9199",
-            "String": "#86B300",
-            "Function": "#F2AE49",
-            "Operator": "#ED9366",
-            "Comment": "#ABB0B6",
-            "Error":  "#F51818",
+            accent: "#FF9940",
+            bg: "#FAFAFA",
+            fg: "#575F66",
+            ui: "#8A9199",
+            string: "#86B300",
+            func: "#F2AE49",
+            operator: "#ED9366",
+            comment: "#ABB0B6",
+            error:  "#F51818",
         }
     );
 
