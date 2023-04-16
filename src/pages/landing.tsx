@@ -14,18 +14,18 @@ import Presets from "../components/Presets";
 export default function Landing() {
     const [themeFile, setThemeFile] = useState<ThemeFile>(
         {
-            "Accent": "#ffffff",
-            "Background": "#ffffff",
-            "Foreground": "#ffffff",
-            "UI": "#ffffff",
-            "String": "#ffffff",
-            "Function": "#ffffff",
-            "Operator": "#ffffff",
-            "Comment": "#ffffff",
-            "Error":  "#ffffff",
+            "Accent": "#FF9940",
+            "Background": "#FAFAFA",
+            "Foreground": "#575F66",
+            "UI": "#8A9199",
+            "String": "#86B300",
+            "Function": "#F2AE49",
+            "Operator": "#ED9366",
+            "Comment": "#ABB0B6",
+            "Error":  "#F51818",
         }
     );
-    
+
     return (
         <div style={{padding: 40}}>
             <Heading height="75px">Neovim Theme Generator</Heading>
