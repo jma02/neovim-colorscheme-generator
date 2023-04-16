@@ -4,19 +4,16 @@ import { Box, Card, CardBody, Grid, Tab,
 import DragColor from "./DragColor";
 import ColorPicker from "./ColorPicker";
 import ColorBucket from "./ColorBucket";
+import { ThemeFile } from "./Common";
 
-interface themeFile{
-    [name: string] : string; 
-}
-
-const presetCards =  [
+const presetCards = [
     "#DA4B4B", "#F3CA7B", "#2E9A1E", "#1E9A81", "#252DDA",
-    "#3DD8D3", "#9134AF", "#43148E", "#DE42D8", "#FFFFFF"];
+    "#3DD8D3", "#9134AF", "#43148E", "#DE42D8", "#FFFFFF"
+];
 
-
-interface EditorProps{
-    themeFile: themeFile;
-    setThemeFile: (x: themeFile) => void; 
+interface EditorProps {
+    themeFile: ThemeFile;
+    setThemeFile: (x: ThemeFile) => void;
 }
 export default function Editor({themeFile, setThemeFile}: EditorProps): JSX.Element{
     return(
@@ -30,7 +27,6 @@ export default function Editor({themeFile, setThemeFile}: EditorProps): JSX.Elem
 
                 <TabPanels>
                     <TabPanel>
-
                         <Card variant="filled">
                             <CardBody>
                                 <Grid templateColumns="repeat(5,1fr)" gap={2}>
