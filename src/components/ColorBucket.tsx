@@ -10,7 +10,7 @@ interface BucketProps {
 }
 
 export default function ColorBucket({theme, setThemeFile, prop}: BucketProps) {
-    const [fillColor, setFillColor] = useState<string>("#ffffff");
+    const [fillColor, setFillColor] = useState<string>(theme[prop]);
     const [collectedProps, dropRef] = useDrop(() => ({
         accept: "CARD",
         drop: (item, monitor) =>{
