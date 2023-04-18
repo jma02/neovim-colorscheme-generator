@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // Chakra
-import { Heading, Grid } from "@chakra-ui/react";
+import { Heading, Grid, Box } from "@chakra-ui/react";
 
 import Editor from "../components/Editor";
 import Preview from "../components/Preview";
@@ -24,13 +24,18 @@ export default function Landing() {
     );
 
     return (
-        <div style={{padding: 40}}>
-            <Heading height="75px">Neovim Theme Generator</Heading>
-            <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-                <Editor themeFile={themeFile} setThemeFile={setThemeFile}/>
-                <Preview themeFile={themeFile}/>
-                <Presets/> 
-            </Grid>
+        <div>
+            <div style={{padding: 40}}>
+                <Heading height="75px">Neovim Theme Generator</Heading>
+                <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+                    <Editor themeFile={themeFile} setThemeFile={setThemeFile}/>
+                    <Preview themeFile={themeFile}/>
+                    <Presets/> 
+                </Grid>
+            </div>
+            <Box as="footer" p={4} bg="gray.100" textAlign="center">
+            Team 2: Aidan Eyre, Brendan Lewis, Eli Brignac, Jonathan Ma
+            </Box>
         </div>
     );
 }
