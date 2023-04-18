@@ -38,7 +38,7 @@ export default function Presets():JSX.Element{
                     </AccordionPanel>
                 </AccordionItem>
             </Accordion>
-            <div style={{bottom: 0, position: "absolute"}}>
+            <div style={{top: 0, position: "relative"}}>
                 <Grid templateColumns="repeat(2, 1fr)" gap={6}>
                     <Select placeholder='Select option'>
                         <option value='option1'>Option 1</option>
