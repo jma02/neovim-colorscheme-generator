@@ -4,6 +4,8 @@ import download from "../functions/download";
 import { DownloadIcon } from "@chakra-ui/icons";
 import jsTokens from "js-tokens";
 import { ThemeFile } from "./Common";
+import { Input } from "@chakra-ui/react";
+import React, { useState } from "react";
 
 const previewCode: string = `import React from "react";
 import logo from "./logo.svg";
@@ -122,6 +124,12 @@ function processCodeToHTML(code: string, themeFile: ThemeFile): JSX.Element {
 interface PreviewProps {
     themeFile: ThemeFile;
 }
+
+export function handleChange(): string {
+    const [fileName, setFileName] = useState<string>("test");
+    return fileName;
+}
+
 export default function Preview({themeFile}: PreviewProps): JSX.Element{
     return(
         <div>
@@ -136,6 +144,7 @@ export default function Preview({themeFile}: PreviewProps): JSX.Element{
                 colorScheme="blue" onClick={()=> download(themeFile)}>
                     Download .lua File
             </Button>
+            <Input placeholder="File name" onChange={handleChange}/>
         </div>
     );
 }
