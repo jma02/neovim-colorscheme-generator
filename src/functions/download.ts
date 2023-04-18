@@ -45,7 +45,8 @@ export default function download(themeFile: ThemeFile): void{
 
     // create a new anchor element with the download attribute and href set to the URL
     const link = document.createElement("a");
-    link.download = "theme.lua";
+    let fileName = window.prompt("Please enter the filename");
+    link.download = fileName + ".lua";
     link.href = url;
 
     // simulate a click on the link element to trigger the download
