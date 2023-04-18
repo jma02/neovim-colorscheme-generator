@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 import Preview from "../components/Preview";
 import { ThemeFile } from "../components/Common";
 import Editor from "../components/Editor";
-import Presets from "../components/Presets";
+import EditPresets from "../components/EditPresets";
 
 export default function Edit(){
     const [themeFile, setThemeFile] = useState<ThemeFile>(
@@ -29,7 +29,7 @@ export default function Edit(){
             <Grid templateColumns="repeat(3, 1fr)" gap={12}>
                 <Preview themeFile={themeFile}></Preview>
                 <Editor themeFile={themeFile} setThemeFile={setThemeFile}></Editor>
-                <Presets></Presets>
+                <EditPresets></EditPresets>
                 <Button><Link to="/">Back to main site</Link></Button>
             </Grid>
         </div>
