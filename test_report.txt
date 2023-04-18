@@ -65,6 +65,7 @@ All files            |       0 |        0 |       0 |       0 |
   ColorPicker.tsx    |       0 |      100 |       0 |       0 | 7-16              
   Common.ts          |       0 |        0 |       0 |       0 |                   
   DragColor.tsx      |       0 |      100 |       0 |       0 | 7-14              
+  EditPresets.tsx    |       0 |      100 |       0 |       0 | 7                 
   Editor.tsx         |       0 |      100 |       0 |       0 | 9-54              
   Presets.tsx        |       0 |      100 |       0 |       0 | 7                 
   Preview.tsx        |       0 |        0 |       0 |       0 | 8-136             
@@ -78,5 +79,5 @@ All files            |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        2.738 s
+Time:        4.049 s
 Ran all test suites.
