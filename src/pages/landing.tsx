@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // Chakra
-import { Heading, Grid, Box } from "@chakra-ui/react";
+import { Heading, Grid, Box, Text} from "@chakra-ui/react";
 
 import Editor from "../components/Editor";
 import Preview from "../components/Preview";
@@ -24,7 +24,7 @@ export default function Landing() {
     );
 
     return (
-        <div>
+        <Box>
             <div style={{padding: 40}}>
                 <Heading height="75px">Neovim Theme Generator</Heading>
                 <Grid templateColumns="repeat(3, 1fr)" gap={6}>
@@ -33,9 +33,9 @@ export default function Landing() {
                     <Presets/> 
                 </Grid>
             </div>
-            <Box as="footer" p={4} bg="gray.100" textAlign="center">
-            Team 2: Aidan Eyre, Brendan Lewis, Eli Brignac, Jonathan Ma
+            <Box as="footer" p={4} bg="blue.800" textAlign="center">
+                <Text>Team 2: Aidan Eyre, Brendan Lewis, Eli Brignac, Jonathan Ma</Text>
             </Box>
-        </div>
+        </Box>
     );
 }

@@ -21,13 +21,13 @@ export default function Editor({themeFile, setThemeFile}: EditorProps): JSX.Elem
             <Text height="40px">Drag and drop colors to get started!</Text>
             <Tabs>
                 <TabList>
-                    <Tab>Presets</Tab>
-                    <Tab>Color Picker</Tab>
+                    <Tab><Text>Presets</Text></Tab>
+                    <Tab><Text>Color Picker</Text></Tab>
                 </TabList>
 
                 <TabPanels>
                     <TabPanel>
-                        <Card variant="filled">
+                        <Card >
                             <CardBody>
                                 <Grid templateColumns="repeat(5,1fr)" gap={2}>
                                     {presetCards.map((x: string)=>(
@@ -38,7 +38,7 @@ export default function Editor({themeFile, setThemeFile}: EditorProps): JSX.Elem
                         </Card>
                     </TabPanel>
                     <TabPanel>
-                        <Card variant="filled">
+                        <Card>
                             <CardBody>
                                 <ColorPicker/>
                             </CardBody>
