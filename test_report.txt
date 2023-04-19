@@ -69,8 +69,8 @@ All files            |       0 |        0 |       0 |       0 |
   Editor.tsx         |       0 |      100 |       0 |       0 | 9-54              
   Presets.tsx        |       0 |      100 |       0 |       0 | 7                 
   Preview.tsx        |       0 |        0 |       0 |       0 | 8-136             
- src/functions       |       0 |      100 |       0 |       0 |                   
-  download.ts        |       0 |      100 |       0 |       0 | 5-56              
+ src/functions       |       0 |        0 |       0 |       0 |                   
+  download.ts        |       0 |        0 |       0 |       0 | 5-53              
  src/pages           |       0 |      100 |       0 |       0 |                   
   edit.tsx           |       0 |      100 |       0 |       0 | 13-26             
   landing.tsx        |       0 |      100 |       0 |       0 | 12-26             
@@ -79,5 +79,5 @@ All files            |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        4.049 s
+Time:        3.97 s
 Ran all test suites.
