@@ -13,7 +13,7 @@ export default function DragColor({fillColor}: DroppedItem){
     }), [fillColor]);
     return (
         <Card role="Handle" ref={drag} backgroundColor={fillColor} variant="filled" size="lg"
-            height="10vh" width="10vh">
+            height="10vh" width="10vh" _hover={{borderColor: "Black", borderWidth: 4}}>
             <CardBody/>
         </Card>
     );
