@@ -46,12 +46,10 @@ export default function download(themeFile: ThemeFile): void{
     // create a new anchor element with the download attribute and href set to the URL
     const link = document.createElement("a");
     let fileName = window.prompt("Please enter the filename");
-    link.download = fileName + ".lua";
-    link.href = url;
-
-    // simulate a click on the link element to trigger the download
-    link.click();
-
-    // cleanup the URL object
-    URL.revokeObjectURL(url);
+    if(fileName != null && fileName != "") {
+        link.download = fileName + ".lua";
+        link.href = url;
+        link.click(); // simulate a click on the link element to trigger the download
+        URL.revokeObjectURL(url); // cleanup the URL object
+    } 
 }
