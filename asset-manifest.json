@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/neovim-theme-generator/static/css/main.e6c13ad2.css",
-    "main.js": "/neovim-theme-generator/static/js/main.127febe3.js",
+    "main.js": "/neovim-theme-generator/static/js/main.4a69502b.js",
     "static/js/787.12b55cc9.chunk.js": "/neovim-theme-generator/static/js/787.12b55cc9.chunk.js",
     "index.html": "/neovim-theme-generator/index.html",
     "main.e6c13ad2.css.map": "/neovim-theme-generator/static/css/main.e6c13ad2.css.map",
-    "main.127febe3.js.map": "/neovim-theme-generator/static/js/main.127febe3.js.map",
+    "main.4a69502b.js.map": "/neovim-theme-generator/static/js/main.4a69502b.js.map",
     "787.12b55cc9.chunk.js.map": "/neovim-theme-generator/static/js/787.12b55cc9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.127febe3.js"
+    "static/js/main.4a69502b.js"
   ]
 }
