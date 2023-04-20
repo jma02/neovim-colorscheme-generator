@@ -1,4 +1,4 @@
-export interface DroppedItem {
+export interface DroppedColor {
     fillColor: string
 }
 
@@ -12,4 +12,15 @@ export interface ThemeFile {
     operator: string,
     comment: string,
     error: string,
+}
+
+export interface DroppedPreset{
+    ThemeFile: ThemeFile;
+}
+
+export interface Preset{
+    name: string;
+    description: string;
+    ThemeFile: ThemeFile;
+    upvotes: number;
 }
