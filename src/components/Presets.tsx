@@ -1,7 +1,12 @@
 import React from "react";
 import { Accordion, AccordionButton, AccordionIcon,
-    AccordionItem, AccordionPanel, Box, Button, Grid, Select } from "@chakra-ui/react";
+    AccordionItem, AccordionPanel, Box, Button, 
+    Grid, Select} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import DragPreset from "./DragPreset";
+
+import { DevPresetList } from "./DevPresetList";
+import { Preset } from "./Common";
 
 export default function Presets():JSX.Element{
     return(
@@ -19,8 +24,18 @@ export default function Presets():JSX.Element{
                             <AccordionIcon />
                         </AccordionButton>
                     </h2>
-                    <AccordionPanel pb={4}>
-                              Placeholder
+                    <AccordionPanel pb={4} maxHeight="100%" overflow="scroll">
+                        {DevPresetList.map((x: Preset) => (
+                            <div key={x.name}>
+                                <DragPreset 
+                                    ThemeFile={x.ThemeFile}
+                                    name={x.name}
+                                    description={x.description}
+                                    upvotes={x.upvotes}
+                                />
+                            </div>
+                        ))
+                        }
                     </AccordionPanel>
                 </AccordionItem>
 

@@ -29,7 +29,7 @@ export default function Landing() {
                 <Heading height="100%"><Text fontSize="32">Neovim Theme Generator</Text></Heading>
                 <Grid templateColumns="repeat(3, 1fr)" gap={6}>
                     <Editor themeFile={themeFile} setThemeFile={setThemeFile}/>
-                    <Preview themeFile={themeFile}/>
+                    <Preview themeFile={themeFile} setThemeFile={setThemeFile}/>
                     <Presets/> 
                 </Grid>
             </div>

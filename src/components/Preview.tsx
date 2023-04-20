@@ -1,9 +1,10 @@
 import React from "react";
-import {Button} from "@chakra-ui/react";
+import {Box, Button, Flex, Spacer} from "@chakra-ui/react";
 import download from "../functions/download";
 import { DownloadIcon } from "@chakra-ui/icons";
 import jsTokens from "js-tokens";
 import { ThemeFile } from "./Common";
+import PresetLoader from "./PresetLoader";
 
 const previewCode: string = `import React from "react";
 import logo from "./logo.svg";
@@ -121,20 +122,25 @@ function processCodeToHTML(code: string, themeFile: ThemeFile): JSX.Element {
 
 interface PreviewProps {
     themeFile: ThemeFile;
+    setThemeFile: (x: ThemeFile) => void;
 }
-export default function Preview({themeFile}: PreviewProps): JSX.Element{
+export default function Preview({themeFile, setThemeFile}: PreviewProps): JSX.Element{
     return(
-        <div>
+        <Box>
             <b>Preview</b>
             <div style={{maxWidth: "100%", maxHeight: "100vh", overflow: "scroll"}}>
                 {processCodeToHTML(previewCode, themeFile)}
             </div>
-            <Button
-                style={{marginTop: "10px"}}
-                leftIcon={<DownloadIcon />}
-                colorScheme="blue" onClick={()=> download(themeFile)}>
+            <Flex paddingLeft="10" paddingRight="10">
+                <Button
+                    style={{marginTop: "10px"}}
+                    leftIcon={<DownloadIcon />}
+                    colorScheme="blue" onClick={()=> download(themeFile)}>
                     Download .lua File
-            </Button>
-        </div>
+                </Button>
+                <Spacer/>
+                <PresetLoader setThemeFile={setThemeFile}/>
+            </Flex>
+        </Box>
     );
 }

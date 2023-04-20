@@ -27,7 +27,7 @@ export default function Edit(){
         <div style={{padding: 40}}>
             <Heading height="75px">Approve This Theme?</Heading>
             <Grid templateColumns="repeat(3, 1fr)" gap={12}>
-                <Preview themeFile={themeFile}></Preview>
+                <Preview themeFile={themeFile} setThemeFile={setThemeFile}></Preview>
                 <Editor themeFile={themeFile} setThemeFile={setThemeFile}></Editor>
                 <EditPresets></EditPresets>
                 <Button><Link to="/">Back to main site</Link></Button>
