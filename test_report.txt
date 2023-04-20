@@ -62,7 +62,7 @@ All files            |       0 |        0 |       0 |       0 |
   index.tsx          |       0 |      100 |     100 |       0 | 11-33             
   reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
  src/components      |       0 |        0 |       0 |       0 |                   
-  ColorBucket.tsx    |       0 |      100 |       0 |       0 | 12-30             
+  ColorBucket.tsx    |       0 |      100 |       0 |       0 | 13-41             
   ColorPicker.tsx    |       0 |      100 |       0 |       0 | 7-17              
   Common.ts          |       0 |        0 |       0 |       0 |                   
   DevPresetList.ts   |       0 |      100 |     100 |       0 | 4                 
@@ -83,5 +83,5 @@ All files            |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        2.844 s
+Time:        3.889 s
 Ran all test suites.
