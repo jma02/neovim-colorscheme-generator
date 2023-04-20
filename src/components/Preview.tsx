@@ -126,8 +126,7 @@ export default function Preview({themeFile}: PreviewProps): JSX.Element{
     return(
         <div>
             <b>Preview</b>
-            {/* TODO: we need to sort out spacing! this works on my machine */}
-            <div style={{maxWidth: "100%", maxHeight: "500px", overflow: "scroll"}}>
+            <div style={{maxWidth: "100%", maxHeight: "100vh", overflow: "scroll"}}>
                 {processCodeToHTML(previewCode, themeFile)}
             </div>
             <Button
