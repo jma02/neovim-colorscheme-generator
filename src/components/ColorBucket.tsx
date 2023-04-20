@@ -43,8 +43,8 @@ export default function ColorBucket({theme, setThemeFile, prop}: ColorBucketProp
             ref={dropRef}
             role={"ColorBucket"}
             backgroundColor={fillColor}
-            height="10vh"
-            width="10vh"
+            height="8vh"
+            width="100%"
         >
             <CardBody ref={drag} backgroundColor={fillColor} style={{ borderRadius: 20 }}/>
         </Card>
