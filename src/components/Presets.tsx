@@ -14,7 +14,7 @@ export default function Presets():JSX.Element{
             <Button colorScheme="blue">
                 <Link to="edit">Edit Presets</Link>
             </Button>
-            <Accordion>
+            <Accordion defaultIndex={[0]}>
                 <AccordionItem>
                     <h2>
                         <AccordionButton>
