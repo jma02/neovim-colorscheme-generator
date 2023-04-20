@@ -48,7 +48,7 @@ export default function Editor({themeFile, setThemeFile}: EditorProps): JSX.Elem
                 </TabPanels>
             </Tabs>
             <Box padding="1rem">
-                <Card>
+                <Card width="49vh">
                     <CardBody>
                         <Grid templateColumns="repeat(3,1fr)" gap={2}>
                             {Object.keys(themeFile).map((x: string)=>(

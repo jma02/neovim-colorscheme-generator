@@ -26,7 +26,7 @@ export default function Landing() {
     return (
         <Box>
             <div style={{padding: 40}}>
-                <Heading height="75px">Neovim Theme Generator</Heading>
+                <Heading height="100%"><Text fontSize="32">Neovim Theme Generator</Text></Heading>
                 <Grid templateColumns="repeat(3, 1fr)" gap={6}>
                     <Editor themeFile={themeFile} setThemeFile={setThemeFile}/>
                     <Preview themeFile={themeFile}/>

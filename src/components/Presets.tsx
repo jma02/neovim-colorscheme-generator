@@ -40,7 +40,7 @@ export default function Presets():JSX.Element{
             </Accordion>
             <div style={{top: 0, position: "relative"}}>
                 <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-                    <Select placeholder='Select option'>
+                    <Select placeholder='Select user' fontSize="15">
                         <option value='option1'>Option 1</option>
                         <option value='option2'>Option 2</option>
                         <option value='option3'>Option 3</option>
