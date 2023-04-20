@@ -22,6 +22,9 @@ export default function ColorBucket({theme, setThemeFile, prop}: ColorBucketProp
         }
     }));
     useEffect(()=>{
+        setFillColor(theme[prop as keyof ThemeFile]);
+    }, [theme]);
+    useEffect(()=>{
         setThemeFile({ ...theme, [prop]: fillColor });
     }, [fillColor]);
     return (
