@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {  Card, CardBody } from "@chakra-ui/react";
-import { useDrop } from "react-dnd";
+import { useDrag, useDrop } from "react-dnd";
 import { DroppedColor, ThemeFile } from "./Common";
+import DragColor from "./DragColor";
 
 interface ColorBucketProps {
     theme: ThemeFile;
@@ -21,6 +22,16 @@ export default function ColorBucket({theme, setThemeFile, prop}: ColorBucketProp
             setFillColor(dropped.fillColor);
         }
     }));
+
+    const [{isDragging}, drag] = useDrag(() => ({
+        type: "COLOR",
+        item: {fillColor},
+        collect: (monitor) => ({
+            isDragging: monitor.isDragging(),
+        })
+    }), [fillColor]);
+
+
     useEffect(()=>{
         setFillColor(theme[prop as keyof ThemeFile]);
     }, [theme]);
@@ -32,10 +43,10 @@ export default function ColorBucket({theme, setThemeFile, prop}: ColorBucketProp
             ref={dropRef}
             role={"ColorBucket"}
             backgroundColor={fillColor}
-            height="8vh"
-            width="100%"
+            height="10vh"
+            width="10vh"
         >
-            <CardBody/>
+            <CardBody ref={drag} backgroundColor={fillColor} style={{ borderRadius: 20 }}/>
         </Card>
     );
 }
