@@ -1,10 +1,11 @@
 import React from "react";
-import { Box, Card, CardBody, Grid, Tab, 
+import { Box, Card, CardBody,  Grid, Tab,
     TabList, TabPanel, TabPanels, Tabs, Text} from "@chakra-ui/react";
 import DragColor from "./DragColor";
 import ColorPicker from "./ColorPicker";
 import ColorBucket from "./ColorBucket";
 import { ThemeFile } from "./Common";
+import DragTutorial from "./DragTutorial";
 
 const presetCards = [
     "#DA4B4B", "#F3CA7B", "#2E9A1E", "#1E9A81", 
@@ -19,7 +20,7 @@ interface EditorProps {
 export default function Editor({themeFile, setThemeFile}: EditorProps): JSX.Element{
     return(
         <div>
-            <Text height="40px">Drag and drop colors to get started!</Text>
+            <DragTutorial/>
             <Tabs>
                 <TabList>
                     <Tab><Text>Presets</Text></Tab>
