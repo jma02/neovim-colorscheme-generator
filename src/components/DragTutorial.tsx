@@ -14,7 +14,7 @@ export default function DragTutorial(){
                 <PopoverTrigger>
                     <InfoIcon/>
                 </PopoverTrigger>
-                <PopoverContent bgColor="blue.800" width="35%">
+                <PopoverContent bgColor="red.400" width="35%">
                     <PopoverCloseButton />
                     <PopoverBody>
                         <HStack>
