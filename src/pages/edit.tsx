@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 // Chakra
-import { Heading, Grid, Button } from "@chakra-ui/react";
+import { Heading, Grid } from "@chakra-ui/react";
 
 //Routing
-import {Link} from "react-router-dom";
 import Preview from "../components/Preview";
 import { ThemeFile } from "../components/Common";
 import Editor from "../components/Editor";
@@ -25,12 +24,11 @@ export default function Edit(){
     );
     return(
         <div style={{padding: 40}}>
-            <Heading height="75px">Approve This Theme?</Heading>
-            <Grid templateColumns="repeat(3, 1fr)" gap={12}>
+            <Heading height="100%" fontSize="32">Approve This Theme?</Heading>
+            <Grid templateColumns="repeat(3, 1fr)" gap={6}>
                 <Preview themeFile={themeFile} setThemeFile={setThemeFile}></Preview>
                 <Editor themeFile={themeFile} setThemeFile={setThemeFile}></Editor>
                 <EditPresets></EditPresets>
-                <Button><Link to="/">Back to main site</Link></Button>
             </Grid>
         </div>
     );
