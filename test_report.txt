@@ -43,8 +43,8 @@ FAIL src/App.test.tsx
 
       at Runtime.createScriptFromCode (node_modules/jest-runtime/build/index.js:1728:14)
       at Object.<anonymous> (src/components/PresetLoader.tsx:3:1)
-      at Object.<anonymous> (src/components/Preview.tsx:7:1)
-      at Object.<anonymous> (src/pages/edit.tsx:7:1)
+      at Object.<anonymous> (src/components/Preview.tsx:8:1)
+      at Object.<anonymous> (src/pages/edit.tsx:6:1)
       at Object.<anonymous> (src/App.tsx:2:1)
       at Object.<anonymous> (src/App.test.tsx:3:1)
       at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
@@ -68,20 +68,21 @@ All files            |       0 |        0 |       0 |       0 |
   DevPresetList.ts   |       0 |      100 |     100 |       0 | 4                 
   DragColor.tsx      |       0 |      100 |       0 |       0 | 7-14              
   DragPreset.tsx     |       0 |      100 |       0 |       0 | 17-24             
-  EditPresets.tsx    |       0 |      100 |       0 |       0 | 7                 
-  Editor.tsx         |       0 |      100 |       0 |       0 | 9-55              
+  DragTutorial.tsx   |       0 |      100 |       0 |       0 | 11                
+  EditPresets.tsx    |       0 |      100 |       0 |       0 | 12-27             
+  Editor.tsx         |       0 |      100 |       0 |       0 | 10-56             
   PresetLoader.tsx   |       0 |      100 |       0 |       0 | 10-17             
   Presets.tsx        |       0 |      100 |       0 |       0 | 12-29             
-  Preview.tsx        |       0 |        0 |       0 |       0 | 9-138             
+  Preview.tsx        |       0 |        0 |       0 |       0 | 10-156            
  src/functions       |       0 |        0 |       0 |       0 |                   
-  download.ts        |       0 |        0 |       0 |       0 | 5-53              
+  download.ts        |       0 |        0 |       0 |       0 | 5-54              
  src/pages           |       0 |      100 |       0 |       0 |                   
-  edit.tsx           |       0 |      100 |       0 |       0 | 13-26             
+  edit.tsx           |       0 |      100 |       0 |       0 | 12-25             
   landing.tsx        |       0 |      100 |       0 |       0 | 12-26             
   users.tsx          |       0 |      100 |       0 |       0 | 5                 
 ---------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.889 s
+Time:        2.902 s
 Ran all test suites.
