@@ -19,15 +19,15 @@ export default function DragTutorial(){
                     <PopoverBody>
                         <HStack>
                             <Box>
-                                <Text fontSize="20">1. Hover over a color</Text>
+                                <Text fontSize="18" fontWeight="semibold">1. Hover over a color</Text>
                                 <Image alt="Drag Tutorial Slide 1" src={Tutorial1}  />
                             </Box>
                             <Box>
-                                <Text fontSize="20">2. Drag the color</Text>
+                                <Text fontSize="18" fontWeight="semibold">2. Drag the color</Text>
                                 <Image alt="Drag Tutorial Slide 2" src={Tutorial2}/>
                             </Box>
                             <Box>
-                                <Text fontSize="20">3. Drop the color</Text>
+                                <Text fontSize="18" fontWeight="semibold">3. Drop the color</Text>
                                 <Image alt="Drag Tutorial Slide 3" src={Tutorial3}/>
                             </Box>
                         </HStack>
