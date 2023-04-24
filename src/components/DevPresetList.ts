@@ -182,7 +182,37 @@ export const DevPresetList: Preset[] = [
             error:  "#F51818",
         },
         upvotes: 69
-    }
-
-
+    },
+    {
+        name: "Coffee",
+        description: "A theme based on coffee.",
+        ThemeFile: {
+            "accent":"#32302e",
+            "bg":"#f6eee8",
+            "fg":"#575F66",
+            "ui":"#8A9199",
+            "string":"#634f40",
+            "func":"#a58a76",
+            "operator":"#6b676a",
+            "comment":"#ABB0B6",
+            "error":"#F51818"
+        },
+        upvotes: 230
+    },
+    {
+        name: "Redline",
+        description: "Coding on the redline.",
+        ThemeFile: {
+            "accent":"#ba4242",
+            "bg":"#151313",
+            "fg":"#575F66",
+            "ui":"#8A9199",
+            "string":"#efeaec",
+            "func":"#d21515",
+            "operator":"#6b5a67",
+            "comment":"#ABB0B6",
+            "error":"#71459d"
+        },
+        upvotes: 230
+    } 
 ];
