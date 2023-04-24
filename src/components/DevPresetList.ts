@@ -99,6 +99,91 @@ export const DevPresetList: Preset[] = [
         upvotes: 5
     },
     {
+        //Eli
+        name: "Cyberpunk",
+        description: "Society dominated by computer technology",
+        ThemeFile: {
+            "accent":"#D812E1",
+            "bg":"#0B0B27",
+            "fg":"#575F66",
+            "ui":"#26DfDD",
+            "string":"#4726DF",
+            "func":"#8F26DF",
+            "operator":"#F51818",
+            "comment":"#F3FC66",
+            "error":"#FCA542"
+        },
+        upvotes: 2077
+    },
+    {
+        //Eli
+        name: "Tesla",
+        description: "So s3xy",
+        ThemeFile: {
+            "accent":"#BA4242",
+            "bg":"#FEFAF9",
+            "fg":"#575FGG",
+            "ui":"#8A9199",
+            "string":"#888658",
+            "func":"#D21515",
+            "operator":"#0F0F0F",
+            "comment":"#534A4A",
+            "error":"#71459D"
+        },
+        upvotes: 160
+    },
+    {
+        //Eli
+        name: "Ocean",
+        description: "The Deep Blue",
+        ThemeFile: {
+            accent: "#48C86C",
+            bg: "#0C0C82",
+            fg: "#575F66",
+            ui: "#8a9199",
+            string: "#86b300",
+            func: "#F2AE49",
+            operator: "#A77277",
+            comment: "#ABB0B6",
+            error:  "#F51818",
+        },
+        upvotes: 420
+    },
+    {
+        //Eli
+        name: "Coral Reef",
+        description: "The Great Barrier Reef is the largest living thing on Earth, and even visible from outer space.", 
+        ThemeFile: {
+            accent: "#D911B9",
+            bg: "#0C0C82",
+            fg: "#575F66",
+            ui: "#0C911E",
+            string: "#F2AE49",
+            func: "#EF544E",
+            operator: "#2BC5D2",
+            comment: "#575F66",
+            error:  "#F51818",
+        },
+        upvotes: 267
+    },
+    {
+        //Eli
+        name: "Orange Juice",
+        description: "Some nice OJ to start the day",
+        ThemeFile: {
+            accent: "#FFBE6D",
+            bg: "#FFF7E0",
+            fg: "#575F66",
+            ui: "#997808",
+            string: "#F3BF4F",
+            func: "#FF9C38",
+            operator: "#997808",
+            comment: "#FCF5EE",
+            error:  "#F51818",
+        },
+        upvotes: 69
+    },
+    {
         name: "Coffee",
         description: "A theme based on coffee.",
         ThemeFile: {
