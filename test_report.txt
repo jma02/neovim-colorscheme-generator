@@ -62,8 +62,8 @@ All files            |       0 |        0 |       0 |       0 |
   index.tsx          |       0 |      100 |     100 |       0 | 11-33             
   reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
  src/components      |       0 |        0 |       0 |       0 |                   
-  ColorBucket.tsx    |       0 |      100 |       0 |       0 | 13-41             
-  ColorPicker.tsx    |       0 |      100 |       0 |       0 | 7-17              
+  ColorBucket.tsx    |       0 |      100 |       0 |       0 | 12-40             
+  ColorPicker.tsx    |       0 |      100 |       0 |       0 | 7-16              
   Common.ts          |       0 |        0 |       0 |       0 |                   
   DevPresetList.ts   |       0 |      100 |     100 |       0 | 4                 
   DragColor.tsx      |       0 |      100 |       0 |       0 | 7-14              
@@ -73,7 +73,7 @@ All files            |       0 |        0 |       0 |       0 |
   Editor.tsx         |       0 |      100 |       0 |       0 | 10-56             
   PresetLoader.tsx   |       0 |      100 |       0 |       0 | 10-17             
   Presets.tsx        |       0 |      100 |       0 |       0 | 12-29             
-  Preview.tsx        |       0 |        0 |       0 |       0 | 10-157            
+  Preview.tsx        |       0 |        0 |       0 |       0 | 10-155            
  src/functions       |       0 |        0 |       0 |       0 |                   
   download.ts        |       0 |        0 |       0 |       0 | 5-54              
  src/pages           |       0 |      100 |       0 |       0 |                   
@@ -84,5 +84,5 @@ All files            |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.242 s
+Time:        3.087 s
 Ran all test suites.
