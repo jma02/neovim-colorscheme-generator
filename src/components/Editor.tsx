@@ -29,7 +29,7 @@ export default function Editor({themeFile, setThemeFile}: EditorProps): JSX.Elem
 
                 <TabPanels>
                     <TabPanel>
-                        <Card width="100%" height="100%">
+                        <Card width="100%" height="100%" p="1">
                             <CardBody>
                                 <Grid templateColumns="repeat(4,1fr)" gap={2}>
                                     {presetCards.map((x: string)=>(
