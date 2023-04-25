@@ -108,9 +108,9 @@ export const DevPresetList: Preset[] = [
             "fg":"#575F66",
             "ui":"#26DfDD",
             "string":"#4726DF",
-            "func":"#8F26DF",
+            "func":"#9F33F6",
             "operator":"#F51818",
-            "comment":"#F3FC66",
+            "comment":"#7E807E",
             "error":"#FCA542"
         },
         upvotes: 2077
@@ -178,7 +178,7 @@ export const DevPresetList: Preset[] = [
             string: "#F3BF4F",
             func: "#FF9C38",
             operator: "#997808",
-            comment: "#FCF5EE",
+            comment: "#997808",
             error:  "#F51818",
         },
         upvotes: 69
@@ -216,6 +216,7 @@ export const DevPresetList: Preset[] = [
         upvotes: 230
     },
     {
+        //aidan
         name: "Lemonzilla",
         description: "For when you need to hack the mainframe",
         ThemeFile: {
@@ -262,5 +263,74 @@ export const DevPresetList: Preset[] = [
             "error": "#71459d"
         },
         upvotes: 444
+    },
+    {
+        //Eli
+        name: "Classified",
+        description: "Nobody is allowed to see what you are coding... not even you",
+        ThemeFile: {
+            "accent":"#FFFFFF",
+            "bg":"#FFFFFF",
+            "fg":"#FFFFFF",
+            "ui":"#FFFFFF",
+            "string":"#FFFFFF",
+            "func":"#FFFFFF",
+            "operator":"#FFFFFF",
+            "comment":"#FFFFFF",
+            "error":"#FFFFFF"
+        },
+        upvotes: 0
+    },
+    {
+        //Eli
+        name: "Mario",
+        description: "Yaaahoooo!",
+        ThemeFile: {
+            "accent":"#9b6a09",
+            "bg":"#FFFFFF",
+            "fg":"#575F66",
+            "ui":"#9B6A09",
+            "string":"#F50808",
+            "func":"#0809F5",
+            "operator":"#000000",
+            "comment":"#FFD987",
+            "error":"#51818"
+        },
+        upvotes: 0
+    },
+    {
+        //Eli
+        name: "Luigi",
+        description: "Theres no Mario without Luigi",
+        ThemeFile: {
+            "accent":"#9b6a09",
+            "bg":"#FFFFFF",
+            "fg":"#575F66",
+            "ui":"#9B6A09",
+            "string":"#22B24C",
+            "func":"#0809F5",
+            "operator":"#000000",
+            "comment":"#FFD987",
+            "error":"#51818"
+        },
+        upvotes: 0
+    },
+    {
+        //Eli
+        name: "Princess Peach",
+        description: "The Princess of the Mushroom Kingdom",
+        ThemeFile: {
+            "accent":"#3F84D5",
+            "bg":"#F6B1D0",
+            "fg":"#575F66",
+            "ui":"#3F84D5",
+            "string":"#FFFFFF",
+            "func":"#E63674",
+            "operator":"#F2F35E",
+            "comment":"#F2F35E",
+            "error":"#F60508"
+        },
+        upvotes: 0
     }
+
 ];

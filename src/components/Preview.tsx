@@ -1,6 +1,6 @@
 import React from "react";
 import {Box, Button, Flex, HStack, Popover, PopoverArrow, 
-    PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Text, Spacer} from "@chakra-ui/react";
+    PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Text, Spacer, color} from "@chakra-ui/react";
 import download from "../functions/download";
 import { DownloadIcon, InfoIcon } from "@chakra-ui/icons";
 import jsTokens from "js-tokens";
@@ -10,10 +10,9 @@ import PresetLoader from "./PresetLoader";
 const previewCode: string = `import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-
 function App() {
   return (
-    <div className="App">
+    <div className="App"> //created with create-react-app
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -95,7 +94,7 @@ function processCodeToHTML(code: string, themeFile: ThemeFile): JSX.Element {
     };
 
     return (
-        <pre style={{backgroundColor: themeFile.bg}}>
+        <pre style={{backgroundColor: themeFile.bg, height: "100%", width: "100%"}}>
             {
                 code.split("\n").map((line, lineNumber) =>
                     <code key={line}>
@@ -129,7 +128,7 @@ export default function Preview({themeFile, setThemeFile}: PreviewProps): JSX.El
     return(
         <Box>
             <b>Preview</b>
-            <div style={{maxWidth: "100%", maxHeight: "100vh", overflow: "scroll"}}>
+            <div style={{width: "100%", height: "90%"}}>
                 {processCodeToHTML(previewCode, themeFile)}
             </div>
             <Flex paddingLeft="10" paddingRight="10">
