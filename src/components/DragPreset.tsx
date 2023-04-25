@@ -25,14 +25,15 @@ export default function DragPreset({ThemeFile, name, description, upvotes}: Drag
         <Card 
             role="Drag Preset" 
             ref={drag} 
-            width="35vh"
+            width="100%"
             height="10vh"
             border="2px" // Note for future devs: border must be defined first
             borderColor={ThemeFile.bg}
         >
             <CardBody>
                 <Flex>
-                    <Box>
+                    <Box
+                        width="100%">
                         <Heading size="xs">{name}</Heading>
                         <Text fontSize="10">{description}</Text>
                     </Box>

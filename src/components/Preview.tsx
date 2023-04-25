@@ -95,7 +95,7 @@ function processCodeToHTML(code: string, themeFile: ThemeFile): JSX.Element {
     };
 
     return (
-        <pre style={{backgroundColor: themeFile.bg}}>
+        <pre style={{backgroundColor: themeFile.bg, height: "85vh"}}>
             {
                 code.split("\n").map((line, lineNumber) =>
                     <code key={line}>
@@ -129,7 +129,7 @@ export default function Preview({themeFile, setThemeFile}: PreviewProps): JSX.El
     return(
         <Box>
             <b>Preview</b>
-            <div style={{maxWidth: "100%", maxHeight: "100vh", overflow: "scroll"}}>
+            <div style={{maxWidth: "100%", maxHeight: "100%", overflow: "scroll"}}>
                 {processCodeToHTML(previewCode, themeFile)}
             </div>
             <Flex paddingLeft="10" paddingRight="10">
