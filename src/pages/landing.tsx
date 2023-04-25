@@ -25,7 +25,7 @@ export default function Landing() {
 
     return (
         <Box>
-            <div style={{padding: 40, width: "100%"}}>
+            <div style={{padding: 40}}>
                 <Heading height="100%" width="100%">
                     <Text fontSize="32">Neovim Theme Generator</Text>
                 </Heading>
