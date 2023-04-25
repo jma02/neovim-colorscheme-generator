@@ -108,9 +108,9 @@ export const DevPresetList: Preset[] = [
             "fg":"#575F66",
             "ui":"#26DfDD",
             "string":"#4726DF",
-            "func":"#8F26DF",
+            "func":"#9F33F6",
             "operator":"#F51818",
-            "comment":"#F3FC66",
+            "comment":"#7E807E",
             "error":"#FCA542"
         },
         upvotes: 2077
@@ -178,7 +178,7 @@ export const DevPresetList: Preset[] = [
             string: "#F3BF4F",
             func: "#FF9C38",
             operator: "#997808",
-            comment: "#FCF5EE",
+            comment: "#997808",
             error:  "#F51818",
         },
         upvotes: 69
@@ -214,5 +214,23 @@ export const DevPresetList: Preset[] = [
             "error":"#71459d"
         },
         upvotes: 230
-    } 
+    },
+    {
+        //Eli
+        name: "Classified",
+        description: "Nobody is allowed to see what you are coding... not even you",
+        ThemeFile: {
+            "accent":"#FFFFFF",
+            "bg":"#FFFFFF",
+            "fg":"#FFFFFF",
+            "ui":"#FFFFFF",
+            "string":"#FFFFFF",
+            "func":"#FFFFFF",
+            "operator":"#FFFFFF",
+            "comment":"#FFFFFF",
+            "error":"#FFFFFF"
+        },
+        upvotes: 0
+    }
+
 ];
