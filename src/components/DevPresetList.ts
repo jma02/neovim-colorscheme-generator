@@ -214,5 +214,53 @@ export const DevPresetList: Preset[] = [
             "error":"#71459d"
         },
         upvotes: 230
-    } 
+    },
+    {
+        name: "Lemonzilla",
+        description: "For when you need to hack the mainframe",
+        ThemeFile: {
+            "accent": "#17d729",
+            "bg": "#020001",
+            "fg": "#575F66",
+            "ui": "#17d729",
+            "string": "#17d729",
+            "func": "#17d729",
+            "operator": "#17d729",
+            "comment": "#faf5f5",
+            "error": "#F51818"
+        },
+        upvotes: 2
+    },
+    {
+        name: "Plum",
+        description: "Tastes kinda mid",
+        ThemeFile: {
+            "accent": "#ecc00e",
+            "bg": "#6a0b78",
+            "fg": "#575F66",
+            "ui": "#e8ec0e",
+            "string": "#ec0eca",
+            "func": "#e8ec0e",
+            "operator": "#F51818",
+            "comment": "#ebec0e",
+            "error": "#F51818"
+        },
+        upvotes: 13
+    },
+    {
+        name: "Mr. Clean",
+        description: "It cleanses your soul",
+        ThemeFile: {
+            "accent": "#ed553b",
+            "bg": "#173f5f",
+            "fg": "#575F66",
+            "ui": "#3caea3",
+            "string": "#3caea3",
+            "func": "#f6d55c",
+            "operator": "#ed553b",
+            "comment": "#ABB0B6",
+            "error": "#71459d"
+        },
+        upvotes: 444
+    }
 ];
