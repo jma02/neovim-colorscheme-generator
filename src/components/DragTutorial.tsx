@@ -10,30 +10,32 @@ import Tutorial3 from "../images/tutorial_3.png";
 export default function DragTutorial(){
     return(
         <HStack>
-            <Popover preventOverflow={true}>
-                <PopoverTrigger>
-                    <InfoIcon/>
-                </PopoverTrigger>
-                <PopoverContent bgColor="red.400" width="35%">
-                    <PopoverCloseButton />
-                    <PopoverBody>
-                        <HStack>
-                            <Box>
-                                <Text fontSize="18" fontWeight="semibold">1. Hover over a color</Text>
-                                <Image alt="Drag Tutorial Slide 1" src={Tutorial1}  />
-                            </Box>
-                            <Box>
-                                <Text fontSize="18" fontWeight="semibold">2. Drag the color</Text>
-                                <Image alt="Drag Tutorial Slide 2" src={Tutorial2}/>
-                            </Box>
-                            <Box>
-                                <Text fontSize="18" fontWeight="semibold">3. Drop the color</Text>
-                                <Image alt="Drag Tutorial Slide 3" src={Tutorial3}/>
-                            </Box>
-                        </HStack>
-                    </PopoverBody>
-                </PopoverContent>
-            </Popover>
+            <Box>
+                <Popover>
+                    <PopoverTrigger>
+                        <InfoIcon/>
+                    </PopoverTrigger>
+                    <PopoverContent bgColor="red.400" width="100vh">
+                        <PopoverCloseButton />
+                        <PopoverBody>
+                            <HStack>
+                                <Box>
+                                    <Text fontSize="18" fontWeight="semibold">1. Hover over a color</Text>
+                                    <Image alt="Drag Tutorial Slide 1" src={Tutorial1}  />
+                                </Box>
+                                <Box>
+                                    <Text fontSize="18" fontWeight="semibold">2. Drag the color</Text>
+                                    <Image alt="Drag Tutorial Slide 2" src={Tutorial2}/>
+                                </Box>
+                                <Box>
+                                    <Text fontSize="18" fontWeight="semibold">3. Drop the color</Text>
+                                    <Image alt="Drag Tutorial Slide 3" src={Tutorial3}/>
+                                </Box>
+                            </HStack>
+                        </PopoverBody>
+                    </PopoverContent>
+                </Popover>
+            </Box>
             <Text>Drag and drop colors to get started!</Text>
         </HStack>
     );

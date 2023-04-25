@@ -25,15 +25,17 @@ export default function Landing() {
 
     return (
         <Box>
-            <div style={{padding: 40}}>
-                <Heading height="100%"><Text fontSize="32">Neovim Theme Generator</Text></Heading>
+            <div style={{padding: 40, width: "100%"}}>
+                <Heading height="100%" width="100%">
+                    <Text fontSize="32">Neovim Theme Generator</Text>
+                </Heading>
                 <Grid templateColumns="repeat(3, 1fr)" gap={6}>
                     <Editor themeFile={themeFile} setThemeFile={setThemeFile}/>
                     <Preview themeFile={themeFile} setThemeFile={setThemeFile}/>
                     <Presets/> 
                 </Grid>
             </div>
-            <Box as="footer" p={4} bg="blue.800" textAlign="center">
+            <Box as="footer" p={4} bg="blue.800" textAlign="center" width="100%">
                 <Text>Team 2: Aidan Eyre, Brendan Lewis, Eli Brignac, Jonathan Ma</Text>
             </Box>
         </Box>

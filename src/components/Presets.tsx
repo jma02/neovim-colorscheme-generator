@@ -24,7 +24,7 @@ export default function Presets():JSX.Element{
                             <AccordionIcon />
                         </AccordionButton>
                     </h2>
-                    <AccordionPanel pb={4} maxHeight="68vh" overflow="scroll">
+                    <AccordionPanel pb={4} maxHeight="80vh" overflow="scroll">
                         {DevPresetList.map((x: Preset) => (
                             <div key={x.name}>
                                 <DragPreset 
