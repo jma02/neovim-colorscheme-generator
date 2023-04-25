@@ -45,7 +45,6 @@ export default function ColorBucket({theme, setThemeFile, prop}: ColorBucketProp
             backgroundColor={fillColor}
             height="8vh"
             width="100%"
-            _hover={{ border: "2px solid black" }}
         >
             <CardBody ref={drag} backgroundColor={fillColor} style={{ borderRadius: 20 }}/>
         </Card>

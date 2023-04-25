@@ -231,6 +231,57 @@ export const DevPresetList: Preset[] = [
             "error":"#FFFFFF"
         },
         upvotes: 0
+    },
+    {
+        //Eli
+        name: "Mario",
+        description: "Yaaahoooo!",
+        ThemeFile: {
+            "accent":"#9b6a09",
+            "bg":"#FFFFFF",
+            "fg":"#575F66",
+            "ui":"#9B6A09",
+            "string":"#F50808",
+            "func":"#0809F5",
+            "operator":"#000000",
+            "comment":"#FFD987",
+            "error":"#51818"
+        },
+        upvotes: 0
+    },
+    {
+        //Eli
+        name: "Luigi",
+        description: "Theres no Mario without Luigi",
+        ThemeFile: {
+            "accent":"#9b6a09",
+            "bg":"#FFFFFF",
+            "fg":"#575F66",
+            "ui":"#9B6A09",
+            "string":"#22B24C",
+            "func":"#0809F5",
+            "operator":"#000000",
+            "comment":"#FFD987",
+            "error":"#51818"
+        },
+        upvotes: 0
+    },
+    {
+        //Eli
+        name: "Princess Peach",
+        description: "The Princess of the Mushroom Kingdom",
+        ThemeFile: {
+            "accent":"#3F84D5",
+            "bg":"#F6B1D0",
+            "fg":"#575F66",
+            "ui":"#3F84D5",
+            "string":"#FFFFFF",
+            "func":"#E63674",
+            "operator":"#F2F35E",
+            "comment":"#F2F35E",
+            "error":"#F60508"
+        },
+        upvotes: 0
     }
 
 ];
