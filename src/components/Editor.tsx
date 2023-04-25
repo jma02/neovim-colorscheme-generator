@@ -29,7 +29,7 @@ export default function Editor({themeFile, setThemeFile}: EditorProps): JSX.Elem
 
                 <TabPanels>
                     <TabPanel>
-                        <Card width="49vh" height="37vh">
+                        <Card width="100%" height="100%" p="1">
                             <CardBody>
                                 <Grid templateColumns="repeat(4,1fr)" gap={2}>
                                     {presetCards.map((x: string)=>(
@@ -40,7 +40,7 @@ export default function Editor({themeFile, setThemeFile}: EditorProps): JSX.Elem
                         </Card>
                     </TabPanel>
                     <TabPanel>
-                        <Card width="49vh" height="37vh">
+                        <Card width="100%" height="100%">
                             <CardBody>
                                 <ColorPicker/>
                             </CardBody>
@@ -49,20 +49,18 @@ export default function Editor({themeFile, setThemeFile}: EditorProps): JSX.Elem
                 </TabPanels>
             </Tabs>
             <Box padding="1rem">
-                <Card width="49vh">
+                <Card width="100%" height="100%">
                     <CardBody>
                         <Grid templateColumns="repeat(3,1fr)" gap={2}>
                             {Object.keys(themeFile).map((x: string)=>(
-                                <div key={x}>
+                                <Box key={x} height="100%">
                                     <Text fontSize="10">{x}</Text>
-                                    <div>
-                                        <ColorBucket
-                                            theme={themeFile}
-                                            setThemeFile={setThemeFile}
-                                            prop={x}
-                                        />
-                                    </div>
-                                </div>
+                                    <ColorBucket
+                                        theme={themeFile}
+                                        setThemeFile={setThemeFile}
+                                        prop={x}
+                                    />
+                                </Box>
                             ))}
                         </Grid>
                     </CardBody>

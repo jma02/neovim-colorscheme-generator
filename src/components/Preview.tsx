@@ -10,11 +10,9 @@ import PresetLoader from "./PresetLoader";
 const previewCode: string = `import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-
 function App() {
-    //This is a comment
   return (
-    <div className="App">
+    <div className="App"> //created with create-react-app
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -96,7 +94,7 @@ function processCodeToHTML(code: string, themeFile: ThemeFile): JSX.Element {
     };
 
     return (
-        <pre style={{backgroundColor: themeFile.bg, height: "85vh"}}>
+        <pre style={{backgroundColor: themeFile.bg, height: "100%", width: "100%"}}>
             {
                 code.split("\n").map((line, lineNumber) =>
                     <code key={line}>
@@ -130,7 +128,7 @@ export default function Preview({themeFile, setThemeFile}: PreviewProps): JSX.El
     return(
         <Box>
             <b>Preview</b>
-            <div style={{maxWidth: "100%", maxHeight: "100%", overflow: "scroll"}}>
+            <div style={{width: "100%", height: "90%"}}>
                 {processCodeToHTML(previewCode, themeFile)}
             </div>
             <Flex paddingLeft="10" paddingRight="10">
