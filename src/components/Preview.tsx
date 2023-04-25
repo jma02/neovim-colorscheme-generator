@@ -1,6 +1,6 @@
 import React from "react";
 import {Box, Button, Flex, HStack, Popover, PopoverArrow, 
-    PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Text, Spacer} from "@chakra-ui/react";
+    PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Text, Spacer, color} from "@chakra-ui/react";
 import download from "../functions/download";
 import { DownloadIcon, InfoIcon } from "@chakra-ui/icons";
 import jsTokens from "js-tokens";
@@ -12,6 +12,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
+    //This is a comment
   return (
     <div className="App">
       <header className="App-header">
