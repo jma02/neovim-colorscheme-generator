@@ -22,8 +22,6 @@ export default function Presets():JSX.Element{
             })
             .then(allPresets => {
                 setPresets(allPresets);
-                console.log(allPresets);
-                // console.log(DevPresetList);
             })
             .catch(error => {
                 console.error(error);
@@ -31,9 +29,6 @@ export default function Presets():JSX.Element{
     }, []);
     return(
         <div>
-            <Button colorScheme="blue">
-                <Link to="edit">Edit Presets</Link>
-            </Button>
             <Accordion defaultIndex={[0]}>
                 <AccordionItem>
                     <h2>

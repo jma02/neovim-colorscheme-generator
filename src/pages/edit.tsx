@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 // Chakra
-import { Heading, Grid } from "@chakra-ui/react";
+import { Heading, Grid, Box, Button} from "@chakra-ui/react";
 
 //Routing
 import Preview from "../components/Preview";
 import { ThemeFile } from "../components/Common";
 import Editor from "../components/Editor";
-import EditPresets from "../components/EditPresets";
-
+import Presets from "../components/Presets";
+import {Link} from "react-router-dom";
 export default function Edit(){
     const [themeFile, setThemeFile] = useState<ThemeFile>(
         {
@@ -28,7 +28,12 @@ export default function Edit(){
             <Grid templateColumns="repeat(3, 1fr)" gap={6}>
                 <Preview themeFile={themeFile} setThemeFile={setThemeFile}></Preview>
                 <Editor themeFile={themeFile} setThemeFile={setThemeFile}></Editor>
-                <EditPresets></EditPresets>
+                <Box>
+                    <Button>
+                        <Link to="/">Back to Main Site</Link>
+                    </Button>
+                    <Presets/> 
+                </Box>
             </Grid>
         </div>
     );
