@@ -64,7 +64,7 @@ export default function Presets():JSX.Element{
                         </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                                Placeholder
+                    Login to load and save presets!
                     </AccordionPanel>
                 </AccordionItem>
             </Accordion>
