@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/neovim-theme-generator/static/css/main.0cb98ae4.css",
-    "main.js": "/neovim-theme-generator/static/js/main.be6778a3.js",
+    "main.js": "/neovim-theme-generator/static/js/main.122ec014.js",
     "static/js/787.12b55cc9.chunk.js": "/neovim-theme-generator/static/js/787.12b55cc9.chunk.js",
     "static/media/tutorial_2.png": "/neovim-theme-generator/static/media/tutorial_2.ad361e7c9b277a0e3757.png",
     "static/media/tutorial_3.png": "/neovim-theme-generator/static/media/tutorial_3.a12f4e7f51dbb8a38d1e.png",
     "static/media/tutorial_1.png": "/neovim-theme-generator/static/media/tutorial_1.8a93d97ee4fa6ff51487.png",
     "index.html": "/neovim-theme-generator/index.html",
     "main.0cb98ae4.css.map": "/neovim-theme-generator/static/css/main.0cb98ae4.css.map",
-    "main.be6778a3.js.map": "/neovim-theme-generator/static/js/main.be6778a3.js.map",
+    "main.122ec014.js.map": "/neovim-theme-generator/static/js/main.122ec014.js.map",
     "787.12b55cc9.chunk.js.map": "/neovim-theme-generator/static/js/787.12b55cc9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0cb98ae4.css",
-    "static/js/main.be6778a3.js"
+    "static/js/main.122ec014.js"
   ]
 }

@@ -65,15 +65,14 @@ All files            |       0 |        0 |       0 |       0 |
   ColorBucket.tsx    |       0 |      100 |       0 |       0 | 12-40             
   ColorPicker.tsx    |       0 |      100 |       0 |       0 | 7-16              
   Common.ts          |       0 |        0 |       0 |       0 |                   
-  DevPresetList.ts   |       0 |      100 |     100 |       0 | 4                 
   DragColor.tsx      |       0 |      100 |       0 |       0 | 7-14              
   DragPreset.tsx     |       0 |      100 |       0 |       0 | 17-24             
   DragTutorial.tsx   |       0 |      100 |       0 |       0 | 11                
-  EditPresets.tsx    |       0 |      100 |       0 |       0 | 12-27             
+  EditPresets.tsx    |       0 |      100 |       0 |       0 | 12-46             
   Editor.tsx         |       0 |      100 |       0 |       0 | 10-56             
   PresetLoader.tsx   |       0 |      100 |       0 |       0 | 10-17             
-  Presets.tsx        |       0 |      100 |       0 |       0 | 12-29             
-  Preview.tsx        |       0 |        0 |       0 |       0 | 10-155            
+  Presets.tsx        |       0 |      100 |       0 |       0 | 13-49             
+  Preview.tsx        |       0 |        0 |       0 |       0 | 10-158            
  src/functions       |       0 |        0 |       0 |       0 |                   
   download.ts        |       0 |        0 |       0 |       0 | 5-54              
  src/pages           |       0 |      100 |       0 |       0 |                   
@@ -84,5 +83,5 @@ All files            |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.055 s
+Time:        3.546 s
 Ran all test suites.
