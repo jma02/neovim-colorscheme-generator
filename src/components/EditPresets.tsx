@@ -21,8 +21,6 @@ export default function Presets():JSX.Element{
             })
             .then(allPresets => {
                 setPresets(allPresets);
-                console.log(allPresets);
-                // console.log(DevPresetList);
             })
             .catch(error => {
                 console.error(error);
