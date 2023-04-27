@@ -27,7 +27,6 @@ export default function Landing() {
     return (
         <Box>
             <div style={{padding: 30}}>
-               
                 <Grid templateColumns="repeat(3, 1fr)" gap={6}>
                     <Box>
                         <Heading>
