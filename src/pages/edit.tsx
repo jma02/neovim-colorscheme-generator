@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-// Chakra
-import { Heading, Grid, Box, Button} from "@chakra-ui/react";
-
-//Routing
+import { Heading, Grid, Box, Button, Flex, Spacer} from "@chakra-ui/react";
 import Preview from "../components/Preview";
 import { ThemeFile } from "../components/Common";
 import Editor from "../components/Editor";
 import Presets from "../components/Presets";
 import {Link} from "react-router-dom";
+import PresetPostButton from "../components/PresetPostButton";
+
 export default function Edit(){
     const [themeFile, setThemeFile] = useState<ThemeFile>(
         {
@@ -23,13 +22,19 @@ export default function Edit(){
         }
     );
     return(
-        <div style={{padding: 40}}>
-            <Heading height="100%" fontSize="32">Approve This Theme?</Heading>
+        <div style={{padding: 30}}>
             <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-                <Preview themeFile={themeFile} setThemeFile={setThemeFile}></Preview>
+                <Box>
+                    <Flex>
+                        <Heading height="100%" fontSize="32">Preset Creator</Heading>
+                        <Spacer/>
+                        <PresetPostButton ThemeFile={themeFile}/>
+                    </Flex>
+                    <Preview themeFile={themeFile} setThemeFile={setThemeFile}></Preview>
+                </Box>
                 <Editor themeFile={themeFile} setThemeFile={setThemeFile}></Editor>
                 <Box>
-                    <Button>
+                    <Button bg="blue.300">
                         <Link to="/">Back to Main Site</Link>
                     </Button>
                     <Presets/> 
