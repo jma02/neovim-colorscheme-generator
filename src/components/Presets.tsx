@@ -5,10 +5,30 @@ import { Accordion, AccordionButton, AccordionIcon,
 import { Link } from "react-router-dom";
 import DragPreset from "./DragPreset";
 
-import { DevPresetList } from "./DevPresetList";
 import { Preset } from "./Common";
+import {useState, useEffect} from "react";
+import * as Realm from "realm-web";
 
 export default function Presets():JSX.Element{
+    const [presets, setPresets] = useState<Preset[]>([]);
+    useEffect(() => {
+        const REALM_APP_ID = process.env.REACT_APP_MONGO_APP_ID as string;
+        const app = new Realm.App({id : REALM_APP_ID});
+        const api_key = process.env.REACT_APP_MONGO_REALM_API_KEY as string;
+        const credentials = Realm.Credentials.apiKey(api_key);
+        app.logIn(credentials)
+            .then(user => {
+                return user.functions.fetch_presets();
+            })
+            .then(allPresets => {
+                setPresets(allPresets);
+                console.log(allPresets);
+                // console.log(DevPresetList);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, []);
     return(
         <div>
             <Button colorScheme="blue">
@@ -25,7 +45,7 @@ export default function Presets():JSX.Element{
                         </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4} maxHeight="80vh" overflowY="scroll">
-                        {DevPresetList.map((x: Preset) => (
+                        {presets.map((x: Preset) => (
                             <div key={x.name}>
                                 <DragPreset 
                                     ThemeFile={x.ThemeFile}
