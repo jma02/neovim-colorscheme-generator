@@ -10,9 +10,12 @@ import PresetLoader from "./PresetLoader";
 const previewCode: string = `import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+
+// App generated using create-react-app
+
 function App() {
   return (
-    <div className="App"> //created with create-react-app
+    <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

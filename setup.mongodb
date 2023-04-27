@@ -1,8 +1,17 @@
-import { Preset } from "./Common";
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
 
-// Pre mongo instanceo
-export const DevPresetList: Preset[] = [
-    {
+// Select the database to use.
+use('theme-cluster');
+
+// The drop() command destroys all data from a collection.
+// Make sure you run it against the correct database and collection.
+
+// Insert a few documents into the sales collection.
+db.presets.insertMany([
+{
         name: "Default",
         description: "Old Faithful",
         ThemeFile: {
@@ -332,5 +341,5 @@ export const DevPresetList: Preset[] = [
         },
         upvotes: 0
     }
-
-];
+,
+]);

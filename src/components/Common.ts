@@ -1,3 +1,5 @@
+import { ObjectId } from "bson";
+
 export interface DroppedColor {
     fillColor: string
 }
@@ -19,6 +21,7 @@ export interface DroppedPreset{
 }
 
 export interface Preset{
+    _id: ObjectId;
     name: string;
     description: string;
     ThemeFile: ThemeFile;
