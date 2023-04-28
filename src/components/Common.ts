@@ -20,6 +20,14 @@ export interface DroppedPreset{
     ThemeFile: ThemeFile;
 }
 
+export interface PostFragment{
+// preset without _id --- _id is assigned by MongoDB
+    name: string;
+    description: string;
+    ThemeFile: ThemeFile;
+    upvotes: number;
+}
+
 export interface Preset{
     _id: ObjectId;
     name: string;

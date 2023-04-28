@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Popover, PopoverTrigger, Button, PopoverContent,
     PopoverArrow, PopoverCloseButton,
-    PopoverHeader, PopoverBody, Box, Grid, FormControl, FormHelperText,
-    FormLabel, Input, Text, Link} from "@chakra-ui/react";
-import { ThemeFile } from "./Common";
+    PopoverHeader, PopoverBody, Box, Grid, FormControl,
+    FormLabel, Input, Link, Alert, AlertDescription, AlertIcon, AlertTitle} from "@chakra-ui/react";
+import { ThemeFile, PostFragment} from "./Common";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
+import post_preset from "../functions/post_preset";
+import PostButtonAlerts from "./PostButtonAlerts";
 
 interface PostButtonProps{
     ThemeFile: ThemeFile;
@@ -30,13 +32,35 @@ export default function PresetPostButton({ThemeFile}: PostButtonProps){
     const handleUpvoteChange = (event: React.ChangeEvent<HTMLInputElement>) => setUpvotes(event.target.value);
     const handleApiKeyChange = (event: React.ChangeEvent<HTMLInputElement>) => setApiKey(event.target.value);
 
+    const [submitting, setSubmitting] = useState<boolean>(false); // submit button spinner
+    const [apiError, setApiError] = useState<boolean | null>(null); // alert logic
+
+    function handleSubmit(){
+        setSubmitting(true);
+        const postFrag: PostFragment = {
+            name: name,
+            description: description,
+            ThemeFile: ThemeFile,
+            upvotes: Number(upvotes)
+        };
+        post_preset(postFrag, apiKey)
+            .then((success: boolean) => {
+                setApiError(false);
+                setSubmitting(false);
+            })
+            .catch((error: Error) => {
+                setApiError(true);
+                setSubmitting(false);
+            });
+    }                                     
+    
     return(
         <Box>
             <Popover>
                 <PopoverTrigger>
                     <Button colorScheme="green">Click here to post a preset!</Button>
                 </PopoverTrigger>
-                <PopoverContent bg="blue.600" width="80%" height="100%">
+                <PopoverContent bg="blue.600" width="100%" height="100%">
                     <PopoverArrow />
                     <PopoverCloseButton />
                     <PopoverHeader 
@@ -44,9 +68,9 @@ export default function PresetPostButton({ThemeFile}: PostButtonProps){
                         bg="blue.700"
                     >Please enter some information about this preset.</PopoverHeader>
                     <PopoverBody padding="5">
-                        <FormControl isRequired>
-                            <Grid templateColumns="repeat(2,1fr)" gap="10">
-                                <Box bg="blue.700" padding="3" borderRadius="10">
+                        <Grid templateColumns="repeat(2,1fr)" gap="6">
+                            <Box bg="blue.700" padding="3" borderRadius="10">
+                                <FormControl isRequired={name===""}>
                                     <FormLabel fontSize="12">
                                 Preset Name:
                                     </FormLabel>
@@ -55,8 +79,10 @@ export default function PresetPostButton({ThemeFile}: PostButtonProps){
                                         value={name}
                                         onChange={handleNameChange}
                                     />
-                                </Box>
-                                <Box bg="blue.700" padding="3" borderRadius="10">
+                                </FormControl>
+                            </Box>
+                            <Box bg="blue.700" padding="3" borderRadius="10">
+                                <FormControl isRequired={description===""}>
                                     <FormLabel fontSize="12">
                                 Preset Description:
                                     </FormLabel>
@@ -65,8 +91,10 @@ export default function PresetPostButton({ThemeFile}: PostButtonProps){
                                         value={description}
                                         onChange={handleDescriptiontChange}
                                     />
-                                </Box>
-                                <Box bg="blue.700" padding="3" borderRadius="10">
+                                </FormControl>
+                            </Box>
+                            <Box bg="blue.700" padding="3" borderRadius="10">
+                                <FormControl isRequired={upvotes===""}>
                                     <FormLabel fontSize="12">
                                 Upvotes:
                                     </FormLabel>
@@ -75,36 +103,37 @@ export default function PresetPostButton({ThemeFile}: PostButtonProps){
                                         value={upvotes}
                                         onChange={handleUpvoteChange}
                                     />
-                                </Box>
-                                <Box bg="blue.700" padding="3" borderRadius="10">
+                                </FormControl>
+                            </Box>
+                            <Box bg="blue.700" padding="3" borderRadius="10">
+                                
+                                <FormControl isRequired={apiKey===""}>
                                     <FormLabel fontSize="12">
                                         <Link href='https://www.mongodb.com/docs/atlas/app-services/authentication/api-key/' isExternal> 
                                             API Key: <ExternalLinkIcon mx='2px' />
                                         </Link>
                                     </FormLabel>
+                                   
                                     <Input 
                                         type='password' 
                                         value={apiKey}
                                         onChange={handleApiKeyChange}
                                     />
-                                    <Button colorScheme="green" 
-                                        isDisabled={
-                                            (  name===""
+                                </FormControl>
+                            </Box>
+                            <PostButtonAlerts apiError={apiError}/>
+                            <Button colorScheme="green" 
+                                isDisabled={
+                                    (  name===""
                                         || description===""
                                         || apiKey===""
                                         || upvotes===""
-                                            )}
-                                        isLoading
-                                        loadingText='Submitting'
-                                        /* ideally would extract this to a seperate file, but want to show spinner during
-                                        async call */
-                                        onSubmit={()=>{
-                                            
-                                        }}
-                                    > Submit!</Button>
-                                </Box>
-                            </Grid>                    
-                        </FormControl>
+                                    )}
+                                isLoading={submitting}
+                                loadingText="Submitting"
+                                onClick={handleSubmit}
+                            > Submit!</Button>
+                        </Grid>                    
                     </PopoverBody>
                 </PopoverContent>
             </Popover> 
