@@ -1,7 +1,7 @@
 import React from "react";
 import { Accordion, AccordionButton, AccordionIcon,
     AccordionItem, AccordionPanel, Box, Button, 
-    Grid, Select} from "@chakra-ui/react";
+    Grid, Select, Spinner, Text} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import DragPreset from "./DragPreset";
 
@@ -22,8 +22,6 @@ export default function Presets():JSX.Element{
             })
             .then(allPresets => {
                 setPresets(allPresets);
-                console.log(allPresets);
-                // console.log(DevPresetList);
             })
             .catch(error => {
                 console.error(error);
@@ -31,9 +29,6 @@ export default function Presets():JSX.Element{
     }, []);
     return(
         <div>
-            <Button colorScheme="blue">
-                <Link to="edit">Edit Presets</Link>
-            </Button>
             <Accordion defaultIndex={[0]}>
                 <AccordionItem>
                     <h2>
@@ -45,17 +40,28 @@ export default function Presets():JSX.Element{
                         </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4} maxHeight="80vh" overflowY="scroll">
-                        {presets.map((x: Preset) => (
-                            <div key={x.name}>
-                                <DragPreset 
-                                    ThemeFile={x.ThemeFile}
-                                    name={x.name}
-                                    description={x.description}
-                                    upvotes={x.upvotes}
-                                />
-                            </div>
-                        ))
-                        }
+                        <Box>
+                            {presets.length > 0 ? 
+                                <Box>
+                                    {presets.map((x: Preset) => (
+                                        <div key={x.name}>
+                                            <DragPreset 
+                                                ThemeFile={x.ThemeFile}
+                                                name={x.name}
+                                                description={x.description}
+                                                upvotes={x.upvotes}
+                                            />
+                                        </div>
+                                    ))
+                                    }
+                                </Box> : <Box textAlign="center">
+                                    <Spinner /> 
+                                    <Text fontSize="16" fontWeight="medium">
+                                        Loading Presets...
+                                    </Text>
+                                </Box>
+                            }
+                        </Box>
                     </AccordionPanel>
                 </AccordionItem>
 
@@ -69,7 +75,7 @@ export default function Presets():JSX.Element{
                         </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                                Placeholder
+                    Login to load and save presets!
                     </AccordionPanel>
                 </AccordionItem>
             </Accordion>

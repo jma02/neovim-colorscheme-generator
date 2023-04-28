@@ -1,6 +1,6 @@
 import { ThemeFile } from "../components/Common";
 
-export default function download(themeFile: ThemeFile): void{
+export default function download(themeFile: ThemeFile, filename: string): void{
     // create a new Blob object with the file content and type
     const blob = new Blob([`return{\n\
         colors.accent = '${themeFile.accent}'\n\
@@ -44,12 +44,11 @@ export default function download(themeFile: ThemeFile): void{
     const url = URL.createObjectURL(blob);
 
     // create a new anchor element with the download attribute and href set to the URL
-    const link = document.createElement("a");
-    let fileName = window.prompt("Please name your theme file; .lua will be appended to your given name.");
-    if(fileName != null && fileName != "") {
-        link.download = fileName + ".lua";
+    if(filename != ""){
+        const link = document.createElement("a");
+        link.download = filename + ".lua";
         link.href = url;
         link.click(); // simulate a click on the link element to trigger the download
-    } 
+    }
     URL.revokeObjectURL(url); // cleanup the URL object
 }

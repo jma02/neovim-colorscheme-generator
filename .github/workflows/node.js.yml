@@ -50,4 +50,4 @@ jobs:
                   github_token: ${{ secrets.GH_TOKEN }}
                   repository: ${{ github.repository }}
                   REACT_APP_MONGO_REALM_API_KEY: ${{ secrets.REACT_APP_MONGO_REALM_API_KEY}}
-                  REACT_APP_MONGO_APP_ID: ${{secrets.REACT_APP_MONGO_APP_ID}}
+                  REACT_APP_MONGO_APP_ID: ${{ secrets.REACT_APP_MONGO_APP_ID }}

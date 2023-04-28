@@ -1,11 +1,14 @@
 import React from "react";
 import {Box, Button, Flex, HStack, Popover, PopoverArrow, 
-    PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Text, Spacer, color} from "@chakra-ui/react";
+    PopoverBody, PopoverCloseButton, PopoverContent, 
+    PopoverHeader, PopoverTrigger, Text, Spacer, 
+    FormControl, FormHelperText, FormLabel, Input} from "@chakra-ui/react";
 import download from "../functions/download";
 import { DownloadIcon, InfoIcon } from "@chakra-ui/icons";
 import jsTokens from "js-tokens";
 import { ThemeFile } from "./Common";
 import PresetLoader from "./PresetLoader";
+import PreviewButtonsGroup from "./PreviewButtonsGroup";
 
 const previewCode: string = `import React from "react";
 import logo from "./logo.svg";
@@ -134,34 +137,7 @@ export default function Preview({themeFile, setThemeFile}: PreviewProps): JSX.El
             <div style={{width: "100%", height: "90%"}}>
                 {processCodeToHTML(previewCode, themeFile)}
             </div>
-            <Flex paddingLeft="10" paddingRight="10">
-                <HStack>
-                    <Popover>
-                        <PopoverTrigger>
-                            <InfoIcon/>
-                        </PopoverTrigger>
-                        <PopoverContent bg='red.400' color='white'>
-                            <PopoverHeader fontWeight='semibold'>Installation</PopoverHeader>
-                            <PopoverArrow bg='red.500' />
-                            <PopoverCloseButton bg='purple.500' />
-                            <PopoverBody>
-                            After downloading your theme file, move your theme file to the directory
-                                <Text as="mark" color="white" bgColor="gray" fontFamily="monospace"> ~/.config/colors</Text>, and append the line
-                                <Text as="mark" color="white" bgColor="gray" fontFamily="monospace"> colorscheme [theme_file_name]</Text> to your 
-                                <Text as="mark" color="white" bgColor="gray" fontFamily="monospace"> init.lua / init.vim </Text>
-                            </PopoverBody>
-                        </PopoverContent>
-                    </Popover>
-                    <Button
-                        style={{marginTop: "10px"}}
-                        leftIcon={<DownloadIcon />}
-                        colorScheme="blue" onClick={()=> download(themeFile)}>
-                    Download .lua File
-                    </Button>
-                </HStack>
-                <Spacer/>
-                <PresetLoader setThemeFile={setThemeFile}/>
-            </Flex>
+            <PreviewButtonsGroup themeFile={themeFile} setThemeFile={setThemeFile}/>
         </Box>
     );
 }
