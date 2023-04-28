@@ -26,7 +26,7 @@ export default function Edit(){
             <Grid templateColumns="repeat(3, 1fr)" gap={6}>
                 <Box>
                     <Flex>
-                        <Heading height="100%" fontSize="32">Preset Creator</Heading>
+                        <Heading height="100%" fontSize="32">Preset Creator (Admin)</Heading>
                         <Spacer/>
                         <PresetPostButton ThemeFile={themeFile}/>
                     </Flex>
