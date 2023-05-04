@@ -6,9 +6,12 @@ import {Box, Button, Flex, HStack, Popover, PopoverArrow,
 import download from "../functions/download";
 import { DownloadIcon, InfoIcon } from "@chakra-ui/icons";
 import jsTokens from "js-tokens";
-import { ThemeFile } from "./Common";
+import { DroppedPreset, ThemeFile } from "./Common";
 import PresetLoader from "./PresetLoader";
 import PreviewButtonsGroup from "./PreviewButtonsGroup";
+import { useDrag, useDrop } from "react-dnd";
+import { DroppedColor} from "./Common";
+
 
 const previewCode: string = `import React from "react";
 import logo from "./logo.svg";
@@ -131,8 +134,16 @@ interface PreviewProps {
     setThemeFile: (x: ThemeFile) => void;
 }
 export default function Preview({themeFile, setThemeFile}: PreviewProps): JSX.Element{
+    const [collectedProps, dropRef] = useDrop(() => ({
+        accept: "PRESET",
+        drop: (item, monitor) =>{
+            const dropped = item as DroppedPreset;
+            setThemeFile(dropped.ThemeFile);
+        }
+    }));
+
     return(
-        <Box>
+        <Box ref={dropRef}>
             <b>Preview</b>
             <div style={{width: "100%", height: "90%"}}>
                 {processCodeToHTML(previewCode, themeFile)}
@@ -140,4 +151,8 @@ export default function Preview({themeFile, setThemeFile}: PreviewProps): JSX.El
             <PreviewButtonsGroup themeFile={themeFile} setThemeFile={setThemeFile}/>
         </Box>
     );
+}
+
+function setFillColor(fillColor: string) {
+    throw new Error("Function not implemented.");
 }
