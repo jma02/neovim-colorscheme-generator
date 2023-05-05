@@ -9,23 +9,16 @@ import { Preset } from "./Common";
 import {useState, useEffect} from "react";
 import * as Realm from "realm-web";
 
-export default function Presets():JSX.Element{
-    const [presets, setPresets] = useState<Preset[]>([]);
+import fetch_presets from "../functions/fetch_presets";
+
+interface PresetsProps{
+    presets: Preset[];
+    setPresets: (x: Preset[]) => void;
+}
+
+export default function Presets({presets, setPresets}: PresetsProps):JSX.Element{
     useEffect(() => {
-        const REALM_APP_ID = process.env.REACT_APP_MONGO_APP_ID as string;
-        const app = new Realm.App({id : REALM_APP_ID});
-        const api_key = process.env.REACT_APP_MONGO_REALM_API_KEY as string;
-        const credentials = Realm.Credentials.apiKey(api_key);
-        app.logIn(credentials)
-            .then(user => {
-                return user.functions.fetch_presets();
-            })
-            .then(allPresets => {
-                setPresets(allPresets);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+        fetch_presets(setPresets);
     }, []);
     return(
         <div>

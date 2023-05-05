@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import { Popover, PopoverTrigger, Button, PopoverContent,
     PopoverArrow, PopoverCloseButton,
     PopoverHeader, PopoverBody, Box, Grid, FormControl,
-    FormLabel, Input, Link, Alert, AlertDescription, AlertIcon, AlertTitle} from "@chakra-ui/react";
-import { ThemeFile, PostFragment} from "./Common";
+    FormLabel, Input, Link} from "@chakra-ui/react";
+import { ThemeFile, PostFragment, Preset} from "./Common";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import post_preset from "../functions/post_preset";
 import PostButtonAlerts from "./PostButtonAlerts";
+import fetch_presets from "../functions/fetch_presets";
 
 interface PostButtonProps{
     ThemeFile: ThemeFile;
+    setPresets: (x: Preset[]) => void;
 }
 
 /*
@@ -22,7 +24,7 @@ export interface Preset{
 }
 */
 
-export default function PresetPostButton({ThemeFile}: PostButtonProps){
+export default function PresetPostButton({ThemeFile, setPresets}: PostButtonProps){
     const [name, setName] = useState<string>(""); 
     const [description, setDescription] = useState<string>("");
     const [upvotes, setUpvotes] = useState<string>("");
@@ -47,6 +49,7 @@ export default function PresetPostButton({ThemeFile}: PostButtonProps){
             .then((success: boolean) => {
                 setApiError(false);
                 setSubmitting(false);
+                fetch_presets(setPresets);
             })
             .catch((error: Error) => {
                 setApiError(true);
