@@ -1,15 +1,14 @@
 import React from "react";
 import { Accordion, AccordionButton, AccordionIcon,
     AccordionItem, AccordionPanel, Box, Button, 
-    Grid, Select, Spinner, Text} from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+    Grid, Spinner, Text} from "@chakra-ui/react";
 import DragPreset from "./DragPreset";
 
 import { Preset } from "./Common";
 import {useState, useEffect} from "react";
-import * as Realm from "realm-web";
 
 import fetch_presets from "../functions/fetch_presets";
+import RegisterUserButton from "./RegisterUserButton";
 
 interface PresetsProps{
     presets: Preset[];
@@ -17,6 +16,7 @@ interface PresetsProps{
 }
 
 export default function Presets({presets, setPresets}: PresetsProps):JSX.Element{
+    const [user, setUser] = useState<String>("");
     useEffect(() => {
         fetch_presets(setPresets);
     }, []);
@@ -72,16 +72,12 @@ export default function Presets({presets, setPresets}: PresetsProps):JSX.Element
                     </AccordionPanel>
                 </AccordionItem>
             </Accordion>
-            <div style={{top: 0, position: "relative"}}>
+            <div style={{top: 0, position: "relative", padding: 10}}>
                 <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-                    <Select placeholder='Select user' fontSize="15">
-                        <option value='option1'>Option 1</option>
-                        <option value='option2'>Option 2</option>
-                        <option value='option3'>Option 3</option>
-                    </Select>
-                    <Button colorScheme="blue" >
-                        <Link to="users">Edit Users</Link>
+                    <Button colorScheme="green">
+                        {user === "" ? "Login" : user} 
                     </Button>
+                    <RegisterUserButton/>
                 </Grid>
             </div>
         </div>
