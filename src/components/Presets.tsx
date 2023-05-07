@@ -9,6 +9,7 @@ import {useState, useEffect} from "react";
 
 import fetch_presets from "../functions/fetch_presets";
 import RegisterUserButton from "./RegisterUserButton";
+import LoginButton from "./LoginButton";
 
 interface PresetsProps{
     presets: Preset[];
@@ -74,9 +75,7 @@ export default function Presets({presets, setPresets}: PresetsProps):JSX.Element
             </Accordion>
             <div style={{top: 0, position: "relative", padding: 10}}>
                 <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-                    <Button colorScheme="green">
-                        {user === "" ? "Login" : user} 
-                    </Button>
+                    {user === "" ? <LoginButton/> : <Button>{user}</Button>} 
                     <RegisterUserButton/>
                 </Grid>
             </div>

@@ -10,7 +10,7 @@ export default async function register_user(email: string, password: string){
     return new Promise<boolean>((resolve, reject) => {
         app.emailPasswordAuth.registerUser({ email, password })
             .then(result => {
-                resolve(true); // no api error
+                resolve(false); // no api error
             })
             .catch(error => {
                 console.error(error);

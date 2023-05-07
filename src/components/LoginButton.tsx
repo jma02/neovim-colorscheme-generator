@@ -3,9 +3,10 @@ import { Box, Button, Flex, FormControl, FormHelperText,
     PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Spacer } from "@chakra-ui/react";
 import React, { useState } from "react";
 import register_user from "../functions/register_user";
+import LoginAlerts from "./LoginAlerts";
 import RegisterUserAlerts from "./RegisterUserAlerts";
 
-export default function RegisterUserButton(){
+export default function LoginButton(){
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [show, setShow] = useState<boolean>(false);
@@ -29,7 +30,7 @@ export default function RegisterUserButton(){
         <Box>
             <Popover strategy="fixed" placement="start-start">
                 <PopoverTrigger>
-                    <Button colorScheme="blue">New User</Button>
+                    <Button colorScheme="green" w="100%">Login</Button>
                 </PopoverTrigger>
                 <PopoverContent bg="blue.800" p="5" w="110%">
                     <PopoverArrow />
@@ -37,7 +38,6 @@ export default function RegisterUserButton(){
                     <FormControl>
                         <FormLabel>Email address</FormLabel>
                         <Input type='email' onChange={(e)=> setEmail(e.target.value as string)}/>
-                        <FormHelperText>Please enter a valid email address.</FormHelperText>
                     </FormControl>
                     <Box p="5" justifyContent="center" alignItems="center">
                         <Box w="100%" h="1px" bg="gray" opacity=".70"/>
@@ -57,17 +57,16 @@ export default function RegisterUserButton(){
                                 </Button>
                             </InputRightElement>
                         </InputGroup>
-                        <FormHelperText>Passsword must be more than 6 characters!</FormHelperText>
                     </FormControl>
                     <Box p="5" justifyContent="center" alignItems="center">
                         <Box w="100%" h="1px" bg="gray" opacity=".70"/>
                     </Box>
                     <Flex p="2" alignItems="center" justifyContent="center">
-                        <RegisterUserAlerts apiError={apiError}></RegisterUserAlerts>
+                        <LoginAlerts apiError={apiError}></LoginAlerts>
                         <Spacer/>
                         <Button colorScheme="green" isLoading={submitting}
                             onClick={(e)=>handleSubmit()}
-                        >Register User
+                        >Login!
                         </Button>
                     </Flex>
                 </PopoverContent>
