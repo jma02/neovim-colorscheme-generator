@@ -58,7 +58,7 @@ File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered L
 --------------------------|---------|----------|---------|---------|-------------------
 All files                 |       0 |        0 |       0 |       0 |                   
  src                      |       0 |        0 |       0 |       0 |                   
-  App.tsx                 |       0 |      100 |       0 |       0 | 9                 
+  App.tsx                 |       0 |      100 |       0 |       0 | 7                 
   chakraTheme.ts          |       0 |      100 |     100 |       0 | 1                 
   index.tsx               |       0 |      100 |     100 |       0 | 11-33             
   reportWebVitals.ts      |       0 |        0 |       0 |       0 | 3-10              
@@ -70,22 +70,32 @@ All files                 |       0 |        0 |       0 |       0 |
   DragPreset.tsx          |       0 |      100 |       0 |       0 | 17-24             
   DragTutorial.tsx        |       0 |      100 |       0 |       0 | 11                
   Editor.tsx              |       0 |      100 |       0 |       0 | 10-56             
+  LoginAlerts.tsx         |       0 |        0 |       0 |       0 | 8                 
+  LoginButton.tsx         |       0 |        0 |       0 |       0 | 16-81             
   PostButtonAlerts.tsx    |       0 |        0 |       0 |       0 | 8                 
+  PostUserTheme.tsx       |       0 |        0 |       0 |       0 | 28-57             
   PresetLoader.tsx        |       0 |      100 |       0 |       0 | 10-17             
-  PresetPostButton.tsx    |       0 |        0 |       0 |       0 | 26-57             
-  Presets.tsx             |       0 |        0 |       0 |       0 | 13-47             
+  PresetPostButton.tsx    |       0 |        0 |       0 |       0 | 28-60             
+  Presets.tsx             |       0 |        0 |       0 |       0 | 22-115            
   Preview.tsx             |       0 |        0 |       0 |       0 | 16-157            
   PreviewButtonsGroup.tsx |       0 |      100 |       0 |       0 | 18-57             
+  RegisterUserAlerts.tsx  |       0 |        0 |       0 |       0 | 8                 
+  RegisterUserButton.tsx  |       0 |        0 |       0 |       0 | 9-74              
+  UserPostAlerts.tsx      |       0 |        0 |       0 |       0 | 8                 
  src/functions            |       0 |        0 |       0 |       0 |                   
   download.ts             |       0 |        0 |       0 |       0 | 5-53              
+  fetch_presets.ts        |       0 |      100 |       0 |       0 | 5-17              
+  fetch_user_presets.ts   |       0 |      100 |       0 |       0 | 5-18              
+  login_user.ts           |       0 |      100 |       0 |       0 | 4-15              
   post_preset.ts          |       0 |      100 |       0 |       0 | 6-20              
+  post_user_preset.ts     |       0 |      100 |       0 |       0 | 6-22              
+  register_user.ts        |       0 |      100 |       0 |       0 | 4-14              
  src/pages                |       0 |      100 |       0 |       0 |                   
-  edit.tsx                |       0 |      100 |       0 |       0 | 11-24             
-  landing.tsx             |       0 |      100 |       0 |       0 | 13-27             
-  users.tsx               |       0 |      100 |       0 |       0 | 5                 
+  edit.tsx                |       0 |      100 |       0 |       0 | 11-25             
+  landing.tsx             |       0 |      100 |       0 |       0 | 13-28             
 --------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.289 s
+Time:        3.87 s
 Ran all test suites.
