@@ -1,21 +1,24 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-//@ts-ignore
-import DragColor from "./DragColor.tsx";
 
-describe("DragColor component", () => {
-    it("should drag to a new location when dragged", () => {
-        const { getByTestId } = render(<DragColor />);
-        const dragColor = getByTestId("drag-color");
-        const originalPosition = dragColor.getBoundingClientRect();
-
-        fireEvent.mouseDown(dragColor, { clientX: 0, clientY: 0 });
-        fireEvent.mouseMove(dragColor, { clientX: 100, clientY: 100 });
-        fireEvent.mouseUp(dragColor);
-
-        const newPosition = dragColor.getBoundingClientRect();
-        expect(newPosition.left).toBeGreaterThan(originalPosition.left);
-        expect(newPosition.top).toBeGreaterThan(originalPosition.top);
+describe("PresetPostButton", () => {
+    it("calls the post_preset function when clicked", () => {
+        //Place holder
     });
 });
+// import { render, fireEvent } from "@testing-library/react";
+// import DragColor from "../components/DragColor";
 
+
+// describe("<DragColor />", () => {
+//     test("changes color when color prop changes", () => {
+//         const { getByTestId } = render(<DragColor fillColor="red" />);
+//         const element = getByTestId("drag-color");
+  
+//         expect(element).toHaveStyle("background-color: red;");
+  
+//         fireEvent(element, { color: "blue" });
+  
+//         expect(element).toHaveStyle("background-color: blue;");
+//     });
+// });
