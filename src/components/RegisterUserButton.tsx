@@ -12,7 +12,8 @@ export default function RegisterUserButton(){
     const [apiError, setApiError] = useState<boolean | null>(null); // alert logic
     const [submitting, setSubmitting] = useState<boolean>(false);
 
-    function handleSubmit(): void {
+    function handleSubmit(event: React.FormEvent<HTMLFormElement | HTMLButtonElement>): void {
+        event.preventDefault();
         setSubmitting(true);
         register_user(email, password)
             .then((success: boolean) => {
@@ -29,7 +30,7 @@ export default function RegisterUserButton(){
         <Box>
             <Popover strategy="fixed" placement="start-start">
                 <PopoverTrigger>
-                    <Button colorScheme="blue">New User</Button>
+                    <Button w="100%" size="lg"  colorScheme="blue">Register</Button>
                 </PopoverTrigger>
                 <PopoverContent bg="blue.800" p="5" w="110%">
                     <PopoverArrow />
@@ -42,23 +43,27 @@ export default function RegisterUserButton(){
                     <Box p="5" justifyContent="center" alignItems="center">
                         <Box w="100%" h="1px" bg="gray" opacity=".70"/>
                     </Box>
-                    <FormControl>
-                        <FormLabel>Password</FormLabel>
-                        <InputGroup size='md'>
-                            <Input
-                                pr='4.5rem'
-                                type={show ? "text" : "password"}
-                                placeholder='Enter password'
-                                onChange={(e) => setPassword(e.target.value as string)}
-                            />
-                            <InputRightElement width='4.5rem'>
-                                <Button colorScheme="black" h='1.75rem' size='sm' onClick={()=>setShow(!show)}>
-                                    {show ? "Hide" : "Show"}
-                                </Button>
-                            </InputRightElement>
-                        </InputGroup>
-                        <FormHelperText>Passsword must be more than 6 characters!</FormHelperText>
-                    </FormControl>
+                    <form
+                        onSubmit={(e)=>handleSubmit(e)}
+                    >
+                        <FormControl>
+                            <FormLabel>Password</FormLabel>
+                            <InputGroup size='md'>
+                                <Input
+                                    pr='4.5rem'
+                                    type={show ? "text" : "password"}
+                                    placeholder='Enter password'
+                                    onChange={(e) => setPassword(e.target.value as string)}
+                                />
+                                <InputRightElement width='4.5rem'>
+                                    <Button colorScheme="black" h='1.75rem' size='sm' onClick={()=>setShow(!show)}>
+                                        {show ? "Hide" : "Show"}
+                                    </Button>
+                                </InputRightElement>
+                            </InputGroup>
+                            <FormHelperText>Passsword must be more than 6 characters!</FormHelperText>
+                        </FormControl>
+                    </form>
                     <Box p="5" justifyContent="center" alignItems="center">
                         <Box w="100%" h="1px" bg="gray" opacity=".70"/>
                     </Box>
@@ -66,7 +71,7 @@ export default function RegisterUserButton(){
                         <RegisterUserAlerts apiError={apiError}></RegisterUserAlerts>
                         <Spacer/>
                         <Button colorScheme="green" isLoading={submitting}
-                            onClick={(e)=>handleSubmit()}
+                            onClick={(e)=>handleSubmit(e)}
                         >Register User
                         </Button>
                     </Flex>

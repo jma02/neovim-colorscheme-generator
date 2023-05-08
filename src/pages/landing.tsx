@@ -40,7 +40,7 @@ export default function Landing() {
                         <Button colorScheme="blue">
                             <Link to="edit">Edit Presets</Link>
                         </Button>
-                        <Presets presets={presets} setPresets={setPresets}/> 
+                        <Presets themeFile={themeFile} presets={presets} setPresets={setPresets}/> 
                     </Box>
                 </Grid>
             </div>

@@ -38,7 +38,7 @@ export default function Edit(){
                     <Button bg="blue.300">
                         <Link to="/">Back to Main Site</Link>
                     </Button>
-                    <Presets presets={presets} setPresets={setPresets}/> 
+                    <Presets themeFile={themeFile} presets={presets} setPresets={setPresets}/> 
                 </Box>
             </Grid>
         </div>
