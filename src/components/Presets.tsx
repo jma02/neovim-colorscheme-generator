@@ -121,7 +121,7 @@ export default function Presets({themeFile, presets, setPresets}: PresetsProps):
                         <Spacer/>
                         {user !== null && <PostUserTheme 
                             ThemeFile={themeFile}
-                            setPresets={setPresets}
+                            setPresets={setUserThemes}
                             user={user.id as string}
                         />
                         }
