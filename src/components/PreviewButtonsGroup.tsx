@@ -48,7 +48,7 @@ export default function PreviewButtonsGroup({themeFile, setThemeFile}: PreviewBu
                     </PopoverTrigger>
                     <PopoverContent bg="purple.900">
                         <PopoverArrow />
-                        <PopoverCloseButton />
+                        <PopoverCloseButton zIndex="100"/>
                         <PopoverBody>
                             <FormControl 
                                 as="form" 

@@ -1,31 +1,29 @@
 import React from "react";
 import { Accordion, AccordionButton, AccordionIcon,
     AccordionItem, AccordionPanel, Box, Button, 
-    Grid, Select, Spinner, Text} from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+    Flex, Grid, Spacer, Spinner, Text} from "@chakra-ui/react";
 import DragPreset from "./DragPreset";
 
-import { Preset } from "./Common";
+import { Preset, ThemeFile } from "./Common";
 import {useState, useEffect} from "react";
-import * as Realm from "realm-web";
 
-export default function Presets():JSX.Element{
-    const [presets, setPresets] = useState<Preset[]>([]);
+import fetch_presets from "../functions/fetch_presets";
+import RegisterUserButton from "./RegisterUserButton";
+import LoginButton from "./LoginButton";
+import PostUserTheme from "./PostUserTheme";
+
+interface PresetsProps{
+    themeFile: ThemeFile;
+    presets: Preset[];
+    setPresets: (x: Preset[]) => void;
+}
+
+export default function Presets({themeFile, presets, setPresets}: PresetsProps):JSX.Element{
+    const [user, setUser] = useState<Realm.User | null>(null);
+    const [userThemes, setUserThemes] = useState<Preset[]>([]);
+    
     useEffect(() => {
-        const REALM_APP_ID = process.env.REACT_APP_MONGO_APP_ID as string;
-        const app = new Realm.App({id : REALM_APP_ID});
-        const api_key = process.env.REACT_APP_MONGO_REALM_API_KEY as string;
-        const credentials = Realm.Credentials.apiKey(api_key);
-        app.logIn(credentials)
-            .then(user => {
-                return user.functions.fetch_presets();
-            })
-            .then(allPresets => {
-                setPresets(allPresets);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+        fetch_presets(setPresets);
     }, []);
     return(
         <div>
@@ -44,7 +42,7 @@ export default function Presets():JSX.Element{
                             {presets.length > 0 ? 
                                 <Box>
                                     {presets.map((x: Preset) => (
-                                        <div key={x.name}>
+                                        <div key={x._id as unknown as React.Key}>
                                             <DragPreset 
                                                 ThemeFile={x.ThemeFile}
                                                 name={x.name}
@@ -74,21 +72,60 @@ export default function Presets():JSX.Element{
                             <AccordionIcon />
                         </AccordionButton>
                     </h2>
-                    <AccordionPanel pb={4}>
-                    Login to load and save presets!
+                    <AccordionPanel pb={4} maxHeight="80vh" overflowY="scroll">
+                        {user === null ? <Text>Login to load and save presets!</Text> : 
+                            userThemes.length > 0 ? 
+                                <Box>
+                                    {userThemes.map((x: Preset) => (
+                                        <div key={x._id as unknown as React.Key}>
+                                            <DragPreset 
+                                                ThemeFile={x.ThemeFile}
+                                                name={x.name}
+                                                description={x.description}
+                                                upvotes={x.upvotes}
+                                            />
+                                        </div>
+                                    ))
+                                    }
+                                </Box> : <Box textAlign="center">
+                                    <Text fontSize="16" fontWeight="medium">
+                                        No themes saved! <br/>
+                                        <b>Get started with saving themes!</b>
+                                    </Text>
+                                </Box>}
                     </AccordionPanel>
                 </AccordionItem>
             </Accordion>
-            <div style={{top: 0, position: "relative"}}>
-                <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-                    <Select placeholder='Select user' fontSize="15">
-                        <option value='option1'>Option 1</option>
-                        <option value='option2'>Option 2</option>
-                        <option value='option3'>Option 3</option>
-                    </Select>
-                    <Button colorScheme="blue" >
-                        <Link to="users">Edit Users</Link>
-                    </Button>
+            <div style={{top: 0, position: "relative", padding: 10}}>
+                <Grid templateColumns="repeat(2, 1fr)" gap={4}>
+                    {user === null ? <LoginButton 
+                        setUser={setUser}
+                        setUserThemes={setUserThemes}
+                    /> : 
+                        <Flex direction="column">
+                            <Box
+                                fontSize="10"
+                                bg="blackAlpha.400"
+                                p="5"
+                                borderRadius="md"
+                            >
+                        Logged in as: <br/>
+                                {user.profile.email}
+                            </Box>
+                            <Button colorScheme="red" onClick={()=>setUser(null)}>
+                            Log out
+                            </Button>
+                        </Flex>} 
+                    <Flex direction="column">
+                        <RegisterUserButton/>
+                        <Spacer/>
+                        {user !== null && <PostUserTheme 
+                            ThemeFile={themeFile}
+                            setPresets={setUserThemes}
+                            user={user.id as string}
+                        />
+                        }
+                    </Flex>
                 </Grid>
             </div>
         </div>

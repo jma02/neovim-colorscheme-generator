@@ -5,11 +5,12 @@ import { Heading, Grid, Box, Text, Button} from "@chakra-ui/react";
 import Editor from "../components/Editor";
 import Preview from "../components/Preview";
 import Presets from "../components/Presets";
-import { ThemeFile } from "../components/Common";
+import { Preset, ThemeFile } from "../components/Common";
 
 import { Link } from "react-router-dom";
 // 3. Pass the `theme` prop to the `ChakraProvider`
 export default function Landing() {
+    const [presets, setPresets]= useState<Preset[]>([]);
     const [themeFile, setThemeFile] = useState<ThemeFile>(
         {
             accent: "#FF9940",
@@ -39,7 +40,7 @@ export default function Landing() {
                         <Button colorScheme="blue">
                             <Link to="edit">Edit Presets</Link>
                         </Button>
-                        <Presets/> 
+                        <Presets themeFile={themeFile} presets={presets} setPresets={setPresets}/> 
                     </Box>
                 </Grid>
             </div>
