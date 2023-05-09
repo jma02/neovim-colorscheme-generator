@@ -11,6 +11,7 @@ import PresetLoader from "./PresetLoader";
 import PreviewButtonsGroup from "./PreviewButtonsGroup";
 import { useDrag, useDragLayer, useDrop } from "react-dnd";
 import { DroppedColor} from "./Common";
+import { v4 as uuidv4 } from "uuid";
 
 
 const previewCode: string = `import React from "react";
@@ -106,7 +107,7 @@ function processCodeToHTML(code: string, themeFile: ThemeFile): JSX.Element {
         <pre style={{backgroundColor: themeFile.bg, height: "100%", width: "100%"}}>
             {
                 code.split("\n").map((line, lineNumber) =>
-                    <code key={line}>
+                    <code key={uuidv4()}>
                         <span style={{color: themeFile.ui}}>
                             {
                                 lineNumber < 10
@@ -116,7 +117,7 @@ function processCodeToHTML(code: string, themeFile: ThemeFile): JSX.Element {
                         </span>
                         {
                             Array.from(jsTokens(line, { jsx: true })).map(token =>
-                                <span key={token.value} style={{color: getTokenColor(token.value, token.type, themeFile)}}>
+                                <span key={uuidv4()} style={{color: getTokenColor(token.value, token.type, themeFile)}}>
                                     {token.value}
                                 </span>
                             )
