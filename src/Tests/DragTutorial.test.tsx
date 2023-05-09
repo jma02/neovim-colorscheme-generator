@@ -9,7 +9,7 @@ describe("<DragTutorial />", () => {
         expect(textContent).toBeInTheDocument();
     });
 
-    it("Make sure there is slide 1", async () => {
+    it("Make sure it renders and there is slide 1", async () => {
         render(<DragTutorial />);
         const infoIcon = screen.getByLabelText("info");
         fireEvent.click(infoIcon);
@@ -18,7 +18,7 @@ describe("<DragTutorial />", () => {
         });
     });
       
-    it("Makes sure slide 2 is there", async () => {
+    it("Make sure it renders and there is slide 2", async () => {
         render(<DragTutorial />);
         const infoIcon = screen.getByLabelText("info");
         fireEvent.click(infoIcon);
@@ -27,7 +27,7 @@ describe("<DragTutorial />", () => {
         });
     });
 
-    it("Make sure there is slide 3", async () => {
+    it("Make sure it renders and there is slide 3", async () => {
         render(<DragTutorial />);
         const infoIcon = screen.getByLabelText("info");
         fireEvent.click(infoIcon);
