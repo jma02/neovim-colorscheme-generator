@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import { Heading, Grid, Box, Button, Flex, Spacer} from "@chakra-ui/react";
 import Preview from "../components/Preview";
-import { ThemeFile } from "../components/Common";
+import { Preset, ThemeFile } from "../components/Common";
 import Editor from "../components/Editor";
 import Presets from "../components/Presets";
 import {Link} from "react-router-dom";
 import PresetPostButton from "../components/PresetPostButton";
 
-export default function Edit(){
+interface PageProps{
+    user: Realm.User | null;
+    setUser: (x: Realm.User | null) => void; 
+}
+
+export default function Edit({user, setUser}: PageProps){
+    const [presets, setPresets]= useState<Preset[]>([]);
     const [themeFile, setThemeFile] = useState<ThemeFile>(
         {
             accent: "#FF9940",
@@ -28,7 +34,7 @@ export default function Edit(){
                     <Flex>
                         <Heading height="100%" fontSize="32">Preset Creator (Admin)</Heading>
                         <Spacer/>
-                        <PresetPostButton ThemeFile={themeFile}/>
+                        <PresetPostButton ThemeFile={themeFile} setPresets={setPresets}/>
                     </Flex>
                     <Preview themeFile={themeFile} setThemeFile={setThemeFile}></Preview>
                 </Box>
@@ -37,7 +43,14 @@ export default function Edit(){
                     <Button bg="blue.300">
                         <Link to="/">Back to Main Site</Link>
                     </Button>
-                    <Presets/> 
+                    <Presets 
+                        themeFile={themeFile} 
+                        presets={presets}
+                        setPresets={setPresets}
+                        user={user}
+                        setUser={setUser}
+                        page={"edit"}
+                    /> 
                 </Box>
             </Grid>
         </div>

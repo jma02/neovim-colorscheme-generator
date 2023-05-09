@@ -4,14 +4,14 @@ import { Popover, PopoverTrigger, Button, PopoverContent,
     PopoverHeader, PopoverBody, Box, Grid, FormControl,
     FormLabel, Input, Link} from "@chakra-ui/react";
 import { ThemeFile, PostFragment, Preset} from "./Common";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
-import post_preset from "../functions/post_preset";
-import PostButtonAlerts from "./PostButtonAlerts";
-import fetch_presets from "../functions/fetch_presets";
+import post_user_preset from "../functions/post_user_preset";
+import fetch_user_presets from "../functions/fetch_user_presets";
+import UserPostAlerts from "./UserPostAlerts";
 
 interface PostButtonProps{
     ThemeFile: ThemeFile;
     setPresets: (x: Preset[]) => void;
+    user: string;
 }
 
 /*
@@ -24,15 +24,11 @@ export interface Preset{
 }
 */
 
-export default function PresetPostButton({ThemeFile, setPresets}: PostButtonProps){
+export default function PostUserTheme({ThemeFile, setPresets, user}: PostButtonProps){
     const [name, setName] = useState<string>(""); 
     const [description, setDescription] = useState<string>("");
-    const [upvotes, setUpvotes] = useState<string>("");
-    const [apiKey, setApiKey] = useState<string>("");
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => setName(event.target.value);
     const handleDescriptiontChange = (event: React.ChangeEvent<HTMLInputElement>) => setDescription(event.target.value);
-    const handleUpvoteChange = (event: React.ChangeEvent<HTMLInputElement>) => setUpvotes(event.target.value);
-    const handleApiKeyChange = (event: React.ChangeEvent<HTMLInputElement>) => setApiKey(event.target.value);
 
     const [submitting, setSubmitting] = useState<boolean>(false); // submit button spinner
     const [apiError, setApiError] = useState<boolean | null>(null); // alert logic
@@ -43,25 +39,31 @@ export default function PresetPostButton({ThemeFile, setPresets}: PostButtonProp
             name: name,
             description: description,
             ThemeFile: ThemeFile,
-            upvotes: Number(upvotes)
+            upvotes: 0
         };
-        post_preset(postFrag, apiKey)
+        post_user_preset(postFrag, user)
             .then((success: boolean) => {
                 setApiError(false);
                 setSubmitting(false);
-                fetch_presets(setPresets);
+                fetch_user_presets(user, setPresets);
             })
             .catch((error: Error) => {
                 setApiError(true);
                 setSubmitting(false);
+                console.error(error);
             });
     }                                     
     
     return(
         <Box>
-            <Popover>
+            <Popover strategy="fixed">
                 <PopoverTrigger>
-                    <Button colorScheme="green">Click here to post a preset!</Button>
+                    <Button
+                        colorScheme="green" 
+                        fontSize="13"
+                        size="lg"
+                        w="100%"
+                    >Save Theme!</Button>
                 </PopoverTrigger>
                 <PopoverContent bg="blue.600" width="100%" height="100%">
                     <PopoverArrow />
@@ -69,13 +71,13 @@ export default function PresetPostButton({ThemeFile, setPresets}: PostButtonProp
                     <PopoverHeader 
                         fontWeight="bold"
                         bg="blue.700"
-                    >Please enter some information about this preset.</PopoverHeader>
+                    >Please enter some information about this theme.</PopoverHeader>
                     <PopoverBody padding="5">
                         <Grid templateColumns="repeat(2,1fr)" gap="6">
                             <Box bg="blue.700" padding="3" borderRadius="10">
                                 <FormControl isRequired={name===""}>
                                     <FormLabel fontSize="12">
-                                Preset Name:
+                                Theme Name:
                                     </FormLabel>
                                     <Input 
                                         type='text' 
@@ -87,7 +89,7 @@ export default function PresetPostButton({ThemeFile, setPresets}: PostButtonProp
                             <Box bg="blue.700" padding="3" borderRadius="10">
                                 <FormControl isRequired={description===""}>
                                     <FormLabel fontSize="12">
-                                Preset Description:
+                                Theme Description:
                                     </FormLabel>
                                     <Input 
                                         type='text' 
@@ -96,41 +98,11 @@ export default function PresetPostButton({ThemeFile, setPresets}: PostButtonProp
                                     />
                                 </FormControl>
                             </Box>
-                            <Box bg="blue.700" padding="3" borderRadius="10">
-                                <FormControl isRequired={upvotes===""}>
-                                    <FormLabel fontSize="12">
-                                Upvotes:
-                                    </FormLabel>
-                                    <Input 
-                                        type='number' 
-                                        value={upvotes}
-                                        onChange={handleUpvoteChange}
-                                    />
-                                </FormControl>
-                            </Box>
-                            <Box bg="blue.700" padding="3" borderRadius="10">
-                                
-                                <FormControl isRequired={apiKey===""}>
-                                    <FormLabel fontSize="12">
-                                        <Link href='https://www.mongodb.com/docs/atlas/app-services/authentication/api-key/' isExternal> 
-                                            API Key: <ExternalLinkIcon mx='2px' />
-                                        </Link>
-                                    </FormLabel>
-                                   
-                                    <Input 
-                                        type='password' 
-                                        value={apiKey}
-                                        onChange={handleApiKeyChange}
-                                    />
-                                </FormControl>
-                            </Box>
-                            <PostButtonAlerts apiError={apiError}/>
+                            <UserPostAlerts apiError={apiError}/>
                             <Button colorScheme="green" 
                                 isDisabled={
                                     (  name===""
                                         || description===""
-                                        || apiKey===""
-                                        || upvotes===""
                                     )}
                                 isLoading={submitting}
                                 loadingText="Submitting"

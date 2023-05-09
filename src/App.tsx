@@ -1,16 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Edit from "./pages/edit";
 import Landing from "./pages/landing";
-import Users from "./pages/users";
 //Routing
 import {Routes, Route} from "react-router-dom";
-// 3. Pass the `theme` prop to the `ChakraProvider`
 export default function App() {
+    const [user, setUser] = useState<Realm.User | null>(null);
     return (
         <Routes>
-            <Route path="/" element={<Landing/>}></Route>
-            <Route path="/users" element={<Users/>}></Route>
-            <Route path="/edit" element={<Edit/>}></Route>
+            <Route path="/" element={<Landing user={user} setUser={setUser}/>}></Route>
+            <Route path="/edit" element={<Edit user={user} setUser={setUser}/>}></Route>
         </Routes>
     );
 }
