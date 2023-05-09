@@ -1,5 +1,5 @@
 import React from "react";
-import { border, Card, CardBody, Highlight } from "@chakra-ui/react";
+import { Card, CardBody } from "@chakra-ui/react";
 import { useDrag } from "react-dnd";
 import { DroppedColor } from "./Common";
 

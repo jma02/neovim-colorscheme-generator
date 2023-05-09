@@ -1,16 +1,9 @@
 import React from "react";
-import {Box, Button, Flex, HStack, Popover, PopoverArrow, 
-    PopoverBody, PopoverCloseButton, PopoverContent, 
-    PopoverHeader, PopoverTrigger, Text, Spacer, 
-    FormControl, FormHelperText, FormLabel, Input} from "@chakra-ui/react";
-import download from "../functions/download";
-import { DownloadIcon, InfoIcon } from "@chakra-ui/icons";
+import {Box} from "@chakra-ui/react";
 import jsTokens from "js-tokens";
 import { DroppedPreset, ThemeFile } from "./Common";
-import PresetLoader from "./PresetLoader";
 import PreviewButtonsGroup from "./PreviewButtonsGroup";
-import { useDrag, useDragLayer, useDrop } from "react-dnd";
-import { DroppedColor} from "./Common";
+import { useDragLayer, useDrop } from "react-dnd";
 import { v4 as uuidv4 } from "uuid";
 
 
