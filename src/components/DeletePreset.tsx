@@ -2,7 +2,7 @@ import { useDisclosure, Button, AlertDialog, AlertDialogOverlay,
     AlertDialogContent, AlertDialogHeader, 
     AlertDialogBody, AlertDialogFooter, Flex, Box, Input, FormControl, FormLabel, Link } from "@chakra-ui/react";
 import React, { useRef, useState } from "react";
-import { useDrop } from "react-dnd";
+import { useDragLayer, useDrop } from "react-dnd";
 import { DroppedPreset, Preset } from "./Common";
 
 import { ObjectId } from "bson";
@@ -24,6 +24,11 @@ export default function DeletePreset({setThemes}: DeletePresetProps){
     const [alertBuffer, setAlertBuffer] = useState<boolean>(false); // conditionally renders a success message.
                                                                     
     const [apiError, setApiError] = useState<boolean>(false); // alert logic
+
+    const { isDragging, type } = useDragLayer((monitor) => ({
+        isDragging: monitor.isDragging(),
+        type: monitor.getItemType(),
+    }));
 
                                                                 
     const [collectedProps, dropRef] = useDrop(() => ({
@@ -74,6 +79,7 @@ export default function DeletePreset({setThemes}: DeletePresetProps){
                 borderWidth="thin"
                 direction="column"
                 ref={dropRef}
+                boxShadow={isDragging && type === "PRESET" ? "0 0 10px 5px rgba(255, 255, 255, 0.5)" : "none"}
             >
               Drag a preset here to delete it!
             </Flex>

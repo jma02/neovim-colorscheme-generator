@@ -9,7 +9,7 @@ import jsTokens from "js-tokens";
 import { DroppedPreset, ThemeFile } from "./Common";
 import PresetLoader from "./PresetLoader";
 import PreviewButtonsGroup from "./PreviewButtonsGroup";
-import { useDrag, useDrop } from "react-dnd";
+import { useDrag, useDragLayer, useDrop } from "react-dnd";
 import { DroppedColor} from "./Common";
 
 
@@ -134,6 +134,10 @@ interface PreviewProps {
     setThemeFile: (x: ThemeFile) => void;
 }
 export default function Preview({themeFile, setThemeFile}: PreviewProps): JSX.Element{
+    const { isDragging, type } = useDragLayer((monitor) => ({
+        isDragging: monitor.isDragging(),
+        type: monitor.getItemType(),
+    }));
     const [collectedProps, dropRef] = useDrop(() => ({
         accept: "PRESET",
         drop: (item, monitor) =>{
@@ -143,11 +147,18 @@ export default function Preview({themeFile, setThemeFile}: PreviewProps): JSX.El
     }));
 
     return(
-        <Box ref={dropRef}>
+        <Box 
+            ref={dropRef}
+        >
             <b>Preview</b>
-            <div style={{width: "100%", height: "90%"}}>
+            <Box 
+                style={{width: "100%", height: "90%"}}
+                borderStyle="solid"
+                borderWidth="1px"
+                borderColor={isDragging && type === "PRESET" ? "white" : "transparent"}
+                boxShadow={isDragging && type === "PRESET" ? "0 0 10px 5px rgba(255, 255, 255, 0.5)" : "none"}>
                 {processCodeToHTML(previewCode, themeFile)}
-            </div>
+            </Box>
             <PreviewButtonsGroup themeFile={themeFile} setThemeFile={setThemeFile}/>
         </Box>
     );

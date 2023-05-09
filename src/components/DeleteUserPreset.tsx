@@ -2,7 +2,7 @@ import { useDisclosure, Button, AlertDialog, AlertDialogOverlay,
     AlertDialogContent, AlertDialogHeader, Text,
     AlertDialogBody, AlertDialogFooter, Flex, Box, Alert, AlertIcon } from "@chakra-ui/react";
 import React, { useRef, useState } from "react";
-import { useDrop } from "react-dnd";
+import { useDragLayer, useDrop } from "react-dnd";
 import delete_user_preset from "../functions/delete_user_preset";
 import fetch_user_presets from "../functions/fetch_user_presets";
 import { DroppedPreset, Preset } from "./Common";
@@ -35,6 +35,12 @@ export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetPr
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
+    const { isDragging, type } = useDragLayer((monitor) => ({
+        isDragging: monitor.isDragging(),
+        type: monitor.getItemType(),
+    }));
+
+
     function handleSubmit(){
         setSubmitting(true);
         // eslint-disable-next-line
@@ -66,6 +72,7 @@ export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetPr
                 borderWidth="thin"
                 direction="column"
                 ref={dropRef}
+                boxShadow={isDragging && type === "PRESET" ? "0 0 10px 5px rgba(255, 255, 255, 0.5)" : "none"}
             >
               Drag a theme here to delete it!
             </Flex>
