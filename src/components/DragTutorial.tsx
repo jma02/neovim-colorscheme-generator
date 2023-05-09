@@ -13,7 +13,7 @@ export default function DragTutorial(){
             <Box>
                 <Popover>
                     <PopoverTrigger>
-                        <InfoIcon/>
+                        <InfoIcon aria-label="info" />
                     </PopoverTrigger>
                     <PopoverContent bgColor="red.400" width="100vh">
                         <PopoverCloseButton />
