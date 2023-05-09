@@ -17,6 +17,7 @@ export interface ThemeFile {
 }
 
 export interface DroppedPreset{
+    _id: ObjectId;
     ThemeFile: ThemeFile;
 }
 

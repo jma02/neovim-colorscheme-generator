@@ -7,7 +7,12 @@ import Presets from "../components/Presets";
 import {Link} from "react-router-dom";
 import PresetPostButton from "../components/PresetPostButton";
 
-export default function Edit(){
+interface PageProps{
+    user: Realm.User | null;
+    setUser: (x: Realm.User | null) => void; 
+}
+
+export default function Edit({user, setUser}: PageProps){
     const [presets, setPresets]= useState<Preset[]>([]);
     const [themeFile, setThemeFile] = useState<ThemeFile>(
         {
@@ -38,7 +43,14 @@ export default function Edit(){
                     <Button bg="blue.300">
                         <Link to="/">Back to Main Site</Link>
                     </Button>
-                    <Presets themeFile={themeFile} presets={presets} setPresets={setPresets}/> 
+                    <Presets 
+                        themeFile={themeFile} 
+                        presets={presets}
+                        setPresets={setPresets}
+                        user={user}
+                        setUser={setUser}
+                        page={"edit"}
+                    /> 
                 </Box>
             </Grid>
         </div>

@@ -4,6 +4,7 @@ import { Card, CardBody, Flex, Box,
 import { useDrag } from "react-dnd";
 import { DroppedPreset, ThemeFile } from "./Common";
 import { ArrowUpIcon } from "@chakra-ui/icons";
+import { ObjectId } from "bson";
 
 
 interface DragPresetProps{
@@ -11,12 +12,13 @@ interface DragPresetProps{
     name: string;
     description: string;
     upvotes: number;
+    _id: ObjectId;
 }
 
-export default function DragPreset({ThemeFile, name, description, upvotes}: DragPresetProps){
+export default function DragPreset({ThemeFile, name, description, upvotes, _id}: DragPresetProps){
     const [{isDragging}, drag] = useDrag(() => ({
         type: "PRESET",
-        item: {ThemeFile},
+        item: {ThemeFile, _id} as DroppedPreset,
         collect: (monitor) => ({
             isDragging: monitor.isDragging(),
         })
