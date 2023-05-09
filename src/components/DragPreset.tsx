@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardBody, Flex, Box, 
-    Heading, Text, Spacer} from "@chakra-ui/react";
+    Heading, Text, Spacer, Button} from "@chakra-ui/react";
 import { useDrag } from "react-dnd";
 import { DroppedPreset, ThemeFile } from "./Common";
 import { ArrowUpIcon } from "@chakra-ui/icons";
 import { ObjectId } from "bson";
+import upvote_theme from "../functions/upvote_theme";
 
 
 interface DragPresetProps{
@@ -13,9 +14,13 @@ interface DragPresetProps{
     description: string;
     upvotes: number;
     _id: ObjectId;
+    isUserTheme: boolean;
+    userId: string;
 }
 
-export default function DragPreset({ThemeFile, name, description, upvotes, _id}: DragPresetProps){
+export default function DragPreset({ThemeFile, name, description, upvotes, _id, userId, isUserTheme}: DragPresetProps){
+    const [upvoted, setUpvoted] = useState<boolean>(false);
+    const [localUpvotes, setLocalUpvotes] = useState<number>(upvotes);
     const [{isDragging}, drag] = useDrag(() => ({
         type: "PRESET",
         item: {ThemeFile, _id} as DroppedPreset,
@@ -23,6 +28,12 @@ export default function DragPreset({ThemeFile, name, description, upvotes, _id}:
             isDragging: monitor.isDragging(),
         })
     }));
+
+    function handleClick(){
+        setUpvoted(true);
+        setLocalUpvotes(localUpvotes+1);
+        isUserTheme ? upvote_theme(userId, _id.toString()) : upvote_theme("", _id.toString()); 
+    }
     return (
         <Card 
             role="Drag Preset" 
@@ -41,11 +52,23 @@ export default function DragPreset({ThemeFile, name, description, upvotes, _id}:
                     </Box>
                     <Spacer/>
                     <Box>
-                        <Flex>
-                            <ArrowUpIcon color="green"/>
-                            <Text fontWeight="extrabold" fontSize="10">
-                                {upvotes}
-                            </Text>
+                        <Flex alignItems="center" justifyItems="center" textAlign="center">
+                            <Box>
+                                <Text fontWeight="extrabold" fontSize="10">
+                                    {localUpvotes}
+                                </Text>
+                            </Box>
+                            <Button 
+                                h="0"
+                                w="0"
+                                bg="transparent"
+                                isDisabled={upvoted}
+                                onClick={handleClick}
+                            >
+                                <ArrowUpIcon
+                                    color={upvoted ? "lime" : "green"}
+                                />
+                            </Button>
                         </Flex>
                     </Box>
                 </Flex>
