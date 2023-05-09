@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {  Card, CardBody } from "@chakra-ui/react";
-import { useDrag, useDrop } from "react-dnd";
+import { useDrag, useDragLayer, useDrop } from "react-dnd";
 import { DroppedColor, ThemeFile } from "./Common";
 
 interface ColorBucketProps {
@@ -22,14 +22,15 @@ export default function ColorBucket({theme, setThemeFile, prop}: ColorBucketProp
         }
     }));
 
-    const [{isDragging}, drag] = useDrag(() => ({
+    const [collectedPropsDrag, drag] = useDrag(() => ({
         type: "COLOR",
         item: {fillColor},
-        collect: (monitor) => ({
-            isDragging: monitor.isDragging(),
-        })
     }), [fillColor]);
 
+    const { isDragging, type } = useDragLayer((monitor) => ({
+        isDragging: monitor.isDragging(),
+        type: monitor.getItemType(),
+    }));
 
     useEffect(()=>{
         setFillColor(theme[prop as keyof ThemeFile]);
@@ -39,6 +40,11 @@ export default function ColorBucket({theme, setThemeFile, prop}: ColorBucketProp
     }, [fillColor]);
     return (
         <Card
+            borderStyle="solid"
+            borderWidth="1px"
+            borderRadius="lg"
+            borderColor={isDragging && type === "COLOR" ? "cyan" : "transparent"}
+            boxShadow={isDragging  && type === "COLOR" ? "0 0 10px 5px rgba(0, 255, 255, 0.5)" : "none"}
             ref={dropRef}
             role={"ColorBucket"}
             backgroundColor={fillColor}

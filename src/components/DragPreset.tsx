@@ -23,7 +23,7 @@ export default function DragPreset({ThemeFile, name, description, upvotes, _id, 
     const [localUpvotes, setLocalUpvotes] = useState<number>(upvotes);
     const [{isDragging}, drag] = useDrag(() => ({
         type: "PRESET",
-        item: {ThemeFile, _id} as DroppedPreset,
+        item: {ThemeFile, _id, name, description, upvotes} as DroppedPreset,
         collect: (monitor) => ({
             isDragging: monitor.isDragging(),
         })

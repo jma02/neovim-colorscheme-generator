@@ -14,6 +14,8 @@ import PostUserTheme from "./PostUserTheme";
 import DeleteUserPreset from "./DeleteUserPreset";
 import DeletePreset from "./DeletePreset";
 import { User } from "realm-web";
+import CentralToUser from "./CentralToUser";
+import fetch_user_presets from "../functions/fetch_user_presets";
 
 interface PresetsProps{
     themeFile: ThemeFile;
@@ -29,6 +31,7 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
     
     useEffect(() => {
         fetch_presets(setPresets);
+        if(user !== null) fetch_user_presets(user.id, setUserThemes);
     }, []);
     return(
         <div>
@@ -76,16 +79,8 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                         }
                     </AccordionPanel>
                 </AccordionItem>
-
                 <AccordionItem>
-                    <h2>
-                        <AccordionButton>
-                            <Box as="span" flex='1' textAlign='left'>
-                                      Saved Themes
-                            </Box>
-                            <AccordionIcon />
-                        </AccordionButton>
-                    </h2>
+                    <CentralToUser user={user} setUserThemes={setUserThemes}/>
                     <AccordionPanel pb={4}>
                         {user === null ? <Text>Login to load and save presets!</Text> : 
                             userThemes.length > 0 ? 

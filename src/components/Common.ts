@@ -19,6 +19,10 @@ export interface ThemeFile {
 export interface DroppedPreset{
     _id: ObjectId;
     ThemeFile: ThemeFile;
+    // kept optional for sanity sake
+    name: string;
+    description: string;
+    upvotes: number;
 }
 
 export interface PostFragment{
