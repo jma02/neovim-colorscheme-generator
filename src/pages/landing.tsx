@@ -8,8 +8,13 @@ import Presets from "../components/Presets";
 import { Preset, ThemeFile } from "../components/Common";
 
 import { Link } from "react-router-dom";
-// 3. Pass the `theme` prop to the `ChakraProvider`
-export default function Landing() {
+
+interface PageProps{
+    user: Realm.User | null;
+    setUser: (x: Realm.User | null) => void; 
+}
+
+export default function Landing({user, setUser}: PageProps) {
     const [presets, setPresets]= useState<Preset[]>([]);
     const [themeFile, setThemeFile] = useState<ThemeFile>(
         {
@@ -40,7 +45,14 @@ export default function Landing() {
                         <Button colorScheme="blue">
                             <Link to="edit">Edit Presets</Link>
                         </Button>
-                        <Presets themeFile={themeFile} presets={presets} setPresets={setPresets}/> 
+                        <Presets 
+                            themeFile={themeFile} 
+                            presets={presets}
+                            setPresets={setPresets}
+                            user={user}
+                            setUser={setUser}
+                        /> 
+                        
                     </Box>
                 </Grid>
             </div>

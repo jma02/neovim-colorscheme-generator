@@ -17,10 +17,11 @@ interface PresetsProps{
     themeFile: ThemeFile;
     presets: Preset[];
     setPresets: (x: Preset[]) => void;
+    user: Realm.User | null;
+    setUser: (x: Realm.User | null) => void;
 }
 
-export default function Presets({themeFile, presets, setPresets}: PresetsProps):JSX.Element{
-    const [user, setUser] = useState<Realm.User | null>(null);
+export default function Presets({themeFile, presets, setPresets, user, setUser}: PresetsProps):JSX.Element{
     const [userThemes, setUserThemes] = useState<Preset[]>([]);
     
     useEffect(() => {
