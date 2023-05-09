@@ -70,7 +70,7 @@ All files                 |       0 |        0 |       0 |       0 |
   DeletePresetAlerts.tsx  |       0 |        0 |       0 |       0 | 8                 
   DeleteUserPreset.tsx    |       0 |        0 |       0 |       0 | 18-57             
   DragColor.tsx           |       0 |      100 |       0 |       0 | 7-14              
-  DragPreset.tsx          |       0 |      100 |       0 |       0 | 19-26             
+  DragPreset.tsx          |       0 |        0 |       0 |       0 | 22-37             
   DragTutorial.tsx        |       0 |      100 |       0 |       0 | 11                
   Editor.tsx              |       0 |      100 |       0 |       0 | 10-56             
   LoginAlerts.tsx         |       0 |        0 |       0 |       0 | 8                 
@@ -79,7 +79,7 @@ All files                 |       0 |        0 |       0 |       0 |
   PostUserTheme.tsx       |       0 |        0 |       0 |       0 | 28-57             
   PresetLoader.tsx        |       0 |      100 |       0 |       0 | 10-17             
   PresetPostButton.tsx    |       0 |        0 |       0 |       0 | 28-60             
-  Presets.tsx             |       0 |        0 |       0 |       0 | 27-134            
+  Presets.tsx             |       0 |        0 |       0 |       0 | 28-139            
   Preview.tsx             |       0 |        0 |       0 |       0 | 16-157            
   PreviewButtonsGroup.tsx |       0 |      100 |       0 |       0 | 18-57             
   RegisterUserAlerts.tsx  |       0 |        0 |       0 |       0 | 8                 
@@ -95,6 +95,7 @@ All files                 |       0 |        0 |       0 |       0 |
   post_preset.ts          |       0 |      100 |       0 |       0 | 6-20              
   post_user_preset.ts     |       0 |      100 |       0 |       0 | 6-22              
   register_user.ts        |       0 |      100 |       0 |       0 | 4-14              
+  upvote_theme.ts         |       0 |      100 |       0 |       0 | 5-20              
  src/pages                |       0 |      100 |       0 |       0 |                   
   edit.tsx                |       0 |      100 |       0 |       0 | 16-30             
   landing.tsx             |       0 |      100 |       0 |       0 | 18-33             
@@ -102,5 +103,5 @@ All files                 |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        4.033 s
+Time:        4.075 s
 Ran all test suites.
