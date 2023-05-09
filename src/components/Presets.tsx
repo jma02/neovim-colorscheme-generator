@@ -13,6 +13,7 @@ import LoginButton from "./LoginButton";
 import PostUserTheme from "./PostUserTheme";
 import DeleteUserPreset from "./DeleteUserPreset";
 import DeletePreset from "./DeletePreset";
+import { User } from "realm-web";
 
 interface PresetsProps{
     themeFile: ThemeFile;
@@ -53,6 +54,8 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                                                 description={x.description}
                                                 upvotes={x.upvotes}
                                                 _id={x._id}
+                                                isUserTheme={false}
+                                                userId={""}
                                             />
                                         </div>
                                     ))
@@ -96,6 +99,8 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                                                     description={x.description}
                                                     upvotes={x.upvotes}
                                                     _id={x._id}
+                                                    isUserTheme={true}
+                                                    userId={user.id}
                                                 />
                                             </div>
                                         ))

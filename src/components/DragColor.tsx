@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody } from "@chakra-ui/react";
+import { border, Card, CardBody, Highlight } from "@chakra-ui/react";
 import { useDrag } from "react-dnd";
 import { DroppedColor } from "./Common";
 
@@ -13,7 +13,8 @@ export default function DragColor({fillColor}: DroppedColor){
     }), [fillColor]);
     return (
         <Card role="Drag Color" ref={drag} backgroundColor={fillColor} variant="filled" size="lg"
-            height="10vh" width="10vh">
+            height="10vh" width="10vh"
+        >
             <CardBody/>
         </Card>
     );
