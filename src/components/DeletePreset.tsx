@@ -1,27 +1,31 @@
 import { useDisclosure, Button, AlertDialog, AlertDialogOverlay,
-    AlertDialogContent, AlertDialogHeader, Text,
-    AlertDialogBody, AlertDialogFooter, Flex, Box, Alert, AlertIcon } from "@chakra-ui/react";
+    AlertDialogContent, AlertDialogHeader, 
+    AlertDialogBody, AlertDialogFooter, Flex, Box, Input, FormControl, FormLabel, Link } from "@chakra-ui/react";
 import React, { useRef, useState } from "react";
 import { useDrop } from "react-dnd";
-import delete_user_preset from "../functions/delete_user_preset";
-import fetch_user_presets from "../functions/fetch_user_presets";
 import { DroppedPreset, Preset } from "./Common";
 
 import { ObjectId } from "bson";
+import delete_preset from "../functions/delete_preset";
+import fetch_presets from "../functions/fetch_presets";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
+import DeletePresetAlerts from "./DeletePresetAlerts";
 
-interface DeleteUserPresetProps{
+interface DeletePresetProps{
     setThemes: (x: Preset[]) => void;
-    userId: string;
 }
 
-export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetProps){
+export default function DeletePreset({setThemes}: DeletePresetProps){
     const { isOpen, onOpen, onClose } = useDisclosure();
     const cancelRef = useRef<HTMLButtonElement | null>(null);
     const [id, setId] = useState<ObjectId | null>(null);
     const [submitting, setSubmitting] = useState<boolean>(false); // submit button spinner
-
+    const [apiKey, setApiKey] = useState<string>("");
     const [alertBuffer, setAlertBuffer] = useState<boolean>(false); // conditionally renders a success message.
-                                                                  
+                                                                    
+    const [apiError, setApiError] = useState<boolean>(false); // alert logic
+
+                                                                
     const [collectedProps, dropRef] = useDrop(() => ({
         accept: "PRESET",
         drop: (item, monitor) =>{
@@ -30,6 +34,8 @@ export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetPr
             onOpen();
         }
     })); 
+    
+    const handleApiKeyChange = (event: React.ChangeEvent<HTMLInputElement>) => setApiKey(event.target.value);
 
     function sleep(ms: number) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -38,9 +44,10 @@ export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetPr
     function handleSubmit(){
         setSubmitting(true);
         // eslint-disable-next-line
-        delete_user_preset(userId, (id as ObjectId).toString())
+        delete_preset(apiKey, (id as ObjectId).toString())
             .then((result)=>{
-                fetch_user_presets(userId, setThemes);
+                setApiError(false);
+                fetch_presets(setThemes);
                 setSubmitting(false);
                 setAlertBuffer(true);
                 sleep(3000)
@@ -50,6 +57,7 @@ export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetPr
                     });
             })
             .catch((error)=>{
+                setApiError(true);
                 console.error(error);
                 setSubmitting(false);
             });
@@ -67,7 +75,7 @@ export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetPr
                 direction="column"
                 ref={dropRef}
             >
-              Drag a theme here to delete it!
+              Drag a preset here to delete it!
             </Flex>
       
             <AlertDialog
@@ -86,7 +94,24 @@ export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetPr
             
                         {!alertBuffer ? <Box>
                             <AlertDialogBody>
-                        Are you sure you want to delete this theme? This action is irreversible.
+                        Are you sure you want to delete this preset? This action is irreversible. <br/>
+                                <Box p="4">
+                                    <Box bg="blue.700" padding="3" borderRadius="10">
+                                        <FormControl isRequired={apiKey===""}>
+                                            <FormLabel fontSize="12">
+                                                <Link href='https://www.mongodb.com/docs/atlas/app-services/authentication/api-key/' isExternal> 
+                                            An API Key is required for this action: <ExternalLinkIcon mx='2px' />
+                                                </Link>
+                                            </FormLabel>
+                                   
+                                            <Input 
+                                                type='password' 
+                                                value={apiKey}
+                                                onChange={handleApiKeyChange}
+                                            />
+                                        </FormControl>
+                                    </Box>
+                                </Box>
                             </AlertDialogBody>
       
                             <AlertDialogFooter>
@@ -97,17 +122,16 @@ export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetPr
                                     colorScheme='red'
                                     isLoading={submitting}
                                     onClick={handleSubmit}
-                                    ml={3}>
+                                    ml={3}
+                                    isDisabled={apiKey===""}
+                                >
                       Delete
                                 </Button>
                             </AlertDialogFooter>
                         </Box>
                             :
                             <Box p="10">
-                                <Alert status='success'>
-                                    <AlertIcon textColor="blue.800"/>
-                                    <Text textColor="blue.800">Theme successfully deleted.</Text>
-                                </Alert>
+                                <DeletePresetAlerts apiError={apiError}/>
                             </Box>
                         }
                     </AlertDialogContent>

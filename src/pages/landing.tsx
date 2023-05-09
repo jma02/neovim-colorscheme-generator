@@ -51,6 +51,7 @@ export default function Landing({user, setUser}: PageProps) {
                             setPresets={setPresets}
                             user={user}
                             setUser={setUser}
+                            page={"landing"}
                         /> 
                         
                     </Box>

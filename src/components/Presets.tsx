@@ -12,6 +12,7 @@ import RegisterUserButton from "./RegisterUserButton";
 import LoginButton from "./LoginButton";
 import PostUserTheme from "./PostUserTheme";
 import DeleteUserPreset from "./DeleteUserPreset";
+import DeletePreset from "./DeletePreset";
 
 interface PresetsProps{
     themeFile: ThemeFile;
@@ -19,9 +20,10 @@ interface PresetsProps{
     setPresets: (x: Preset[]) => void;
     user: Realm.User | null;
     setUser: (x: Realm.User | null) => void;
+    page: string;
 }
 
-export default function Presets({themeFile, presets, setPresets, user, setUser}: PresetsProps):JSX.Element{
+export default function Presets({themeFile, presets, setPresets, user, setUser, page}: PresetsProps):JSX.Element{
     const [userThemes, setUserThemes] = useState<Preset[]>([]);
     
     useEffect(() => {
@@ -39,10 +41,10 @@ export default function Presets({themeFile, presets, setPresets, user, setUser}:
                             <AccordionIcon />
                         </AccordionButton>
                     </h2>
-                    <AccordionPanel pb={4} maxHeight="80vh" overflowY="scroll">
-                        <Box>
-                            {presets.length > 0 ? 
-                                <Box>
+                    <AccordionPanel pb={4}>
+                        {presets.length > 0 ? 
+                            <Box>
+                                <Box maxHeight="65vh" overflowY="scroll">
                                     {presets.map((x: Preset) => (
                                         <div key={x._id as unknown as React.Key}>
                                             <DragPreset 
@@ -55,14 +57,20 @@ export default function Presets({themeFile, presets, setPresets, user, setUser}:
                                         </div>
                                     ))
                                     }
-                                </Box> : <Box textAlign="center">
-                                    <Spinner /> 
-                                    <Text fontSize="16" fontWeight="medium">
-                                        Loading Presets...
-                                    </Text>
                                 </Box>
-                            }
-                        </Box>
+                                {page === "edit" && 
+                                <Flex p="3" pb='-1' direction="column" alignContent="center" justifyContent="center">
+                                    <DeletePreset setThemes={setPresets} />
+                                </Flex>
+                                }
+                            </Box>
+                            : <Box textAlign="center">
+                                <Spinner /> 
+                                <Text fontSize="16" fontWeight="medium">
+                                        Loading Presets...
+                                </Text>
+                            </Box>
+                        }
                     </AccordionPanel>
                 </AccordionItem>
 
@@ -79,7 +87,7 @@ export default function Presets({themeFile, presets, setPresets, user, setUser}:
                         {user === null ? <Text>Login to load and save presets!</Text> : 
                             userThemes.length > 0 ? 
                                 <Box>
-                                    <Box maxHeight="80vh" overflowY="scroll">
+                                    <Box maxHeight="65vh" overflowY="scroll">
                                         {userThemes.map((x: Preset) => (
                                             <div key={x._id as unknown as React.Key}>
                                                 <DragPreset 

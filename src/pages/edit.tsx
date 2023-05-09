@@ -49,6 +49,7 @@ export default function Edit({user, setUser}: PageProps){
                         setPresets={setPresets}
                         user={user}
                         setUser={setUser}
+                        page={"edit"}
                     /> 
                 </Box>
             </Grid>
