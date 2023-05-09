@@ -60,10 +60,10 @@ export default function PostUserTheme({ThemeFile, setPresets, user}: PostButtonP
                 <PopoverTrigger>
                     <Button
                         colorScheme="green" 
-                        fontSize="11"
+                        fontSize="15"
                         size="lg"
                         w="100%"
-                    >Save a Theme!</Button>
+                    >Save Theme!</Button>
                 </PopoverTrigger>
                 <PopoverContent bg="blue.600" width="100%" height="100%">
                     <PopoverArrow />
