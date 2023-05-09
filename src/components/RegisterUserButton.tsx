@@ -1,11 +1,17 @@
 import { Box, Button, Flex, FormControl, FormHelperText, 
-    FormLabel, Input, InputGroup, InputRightElement, Popover, PopoverArrow, PopoverBody,
-    PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Spacer } from "@chakra-ui/react";
+    FormLabel, Input, InputGroup, InputRightElement, Popover, PopoverArrow,
+    PopoverCloseButton, PopoverContent, PopoverTrigger, Spacer } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { User } from "realm-web";
+import login_user from "../functions/login_user";
 import register_user from "../functions/register_user";
 import RegisterUserAlerts from "./RegisterUserAlerts";
 
-export default function RegisterUserButton(){
+interface RegisterUserButtonProps{
+    setUser: (x: User) => void;
+}
+
+export default function RegisterUserButton({setUser}: RegisterUserButtonProps){
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [show, setShow] = useState<boolean>(false);
@@ -18,7 +24,11 @@ export default function RegisterUserButton(){
         register_user(email, password)
             .then((success: boolean) => {
                 setApiError(false);
-                setSubmitting(false);
+                setSubmitting(false); 
+                login_user(email, password)
+                    .then((user) =>{
+                        setUser(user);
+                    });
             })
             .catch((error: Error) => {
                 setApiError(true);

@@ -127,7 +127,8 @@ export default function Presets({themeFile, presets, setPresets}: PresetsProps):
                             </Button>
                         </Flex>} 
                     <Flex direction="column">
-                        <RegisterUserButton/>
+                        <RegisterUserButton setUser={setUser}
+                        />
                         <Spacer/>
                         {user !== null && <PostUserTheme 
                             ThemeFile={themeFile}
