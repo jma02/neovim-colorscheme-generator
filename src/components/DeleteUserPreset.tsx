@@ -1,6 +1,6 @@
 import { useDisclosure, Button, AlertDialog, AlertDialogOverlay,
-    AlertDialogContent, AlertDialogHeader,
-    AlertDialogBody, AlertDialogFooter, Flex } from "@chakra-ui/react";
+    AlertDialogContent, AlertDialogHeader, Text,
+    AlertDialogBody, AlertDialogFooter, Flex, Box, Alert, AlertIcon } from "@chakra-ui/react";
 import React, { useRef, useState } from "react";
 import { useDrop } from "react-dnd";
 import delete_user_preset from "../functions/delete_user_preset";
@@ -19,6 +19,8 @@ export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetPr
     const cancelRef = useRef<HTMLButtonElement | null>(null);
     const [id, setId] = useState<ObjectId | null>(null);
     const [submitting, setSubmitting] = useState<boolean>(false); // submit button spinner
+
+    const [alertBuffer, setAlertBuffer] = useState<boolean>(false); // conditionally renders a success message.
                                                                   
     const [collectedProps, dropRef] = useDrop(() => ({
         accept: "PRESET",
@@ -29,6 +31,10 @@ export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetPr
         }
     })); 
 
+    function sleep(ms: number) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     function handleSubmit(){
         setSubmitting(true);
         // eslint-disable-next-line
@@ -36,12 +42,16 @@ export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetPr
             .then((result)=>{
                 fetch_user_presets(userId, setThemes);
                 setSubmitting(false);
-                onClose();
+                setAlertBuffer(true);
+                sleep(5000)
+                    .then((resolve) =>{
+                        onClose();
+                        setAlertBuffer(false);
+                    });
             })
             .catch((error)=>{
                 console.error(error);
                 setSubmitting(false);
-                onClose();
             });
     }
     return (
@@ -72,22 +82,34 @@ export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetPr
                     Delete theme:
                         </AlertDialogHeader>
       
-                        <AlertDialogBody>
+                        {/* Conditionally render a confirmation message, or a success message */}
+            
+                        {!alertBuffer ? <Box>
+                            <AlertDialogBody>
                         Are you sure you want to delete this theme? This action is irreversible.
-                        </AlertDialogBody>
+                            </AlertDialogBody>
       
-                        <AlertDialogFooter>
-                            <Button ref={cancelRef} onClick={onClose}>
+                            <AlertDialogFooter>
+                                <Button ref={cancelRef} onClick={onClose}>
                       Cancel
-                            </Button>
-                            <Button 
-                                colorScheme='red'
-                                isLoading={submitting}
-                                onClick={handleSubmit}
-                                ml={3}>
+                                </Button>
+                                <Button 
+                                    colorScheme='red'
+                                    isLoading={submitting}
+                                    onClick={handleSubmit}
+                                    ml={3}>
                       Delete
-                            </Button>
-                        </AlertDialogFooter>
+                                </Button>
+                            </AlertDialogFooter>
+                        </Box>
+                            :
+                            <Box p="10">
+                                <Alert status='success'>
+                                    <AlertIcon textColor="blue.800"/>
+                                    <Text textColor="blue.800">Theme successfully deleted.</Text>
+                                </Alert>
+                            </Box>
+                        }
                     </AlertDialogContent>
                 </AlertDialogOverlay>
             </AlertDialog>
