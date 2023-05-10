@@ -14,20 +14,20 @@ PASS src/Tests/ColorPicker.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------|---------|----------|---------|---------|-------------------
-All files                 |    3.17 |    10.37 |    3.94 |    3.41 |                   
+All files                 |    3.09 |        8 |    3.77 |    3.34 |                   
  src                      |       0 |        0 |       0 |       0 |                   
   App.tsx                 |       0 |      100 |       0 |       0 | 7-8               
   chakraTheme.ts          |       0 |      100 |     100 |       0 | 1                 
   index.tsx               |       0 |      100 |     100 |       0 | 11-33             
   reportWebVitals.ts      |       0 |        0 |       0 |       0 | 3-10              
- src/components           |    4.74 |    10.85 |    5.71 |    5.31 |                   
-  CentralToUser.tsx       |       0 |        0 |       0 |       0 | 14-42             
-  ColorBucket.tsx         |       0 |        0 |       0 |       0 | 12-41             
+ src/components           |    4.58 |     8.28 |    5.35 |    5.14 |                   
+  CentralToUser.tsx       |       0 |        0 |       0 |       0 | 14-45             
+  ColorBucket.tsx         |       0 |        0 |       0 |       0 | 12-44             
   ColorPicker.tsx         |       0 |      100 |       0 |       0 | 7-16              
   Common.ts               |       0 |        0 |       0 |       0 |                   
-  DeletePreset.tsx        |       0 |        0 |       0 |       0 | 19-70             
+  DeletePreset.tsx        |       0 |        0 |       0 |       0 | 20-74             
   DeletePresetAlerts.tsx  |     100 |      100 |     100 |     100 |                   
-  DeleteUserPreset.tsx    |       0 |        0 |       0 |       0 | 18-63             
+  DeleteUserPreset.tsx    |       0 |        0 |       0 |       0 | 18-66             
   DragColor.tsx           |       0 |      100 |       0 |       0 | 7-14              
   DragPreset.tsx          |       0 |        0 |       0 |       0 | 22-37             
   DragTutorial.tsx        |     100 |      100 |     100 |     100 |                   
@@ -36,11 +36,11 @@ All files                 |    3.17 |    10.37 |    3.94 |    3.41 |
   LoginButton.tsx         |      40 |       50 |   33.33 |      40 | 23-34,55,67-81    
   PostButtonAlerts.tsx    |       0 |        0 |       0 |       0 | 8                 
   PostUserTheme.tsx       |       0 |        0 |       0 |       0 | 28-57             
-  PresetLoader.tsx        |       0 |      100 |       0 |       0 | 10-17             
+  PresetLoader.tsx        |       0 |        0 |       0 |       0 | 10-27             
   PresetPostButton.tsx    |       0 |        0 |       0 |       0 | 28-60             
   Presets.tsx             |       0 |        0 |       0 |       0 | 30-134            
-  Preview.tsx             |       0 |        0 |       0 |       0 | 10-162            
-  PreviewButtonsGroup.tsx |       0 |      100 |       0 |       0 | 18-57             
+  Preview.tsx             |       0 |        0 |       0 |       0 | 10-169            
+  PreviewButtonsGroup.tsx |       0 |      100 |       0 |       0 | 18-62             
   RegisterUserAlerts.tsx  |       0 |        0 |       0 |       0 | 8                 
   RegisterUserButton.tsx  |       0 |        0 |       0 |       0 | 15-84             
   UserPostAlerts.tsx      |       0 |        0 |       0 |       0 | 8                 
@@ -63,5 +63,5 @@ All files                 |    3.17 |    10.37 |    3.94 |    3.41 |
 Test Suites: 9 passed, 9 total
 Tests:       19 passed, 19 total
 Snapshots:   0 total
-Time:        6.854 s
+Time:        7.131 s
 Ran all test suites.
