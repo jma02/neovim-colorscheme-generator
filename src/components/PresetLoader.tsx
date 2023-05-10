@@ -12,7 +12,10 @@ export default function PresetLoader({setThemeFile}: PresetLoaderProps) {
         drop: (item, monitor) =>{
             const dropped = item as DroppedPreset;
             setThemeFile(dropped.ThemeFile);
-        }
+        },
+        collect: (monitor)=>({
+            canDrop: monitor.canDrop() && monitor.isOver(),
+        }),
     }));
     
     const { isDragging, type } = useDragLayer((monitor) => ({
@@ -29,8 +32,11 @@ export default function PresetLoader({setThemeFile}: PresetLoaderProps) {
                 role={"Preset Loader"}
                 bg="teal.600"
                 border="1px"
-                borderColor="white"
-                boxShadow={isDragging && type === "PRESET" ? "0 0 10px 5px rgba(255, 255, 255, 0.5)" : "none"}                
+                borderColor={collectedProps.canDrop ? "lime" : "white"}
+                boxShadow={isDragging && type === "PRESET" ? 
+                    collectedProps.canDrop ? "0 0 10px 5px rgba(0, 255, 0, 1)"
+                        :"0 0 10px 5px rgba(255, 255, 255, 0.5)" 
+                    : "none"}                
             >
                 <CardBody>
                     <Text

@@ -37,7 +37,10 @@ export default function CentralToUser({user, setUserThemes}: CentralToUserProps)
                     fetch_user_presets((user as Realm.User).id, setUserThemes);
                 }
                 );
-        }
+        },
+        collect: (monitor)=>({
+            canDrop: monitor.canDrop() && monitor.isOver(),
+        }),
     }));
     return (
         <h2>
@@ -45,9 +48,14 @@ export default function CentralToUser({user, setUserThemes}: CentralToUserProps)
                 borderStyle="solid"
                 borderWidth="1px"
                 borderRadius="lg"
-                borderColor={isDragging && user !== null && type === "PRESET" ? "white" : "transparent"}
-                boxShadow={isDragging && user !== null && type === "PRESET" ? "0 0 10px 5px rgba(255, 255, 255, 0.5)" : "none"}
+                borderColor={isDragging && user !== null && type === "PRESET" ?
+                    collectedProps.canDrop ? "lime" : "white" : "transparent"}
+                boxShadow={isDragging && user !== null && type === "PRESET" ?
+                    collectedProps.canDrop ? "0 0 10px 5px rgba(0, 255, 0, 1)"
+                        : "0 0 10px 5px rgba(255, 255, 255, 0.5)"
+                    : "none"}
                 _hover={{ textShadow: "0px 0px 1px #ccc" }}
+                zIndex="100"
             >
                 <Box 
                     as="span" 
