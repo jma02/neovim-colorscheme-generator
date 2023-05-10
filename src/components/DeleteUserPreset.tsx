@@ -28,7 +28,10 @@ export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetPr
             const dropped = item as DroppedPreset;
             setId(dropped._id);
             onOpen();
-        }
+        },
+        collect: (monitor)=>({
+            canDrop: monitor.canDrop() && monitor.isOver(),
+        }),
     })); 
 
     function sleep(ms: number) {
@@ -68,11 +71,14 @@ export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetPr
                 textAlign="center"
                 borderRadius="md"
                 justifyContent="center"
-                borderColor="white"
+                borderColor={collectedProps.canDrop ? "red" : "white"}
                 borderWidth="thin"
                 direction="column"
                 ref={dropRef}
-                boxShadow={isDragging && type === "PRESET" ? "0 0 10px 5px rgba(255, 255, 255, 0.5)" : "none"}
+                boxShadow={isDragging && type === "PRESET" ? 
+                    collectedProps.canDrop ? "0 0 10px 5px rgba(255, 0, 0, 0.5)" 
+                        : "0 0 10px 5px rgba(255, 255, 255, 0.5)" 
+                    : "none"}
             >
               Drag a theme here to delete it!
             </Flex>

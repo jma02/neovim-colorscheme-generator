@@ -28,7 +28,7 @@ export default function Edit({user, setUser}: PageProps){
         }
     );
     return(
-        <div style={{padding: 30}}>
+        <div style={{padding: 40}}>
             <Grid templateColumns="repeat(3, 1fr)" gap={6}>
                 <Box>
                     <Flex>

@@ -137,7 +137,10 @@ export default function Preview({themeFile, setThemeFile}: PreviewProps): JSX.El
         drop: (item, monitor) =>{
             const dropped = item as DroppedPreset;
             setThemeFile(dropped.ThemeFile);
-        }
+        },
+        collect: (monitor)=>({
+            canDrop: monitor.canDrop() && monitor.isOver(),
+        }),
     }));
 
     return(
@@ -149,8 +152,12 @@ export default function Preview({themeFile, setThemeFile}: PreviewProps): JSX.El
                 style={{width: "100%", height: "90%"}}
                 borderStyle="solid"
                 borderWidth="1px"
-                borderColor={isDragging && type === "PRESET" ? "white" : "transparent"}
-                boxShadow={isDragging && type === "PRESET" ? "0 0 10px 5px rgba(255, 255, 255, 0.5)" : "none"}>
+                borderColor={isDragging && type === "PRESET" ?
+                    collectedProps.canDrop ? "lime": "white" : "transparent"}
+                boxShadow={isDragging && type === "PRESET" ? 
+                    collectedProps.canDrop ? "0 0 10px 5px rgba(0, 255, 0, 1)" 
+                        : "0 0 10px 5px rgba(255, 255, 255, 0.5)" 
+                    : "none"}>
                 {processCodeToHTML(previewCode, themeFile)}
             </Box>
             <PreviewButtonsGroup themeFile={themeFile} setThemeFile={setThemeFile}/>

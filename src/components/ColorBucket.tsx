@@ -19,7 +19,10 @@ export default function ColorBucket({theme, setThemeFile, prop}: ColorBucketProp
         drop: (item, monitor) =>{
             const dropped = item as DroppedColor;
             setFillColor(dropped.fillColor);
-        }
+        },
+        collect: (monitor)=>({
+            canDrop: monitor.canDrop() && monitor.isOver(),
+        }),
     }));
 
     const [collectedPropsDrag, drag] = useDrag(() => ({
@@ -43,8 +46,12 @@ export default function ColorBucket({theme, setThemeFile, prop}: ColorBucketProp
             borderStyle="solid"
             borderWidth="1px"
             borderRadius="lg"
-            borderColor={isDragging && type === "COLOR" ? "cyan" : "transparent"}
-            boxShadow={isDragging  && type === "COLOR" ? "0 0 10px 5px rgba(0, 255, 255, 0.5)" : "none"}
+            borderColor={isDragging && type === "COLOR" ?
+                collectedProps.canDrop ? "lime" : "cyan" : "transparent"}
+            boxShadow={isDragging  && type === "COLOR" ? 
+                collectedProps.canDrop ? "0 0 10px 5px rgba(0, 255, 0, 1)" 
+                    : "0 0 10px 5px rgba(0, 255, 255, 0.5)" 
+                : "none"}
             ref={dropRef}
             role={"ColorBucket"}
             backgroundColor={fillColor}

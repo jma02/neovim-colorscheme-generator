@@ -22,7 +22,12 @@ export default function PreviewButtonsGroup({themeFile, setThemeFile}: PreviewBu
             <HStack>
                 <Popover>
                     <PopoverTrigger>
-                        <InfoIcon/>
+                        <InfoIcon
+                            _hover={{
+                                boxShadow: "0 0 10px 2px rgba(255, 255, 255, 0.5)",
+                                borderRadius: "50%"
+                            }}
+                        />
                     </PopoverTrigger>
                     <PopoverContent bg='red.400' color='white'>
                         <PopoverHeader fontWeight='semibold'>Installation</PopoverHeader>

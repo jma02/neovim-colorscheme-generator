@@ -1,6 +1,7 @@
 import { useDisclosure, Button, AlertDialog, AlertDialogOverlay,
     AlertDialogContent, AlertDialogHeader, 
-    AlertDialogBody, AlertDialogFooter, Flex, Box, Input, FormControl, FormLabel, Link } from "@chakra-ui/react";
+    AlertDialogBody, AlertDialogFooter, Flex, Box, 
+    Input, FormControl, FormLabel, Link } from "@chakra-ui/react";
 import React, { useRef, useState } from "react";
 import { useDragLayer, useDrop } from "react-dnd";
 import { DroppedPreset, Preset } from "./Common";
@@ -37,7 +38,10 @@ export default function DeletePreset({setThemes}: DeletePresetProps){
             const dropped = item as DroppedPreset;
             setId(dropped._id);
             onOpen();
-        }
+        },
+        collect: (monitor)=>({
+            canDrop: monitor.canDrop() && monitor.isOver(),
+        })
     })); 
     
     const handleApiKeyChange = (event: React.ChangeEvent<HTMLInputElement>) => setApiKey(event.target.value);
@@ -75,11 +79,14 @@ export default function DeletePreset({setThemes}: DeletePresetProps){
                 textAlign="center"
                 borderRadius="md"
                 justifyContent="center"
-                borderColor="white"
+                borderColor={collectedProps.canDrop ? "red" : "white"}
                 borderWidth="thin"
                 direction="column"
                 ref={dropRef}
-                boxShadow={isDragging && type === "PRESET" ? "0 0 10px 5px rgba(255, 255, 255, 0.5)" : "none"}
+                boxShadow={isDragging && type === "PRESET" ? 
+                    collectedProps.canDrop ? "0 0 10px 5px rgba(255, 0, 0, 0.5)" 
+                        : "0 0 10px 5px rgba(255, 255, 255, 0.5)" 
+                    : "none"}
             >
               Drag a preset here to delete it!
             </Flex>
