@@ -9,18 +9,18 @@ PASS src/Tests/DeletePresetAlerts.test.tsx
 PASS src/Tests/download.test.ts
 PASS src/App.test.tsx
 PASS src/Tests/DragPreset.test.tsx
-PASS src/Tests/ColorBucket.test.tsx
 PASS src/Tests/ColorPicker.test.tsx
+PASS src/Tests/ColorBucket.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------|---------|----------|---------|---------|-------------------
-All files                 |    3.09 |        8 |    3.77 |    3.34 |                   
+All files                 |    3.08 |        8 |    3.77 |    3.33 |                   
  src                      |       0 |        0 |       0 |       0 |                   
   App.tsx                 |       0 |      100 |       0 |       0 | 7-8               
   chakraTheme.ts          |       0 |      100 |     100 |       0 | 1                 
   index.tsx               |       0 |      100 |     100 |       0 | 11-33             
   reportWebVitals.ts      |       0 |        0 |       0 |       0 | 3-10              
- src/components           |    4.58 |     8.28 |    5.35 |    5.14 |                   
+ src/components           |    4.56 |     8.28 |    5.35 |    5.11 |                   
   CentralToUser.tsx       |       0 |        0 |       0 |       0 | 14-45             
   ColorBucket.tsx         |       0 |        0 |       0 |       0 | 12-44             
   ColorPicker.tsx         |       0 |      100 |       0 |       0 | 7-16              
@@ -42,7 +42,7 @@ All files                 |    3.09 |        8 |    3.77 |    3.34 |
   Preview.tsx             |       0 |        0 |       0 |       0 | 10-169            
   PreviewButtonsGroup.tsx |       0 |      100 |       0 |       0 | 18-62             
   RegisterUserAlerts.tsx  |       0 |        0 |       0 |       0 | 8                 
-  RegisterUserButton.tsx  |       0 |        0 |       0 |       0 | 15-84             
+  RegisterUserButton.tsx  |       0 |        0 |       0 |       0 | 18-88             
   UserPostAlerts.tsx      |       0 |        0 |       0 |       0 | 8                 
  src/functions            |       0 |        0 |       0 |       0 |                   
   delete_preset.ts        |       0 |      100 |       0 |       0 | 6-20              
@@ -63,5 +63,5 @@ All files                 |    3.09 |        8 |    3.77 |    3.34 |
 Test Suites: 9 passed, 9 total
 Tests:       19 passed, 19 total
 Snapshots:   0 total
-Time:        7.131 s
+Time:        8.712 s
 Ran all test suites.
