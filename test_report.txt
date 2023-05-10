@@ -9,8 +9,8 @@ PASS src/Tests/DeletePresetAlerts.test.tsx
 PASS src/Tests/download.test.ts
 PASS src/App.test.tsx
 PASS src/Tests/DragPreset.test.tsx
-PASS src/Tests/ColorPicker.test.tsx
 PASS src/Tests/ColorBucket.test.tsx
+PASS src/Tests/ColorPicker.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------|---------|----------|---------|---------|-------------------
@@ -39,7 +39,7 @@ All files                 |    3.17 |    10.37 |    3.94 |    3.41 |
   PresetLoader.tsx        |       0 |      100 |       0 |       0 | 10-17             
   PresetPostButton.tsx    |       0 |        0 |       0 |       0 | 28-60             
   Presets.tsx             |       0 |        0 |       0 |       0 | 30-134            
-  Preview.tsx             |       0 |        0 |       0 |       0 | 16-168            
+  Preview.tsx             |       0 |        0 |       0 |       0 | 10-162            
   PreviewButtonsGroup.tsx |       0 |      100 |       0 |       0 | 18-57             
   RegisterUserAlerts.tsx  |       0 |        0 |       0 |       0 | 8                 
   RegisterUserButton.tsx  |       0 |        0 |       0 |       0 | 15-84             
@@ -63,5 +63,5 @@ All files                 |    3.17 |    10.37 |    3.94 |    3.41 |
 Test Suites: 9 passed, 9 total
 Tests:       19 passed, 19 total
 Snapshots:   0 total
-Time:        9.257 s
+Time:        6.854 s
 Ran all test suites.
