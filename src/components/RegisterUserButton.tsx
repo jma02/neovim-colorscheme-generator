@@ -3,15 +3,18 @@ import { Box, Button, Flex, FormControl, FormHelperText,
     PopoverCloseButton, PopoverContent, PopoverTrigger, Spacer } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { User } from "realm-web";
+import fetch_user_presets from "../functions/fetch_user_presets";
 import login_user from "../functions/login_user";
 import register_user from "../functions/register_user";
+import { Preset } from "./Common";
 import RegisterUserAlerts from "./RegisterUserAlerts";
 
 interface RegisterUserButtonProps{
     setUser: (x: User) => void;
+    setUserThemes: (x: Preset[]) => void;
 }
 
-export default function RegisterUserButton({setUser}: RegisterUserButtonProps){
+export default function RegisterUserButton({setUser, setUserThemes}: RegisterUserButtonProps){
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [show, setShow] = useState<boolean>(false);
@@ -28,6 +31,7 @@ export default function RegisterUserButton({setUser}: RegisterUserButtonProps){
                 login_user(email, password)
                     .then((user) =>{
                         setUser(user);
+                        fetch_user_presets(user.id, setUserThemes);
                     });
             })
             .catch((error: Error) => {
