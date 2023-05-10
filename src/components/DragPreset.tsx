@@ -42,6 +42,9 @@ export default function DragPreset({ThemeFile, name, description, upvotes, _id, 
             height="10vh"
             border="2px" // Note for future devs: border must be defined first
             borderColor={ThemeFile.bg}
+            _hover={{boxShadow: `0 0 20px ${ThemeFile.bg}`,
+                transition: "box-shadow 0.1s ease-in-out"
+            }}
         >
             <CardBody>
                 <Flex>
