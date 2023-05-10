@@ -13,7 +13,12 @@ export default function DragTutorial(){
             <Box>
                 <Popover>
                     <PopoverTrigger>
-                        <InfoIcon aria-label="info" />
+                        <InfoIcon 
+                            aria-label="info" 
+                            _hover={{
+                                boxShadow: "0 0 10px 2px rgba(255, 255, 255, 0.5)",
+                                borderRadius: "50%"
+                            }} />
                     </PopoverTrigger>
                     <PopoverContent bgColor="red.400" width="100vh">
                         <PopoverCloseButton />
