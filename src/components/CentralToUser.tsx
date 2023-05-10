@@ -47,6 +47,7 @@ export default function CentralToUser({user, setUserThemes}: CentralToUserProps)
                 borderRadius="lg"
                 borderColor={isDragging && user !== null && type === "PRESET" ? "white" : "transparent"}
                 boxShadow={isDragging && user !== null && type === "PRESET" ? "0 0 10px 5px rgba(255, 255, 255, 0.5)" : "none"}
+                _hover={{ textShadow: "0px 0px 1px #ccc" }}
             >
                 <Box 
                     as="span" 

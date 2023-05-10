@@ -38,7 +38,7 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
             <Accordion defaultIndex={[0]}>
                 <AccordionItem>
                     <h2>
-                        <AccordionButton>
+                        <AccordionButton  _hover={{ textShadow: "0px 0px 1px #ccc" }}>
                             <Box as="span" flex='1' textAlign='left'>
                                       Presets
                             </Box>

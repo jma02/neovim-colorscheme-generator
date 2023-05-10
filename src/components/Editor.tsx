@@ -23,8 +23,8 @@ export default function Editor({themeFile, setThemeFile}: EditorProps): JSX.Elem
             <DragTutorial/>
             <Tabs colorScheme="white" variant="line">
                 <TabList>
-                    <Tab _hover={{ textShadow: "0px 0px 2px #ccc" }}><Text>Presets</Text></Tab>
-                    <Tab _hover={{ textShadow: "0px 0px 2px #ccc" }}><Text>Color Picker</Text></Tab>
+                    <Tab _hover={{ textShadow: "0px 0px 1px #ccc" }}><Text>Presets</Text></Tab>
+                    <Tab _hover={{ textShadow: "0px 0px 1px #ccc" }}><Text>Color Picker</Text></Tab>
                 </TabList>
 
                 <TabPanels>
