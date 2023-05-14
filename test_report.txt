@@ -21,40 +21,40 @@ All files                 |    3.08 |        8 |    3.77 |    3.33 |
   index.tsx               |       0 |      100 |     100 |       0 | 11-33             
   reportWebVitals.ts      |       0 |        0 |       0 |       0 | 3-10              
  src/components           |    4.56 |     8.28 |    5.35 |    5.11 |                   
-  CentralToUser.tsx       |       0 |        0 |       0 |       0 | 14-45             
-  ColorBucket.tsx         |       0 |        0 |       0 |       0 | 12-44             
-  ColorPicker.tsx         |       0 |      100 |       0 |       0 | 7-16              
+  CentralToUser.tsx       |       0 |        0 |       0 |       0 | 25-56             
+  ColorBucket.tsx         |       0 |        0 |       0 |       0 | 24-56             
+  ColorPicker.tsx         |       0 |      100 |       0 |       0 | 19-28             
   Common.ts               |       0 |        0 |       0 |       0 |                   
-  DeletePreset.tsx        |       0 |        0 |       0 |       0 | 20-74             
+  DeletePreset.tsx        |       0 |        0 |       0 |       0 | 30-83             
   DeletePresetAlerts.tsx  |     100 |      100 |     100 |     100 |                   
-  DeleteUserPreset.tsx    |       0 |        0 |       0 |       0 | 18-66             
-  DragColor.tsx           |       0 |      100 |       0 |       0 | 7-14              
-  DragPreset.tsx          |       0 |        0 |       0 |       0 | 22-37             
+  DeleteUserPreset.tsx    |       0 |        0 |       0 |       0 | 28-76             
+  DragColor.tsx           |       0 |      100 |       0 |       0 | 17-24             
+  DragPreset.tsx          |       0 |        0 |       0 |       0 | 46-62             
   DragTutorial.tsx        |     100 |      100 |     100 |     100 |                   
-  Editor.tsx              |       0 |      100 |       0 |       0 | 10-56             
+  Editor.tsx              |       0 |      100 |       0 |       0 | 22-68             
   LoginAlerts.tsx         |     100 |      100 |     100 |     100 |                   
-  LoginButton.tsx         |      40 |       50 |   33.33 |      40 | 23-34,55,67-81    
-  PostButtonAlerts.tsx    |       0 |        0 |       0 |       0 | 8                 
+  LoginButton.tsx         |      40 |       50 |   33.33 |      40 | 31-42,63,75-89    
+  PostButtonAlerts.tsx    |       0 |        0 |       0 |       0 | 15                
   PostUserTheme.tsx       |       0 |        0 |       0 |       0 | 28-57             
-  PresetLoader.tsx        |       0 |        0 |       0 |       0 | 10-27             
-  PresetPostButton.tsx    |       0 |        0 |       0 |       0 | 28-60             
-  Presets.tsx             |       0 |        0 |       0 |       0 | 30-134            
-  Preview.tsx             |       0 |        0 |       0 |       0 | 10-169            
-  PreviewButtonsGroup.tsx |       0 |      100 |       0 |       0 | 18-62             
-  RegisterUserAlerts.tsx  |       0 |        0 |       0 |       0 | 8                 
-  RegisterUserButton.tsx  |       0 |        0 |       0 |       0 | 18-88             
-  UserPostAlerts.tsx      |       0 |        0 |       0 |       0 | 8                 
+  PresetLoader.tsx        |       0 |        0 |       0 |       0 | 15-32             
+  PresetPostButton.tsx    |       0 |        0 |       0 |       0 | 26-58             
+  Presets.tsx             |       0 |        0 |       0 |       0 | 36-141            
+  Preview.tsx             |       0 |        0 |       0 |       0 | 13-172            
+  PreviewButtonsGroup.tsx |       0 |      100 |       0 |       0 | 25-69             
+  RegisterUserAlerts.tsx  |       0 |        0 |       0 |       0 | 16                
+  RegisterUserButton.tsx  |       0 |        0 |       0 |       0 | 23-94             
+  UserPostAlerts.tsx      |       0 |        0 |       0 |       0 | 17                
  src/functions            |       0 |        0 |       0 |       0 |                   
-  delete_preset.ts        |       0 |      100 |       0 |       0 | 6-20              
-  delete_user_preset.ts   |       0 |      100 |       0 |       0 | 6-21              
-  download.ts             |       0 |        0 |       0 |       0 | 5-53              
-  fetch_presets.ts        |       0 |      100 |       0 |       0 | 5-17              
-  fetch_user_presets.ts   |       0 |      100 |       0 |       0 | 5-18              
-  login_user.ts           |       0 |      100 |       0 |       0 | 4-15              
-  post_preset.ts          |       0 |      100 |       0 |       0 | 6-20              
-  post_user_preset.ts     |       0 |      100 |       0 |       0 | 6-22              
-  register_user.ts        |       0 |      100 |       0 |       0 | 4-14              
-  upvote_theme.ts         |       0 |      100 |       0 |       0 | 5-20              
+  delete_preset.ts        |       0 |      100 |       0 |       0 | 18-32             
+  delete_user_preset.ts   |       0 |      100 |       0 |       0 | 13-28             
+  download.ts             |       0 |        0 |       0 |       0 | 13-61             
+  fetch_presets.ts        |       0 |      100 |       0 |       0 | 11-23             
+  fetch_user_presets.ts   |       0 |      100 |       0 |       0 | 10-23             
+  login_user.ts           |       0 |      100 |       0 |       0 | 10-21             
+  post_preset.ts          |       0 |      100 |       0 |       0 | 18-32             
+  post_user_preset.ts     |       0 |      100 |       0 |       0 | 13-29             
+  register_user.ts        |       0 |      100 |       0 |       0 | 24-34             
+  upvote_theme.ts         |       0 |      100 |       0 |       0 | 21-36             
  src/pages                |       0 |      100 |       0 |       0 |                   
   edit.tsx                |       0 |      100 |       0 |       0 | 16-30             
   landing.tsx             |       0 |      100 |       0 |       0 | 18-33             
@@ -63,5 +63,5 @@ All files                 |    3.08 |        8 |    3.77 |    3.33 |
 Test Suites: 9 passed, 9 total
 Tests:       19 passed, 19 total
 Snapshots:   0 total
-Time:        8.712 s
+Time:        8.359 s
 Ran all test suites.
