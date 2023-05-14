@@ -5,6 +5,17 @@ import { DroppedPreset, PostFragment, Preset } from "./Common";
 import post_user_preset from "../functions/post_user_preset";
 import fetch_user_presets from "../functions/fetch_user_presets";
 
+/**
+   * Provide droppable target for user to drag a preset from preset list to
+   * user list.
+   *
+   * @remarks
+   * see ../functions/post_user_preset for backend implementation
+   *
+   * @param user - user object fetched by Realm: nullable
+   * @param setUserThemes - state function which sets the displayed user themes
+   */
+
 interface CentralToUserProps {
     user: Realm.User | null;
     setUserThemes: (x: Preset[]) => void;

@@ -7,6 +7,18 @@ import ColorBucket from "./ColorBucket";
 import { ThemeFile } from "./Common";
 import DragTutorial from "./DragTutorial";
 
+/**
+ * Wrapper for color dragging and dropping components. 
+   *
+   * @remarks
+   * See ./ColorBucket.tsx for drop target analog.
+   *
+   * @param themeFile - displayed theme
+   * @param setThemeFile - corresponding state function
+   *
+   */
+
+
 const presetCards = [
     "#DA4B4B", "#F3CA7B", "#2E9A1E", "#1E9A81", 
     "#252DDA", "#3DD8D3", "#9134AF", "#43148E", 

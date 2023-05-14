@@ -13,16 +13,16 @@ interface PostButtonProps{
     setPresets: (x: Preset[]) => void;
     user: string;
 }
-
-/*
-export interface Preset{
-    _id: ObjectId; _id will be automatically assigned by MongoDB
-    name: string;
-    description: string;
-    ThemeFile: ThemeFile;
-    upvotes: number;
-}
-*/
+/**
+ * Component providing UI for posting themes to user database.
+ * 
+ * @remarks 
+ * See ../functions/post_user_preset.ts for backend implementation.
+   *
+   * @param ThemeFile 
+   * @param setPresets - called upon a successful theme post and user themes retrieval.
+   * @param apiError - passed down to alerts component for user feedback.
+   */
 
 export default function PostUserTheme({ThemeFile, setPresets, user}: PostButtonProps){
     const [name, setName] = useState<string>(""); 

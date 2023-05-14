@@ -9,6 +9,13 @@ import download from "../functions/download";
 import PresetLoader from "./PresetLoader";
 import { ThemeFile } from "./Common";
 
+/**
+   * Decomposed component containing two primary components:
+   *  - A download button which downloads .lua themes to the user's machine
+   *  - A drop target for loading presets.
+   *
+   */
+
 interface PreviewButtonsProps{
     themeFile: ThemeFile;
     setThemeFile: (x: ThemeFile) => void;

@@ -1,6 +1,18 @@
 import {PostFragment} from "../components/Common";
-
 import * as Realm from "realm-web";
+
+/**
+   * Posts an preset to the central item list
+   *
+   * @remarks
+   * We took some liberty satisfying the prompt. 
+   * Since we can't let everyone freely tamper with the presets collection,
+   * we are requiring "super users" to possess an api key.
+   *
+   * @param api_key - potential MongoDB Realm api key 
+   * @returns boolean promise of whether or not we encounter an error.
+   *
+   */
 
 export default function post_preset(Preset: PostFragment, api_key: string){
     const REALM_APP_ID = process.env.REACT_APP_MONGO_APP_ID as string;

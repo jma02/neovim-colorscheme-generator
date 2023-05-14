@@ -12,6 +12,16 @@ import fetch_presets from "../functions/fetch_presets";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import DeletePresetAlerts from "./DeletePresetAlerts";
 
+/**
+  * Provides the user a robust interface for deleting a preset from the presets list.
+   *
+   * @remarks
+   * Component is a drop target. Also see ../functions/delete_preset.ts for backend.
+   * ./DeleteUserPreset.tsx is the end user analog to this component. 
+   *
+   * @param setThemes - state function which sets the displayed presets.
+   */
+
 interface DeletePresetProps{
     setThemes: (x: Preset[]) => void;
 }
@@ -31,7 +41,6 @@ export default function DeletePreset({setThemes}: DeletePresetProps){
         type: monitor.getItemType(),
     }));
 
-                                                                
     const [collectedProps, dropRef] = useDrop(() => ({
         accept: "PRESET",
         drop: (item, monitor) =>{

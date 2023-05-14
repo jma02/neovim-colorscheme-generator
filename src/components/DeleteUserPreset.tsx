@@ -9,6 +9,16 @@ import { DroppedPreset, Preset } from "./Common";
 
 import { ObjectId } from "bson";
 
+/**
+  * Provides the user a robust interface for deleting a theme from their user list.
+
+   * @remarks
+   * see ../functions/post_user_preset for backend implementation
+   *
+   * @param setThemes - state function which sets the displayed user themes
+   * @param userId - state variable representing the user's uuid.
+   */
+
 interface DeleteUserPresetProps{
     setThemes: (x: Preset[]) => void;
     userId: string;

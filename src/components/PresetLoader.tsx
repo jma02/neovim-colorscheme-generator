@@ -3,6 +3,11 @@ import { Box, Card, CardBody, Text } from "@chakra-ui/react";
 import { useDragLayer, useDrop } from "react-dnd";
 import { DroppedPreset, ThemeFile } from "./Common";
 
+/**
+ * Drop target for DragPreset
+   *
+   */
+
 interface PresetLoaderProps {
     setThemeFile: (x: ThemeFile) => void;
 }

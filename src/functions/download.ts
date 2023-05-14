@@ -1,5 +1,13 @@
 import { ThemeFile } from "../components/Common";
 
+/**
+    * Downloads the loaded theme onto the user's machine.
+   *
+   * @param filename - inputted from interface provided by ../components/PreviewButtonsGroup.tsx
+   *
+   */
+
+
 export default function download(themeFile: ThemeFile, filename: string): void{
     // create a new Blob object with the file content and type
     const blob = new Blob([`return{\n\

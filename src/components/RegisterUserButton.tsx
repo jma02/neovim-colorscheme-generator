@@ -9,6 +9,11 @@ import register_user from "../functions/register_user";
 import { Preset } from "./Common";
 import RegisterUserAlerts from "./RegisterUserAlerts";
 
+/**
+ * Component which provides UI for registering a user.
+   */
+
+
 interface RegisterUserButtonProps{
     setUser: (x: User) => void;
     setUserThemes: (x: Preset[]) => void;
@@ -52,6 +57,7 @@ export default function RegisterUserButton({setUser, setUserThemes}: RegisterUse
                     <FormControl>
                         <FormLabel>Email address</FormLabel>
                         <Input type='email' onChange={(e)=> setEmail(e.target.value as string)}/>
+                        {/* TODO: Implement email address validator */}
                         <FormHelperText>Please enter a valid email address.</FormHelperText>
                     </FormControl>
                     <Box p="5" justifyContent="center" alignItems="center">
