@@ -1,8 +1,20 @@
-import {PostFragment} from "../components/Common";
-
 import * as Realm from "realm-web";
 
-export default function post_preset(api_key: string, id: string){
+/**
+   * Deletes an preset from the central item list
+   *
+   * @remarks
+   * We took some liberty satisfying the prompt. 
+   * Since we can't let everyone freely tamper with the presets collection,
+   * we are requiring "super users" to possess an api key.
+   *
+   * @param api_key - potential MongoDB Realm api key 
+   * @param id - _id of the preset we want to delete.
+   * @returns boolean promise of whether or not we encounter an error.
+   *
+   */
+
+export default function delete_preset(api_key: string, id: string){
     const REALM_APP_ID = process.env.REACT_APP_MONGO_APP_ID as string;
     const app = new Realm.App({id : REALM_APP_ID});
     const credentials = Realm.Credentials.apiKey(api_key);

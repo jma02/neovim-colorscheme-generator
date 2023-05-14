@@ -2,6 +2,13 @@ import {PostFragment} from "../components/Common";
 
 import * as Realm from "realm-web";
 
+/**
+   * Posts an theme to the user's item list
+   *
+   * @returns boolean promise of whether or not we encounter an error.
+   *
+   */
+
 export default function post_preset(Preset: PostFragment, user: string){
     const REALM_APP_ID = process.env.REACT_APP_MONGO_APP_ID as string;
     const API_KEY = process.env.REACT_APP_MONGO_REALM_API_KEY as string;

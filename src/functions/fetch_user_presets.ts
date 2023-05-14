@@ -1,6 +1,11 @@
 import { Preset } from "../components/Common";
 import * as Realm from "realm-web";
 
+/**
+   * Fetches a user's saved themes from MongoDB.
+   * @returns promise of error if an error is encountered.
+   */
+
 export default function fetch_user_presets(user: string, setThemes: (x: Preset[])=> void){
     const REALM_APP_ID = process.env.REACT_APP_MONGO_APP_ID as string;
     const app = new Realm.App({id : REALM_APP_ID});

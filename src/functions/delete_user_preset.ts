@@ -1,8 +1,15 @@
 import * as Realm from "realm-web";
 
-import { ObjectId } from "bson";
+/**
+   * Deletes an theme from a user's list.
+   *
+   * @param user - id of the logged in user.
+   * @param id - _id of the preset we want to delete.
+   * @returns boolean promise of whether or not we encounter an error.
+   *
+   */
 
-export default function post_preset(user: string, id: string){
+export default function delete_user_preset(user: string, id: string){
     const REALM_APP_ID = process.env.REACT_APP_MONGO_APP_ID as string;
     const api_key = process.env.REACT_APP_MONGO_REALM_API_KEY as string;
     const app = new Realm.App({id : REALM_APP_ID});
