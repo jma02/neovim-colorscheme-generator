@@ -3,6 +3,16 @@ import { Card, CardBody } from "@chakra-ui/react";
 import { useDrag } from "react-dnd";
 import { DroppedColor } from "./Common";
 
+/**
+  * Draggable component which holds a color payload.
+   *
+   * @remarks
+   * See ./ColorBucket.tsx for drop target analog.
+   *
+   * @param fillColor - hex color string
+   *
+   */
+
 export default function DragColor({fillColor}: DroppedColor){
     const [{isDragging}, drag] = useDrag(() => ({
         type: "COLOR",

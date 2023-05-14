@@ -14,15 +14,13 @@ interface PostButtonProps{
     setPresets: (x: Preset[]) => void;
 }
 
-/*
-export interface Preset{
-    _id: ObjectId; _id will be automatically assigned by MongoDB
-    name: string;
-    description: string;
-    ThemeFile: ThemeFile;
-    upvotes: number;
-}
-*/
+/**
+ * Super user analog to PostUserTheme
+ * 
+ * @remarks
+ * see ./PostUserThemes.tsx
+   *
+   */
 
 export default function PresetPostButton({ThemeFile, setPresets}: PostButtonProps){
     const [name, setName] = useState<string>(""); 

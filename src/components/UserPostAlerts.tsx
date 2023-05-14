@@ -1,6 +1,15 @@
 import React from "react";
 import { Alert, AlertIcon, AlertTitle, AlertDescription, Box} from "@chakra-ui/react";
 
+/**
+   * Decomposed component for providing users feedback when saving themes.
+   *
+   * @param apiError - state variable dictating whether the user has encountered
+   * an error. 
+   */
+
+
+
 interface AlertsProps{
     apiError: boolean | null;
 }

@@ -16,10 +16,10 @@ export interface ThemeFile {
     error: string,
 }
 
+// this could be cleaned up, later.
 export interface DroppedPreset{
     _id: ObjectId;
     ThemeFile: ThemeFile;
-    // kept optional for sanity sake
     name: string;
     description: string;
     upvotes: number;

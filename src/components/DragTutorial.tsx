@@ -7,6 +7,11 @@ import Tutorial1 from "../images/tutorial_1.png";
 import Tutorial2 from "../images/tutorial_2.png";
 import Tutorial3 from "../images/tutorial_3.png";
 
+/**
+ * Simple tutorial component.
+   **/
+
+
 export default function DragTutorial(){
     return(
         <HStack>

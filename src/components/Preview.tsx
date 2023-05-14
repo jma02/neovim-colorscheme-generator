@@ -6,6 +6,9 @@ import PreviewButtonsGroup from "./PreviewButtonsGroup";
 import { useDragLayer, useDrop } from "react-dnd";
 import { v4 as uuidv4 } from "uuid";
 
+/**
+ * Wrapper component for theme preview.
+   */
 
 const previewCode: string = `import React from "react";
 import logo from "./logo.svg";

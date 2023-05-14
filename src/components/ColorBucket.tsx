@@ -3,6 +3,18 @@ import {  Card, CardBody } from "@chakra-ui/react";
 import { useDrag, useDragLayer, useDrop } from "react-dnd";
 import { DroppedColor, ThemeFile } from "./Common";
 
+/**
+   * Drop target for DragColor component. When a DragColor is dropped onto
+   * ColorBucket, ColorBucket will inherit DragColor's color, and call
+   * setThemeFile to reflect this inheritence.
+   *
+   * @remarks
+   * see ./DragColor.tsx for draggable analog.
+   * @param theme - ThemeFile of the application
+   * @param setThemeFile - corresponding state function for theme
+   * @param prop - corresponds to the theme property which ColorBucket represents.
+   */
+
 interface ColorBucketProps {
     theme: ThemeFile;
     setThemeFile: (x: ThemeFile) => void;

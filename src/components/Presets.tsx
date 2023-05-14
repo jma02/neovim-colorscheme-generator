@@ -17,6 +17,12 @@ import { User } from "realm-web";
 import CentralToUser from "./CentralToUser";
 import fetch_user_presets from "../functions/fetch_user_presets";
 
+/**
+ * Wrapper component for Preset viewing, loading, and posting, as well as user login.
+   *
+   * @param page - tells us which HashRouter page we are on, aids in conditional rendering.
+   */
+
 interface PresetsProps{
     themeFile: ThemeFile;
     presets: Preset[];
@@ -29,6 +35,7 @@ interface PresetsProps{
 export default function Presets({themeFile, presets, setPresets, user, setUser, page}: PresetsProps):JSX.Element{
     const [userThemes, setUserThemes] = useState<Preset[]>([]);
     
+    // hook triggers on page load.
     useEffect(() => {
         fetch_presets(setPresets);
         if(user !== null) fetch_user_presets(user.id, setUserThemes);

@@ -7,6 +7,14 @@ import login_user from "../functions/login_user";
 import { Preset } from "./Common";
 import LoginAlerts from "./LoginAlerts";
 
+
+/**
+ * Login component. 
+   *
+   * @param setUser - state function for setting Realm.User.
+   * @param setUserTheme - called upon fetching user saved themes.
+   */
+
 interface LoginButtonProps{
     setUser: (x: Realm.User) => void;
     setUserThemes: (x: Preset[]) => void;
