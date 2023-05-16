@@ -55,7 +55,8 @@ export default function DragPreset({
         })
     }));
 
-    function handleClick(){
+    function handleClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>){
+        e.stopPropagation();
         setUpvoted(true);
         setLocalUpvotes(localUpvotes+1);
         // ../functions/upvote_theme.ts
@@ -73,6 +74,7 @@ export default function DragPreset({
                 transition: "box-shadow 0.1s ease-in-out"
             }}
             onClick={()=>setThemeFile(ThemeFile)}
+            zIndex={99}
         >
             <CardBody>
                 <Flex>
@@ -94,7 +96,8 @@ export default function DragPreset({
                                 w="0"
                                 bg="transparent"
                                 isDisabled={upvoted}
-                                onClick={handleClick}
+                                onClick={(e)=>handleClick(e)}
+                                zIndex={100}
                             >
                                 <ArrowUpIcon
                                     color={upvoted ? "lime" : "green"}
