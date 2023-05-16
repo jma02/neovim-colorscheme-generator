@@ -29,7 +29,9 @@ export default function DragColor({fillColor}: DroppedColor){
             variant="filled" size="lg"
             height="10vh" width="10vh"
             _hover={{boxShadow: `0 0 20px ${fillColor}`,
-                transition: "box-shadow 0.1s ease-in-out"
+                transform: "scale(1.05)",
+                transition: "transform 0.2s, box-shadow 0.2s",
+                zIndex: 1000
             }}
         >
             <CardBody/>
