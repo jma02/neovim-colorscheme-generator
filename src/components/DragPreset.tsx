@@ -73,13 +73,16 @@ export default function DragPreset({
                 transition: "transform 0.2s, box-shadow 0.2s",
                 zIndex: 1000
             }}
+            overflowY="hidden"
+
         >
-            <CardBody
-                textOverflow="ellipsis"
-                overflowY="hidden">
+            <CardBody>
                 <Flex>
                     <Box
                         width="100%"
+                        maxHeight="50px"
+                        textOverflow="ellipsis"
+                        overflowY="hidden"
                     >
                         <Heading size="xs">{name}</Heading>
                         <Text fontSize="10">{description}</Text>
@@ -87,6 +90,12 @@ export default function DragPreset({
                     <Spacer/>
                     <Box>
                         <Flex direction="row">
+                            <Flex direction="column">
+                                <Box h="20%"></Box>
+                                <Button h="100%" w="0">
+                                    <EditIcon/>
+                                </Button>
+                            </Flex>
                             <Flex
                                 alignItems="center"
                                 justifyItems="center"
@@ -111,10 +120,7 @@ export default function DragPreset({
                                 </Box>
                                 
                             </Flex>
-                            <Flex direction="column">
-                                <Box h="20%"></Box>
-                                <EditIcon></EditIcon>
-                            </Flex>
+                            
                         </Flex>
                     </Box>
                 </Flex>
