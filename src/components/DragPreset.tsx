@@ -3,7 +3,7 @@ import { Card, CardBody, Flex, Box,
     Heading, Text, Spacer, Button} from "@chakra-ui/react";
 import { useDrag } from "react-dnd";
 import { DroppedPreset, ThemeFile } from "./Common";
-import { ArrowUpIcon } from "@chakra-ui/icons";
+import { ArrowUpIcon, EditIcon } from "@chakra-ui/icons";
 import { ObjectId } from "bson";
 import upvote_theme from "../functions/upvote_theme";
 
@@ -67,36 +67,54 @@ export default function DragPreset({
             height="10vh"
             border="2px" // Note for future devs: border must be defined first
             borderColor={ThemeFile.bg}
-            _hover={{boxShadow: `0 0 20px ${ThemeFile.bg}`,
-                transition: "box-shadow 0.1s ease-in-out"
+            _hover={{
+                boxShadow: `0 0 2px ${ThemeFile.bg}`,
+                transform: "scale(1.05)",
+                transition: "transform 0.2s, box-shadow 0.2s",
+                zIndex: 1000
             }}
         >
-            <CardBody>
+            <CardBody
+                textOverflow="ellipsis"
+                overflowY="hidden">
                 <Flex>
                     <Box
-                        width="100%">
+                        width="100%"
+                    >
                         <Heading size="xs">{name}</Heading>
                         <Text fontSize="10">{description}</Text>
                     </Box>
                     <Spacer/>
                     <Box>
-                        <Flex alignItems="center" justifyItems="center" textAlign="center">
-                            <Box>
-                                <Text fontWeight="extrabold" fontSize="10">
-                                    {localUpvotes}
-                                </Text>
-                            </Box>
-                            <Button 
-                                h="0"
-                                w="0"
-                                bg="transparent"
-                                isDisabled={upvoted}
-                                onClick={handleClick}
+                        <Flex direction="row">
+                            <Flex
+                                alignItems="center"
+                                justifyItems="center"
+                                textAlign="center"
+                                direction="column"
                             >
-                                <ArrowUpIcon
-                                    color={upvoted ? "lime" : "green"}
-                                />
-                            </Button>
+                                <Button 
+                                    h="100%"
+                                    w="0"
+                                    colorScheme="transparent"
+                                    isDisabled={upvoted}
+                                    onClick={handleClick}
+                                >
+                                    <ArrowUpIcon
+                                        color={upvoted ? "lime" : "green"}
+                                    />
+                                </Button>
+                                <Box h="100%" w="100%">
+                                    <Text fontWeight="extrabold" fontSize="10">
+                                        {localUpvotes}
+                                    </Text>
+                                </Box>
+                                
+                            </Flex>
+                            <Flex direction="column">
+                                <Box h="20%"></Box>
+                                <EditIcon></EditIcon>
+                            </Flex>
                         </Flex>
                     </Box>
                 </Flex>

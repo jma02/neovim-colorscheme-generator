@@ -57,7 +57,7 @@ export default function Landing({user, setUser}: PageProps) {
                     </Box>
                 </Grid>
             </div>
-            <Box as="footer" p={4} bg="blue.800" textAlign="center" width="100%">
+            <Box as="footer" p={4} bg="blue.900" textAlign="center" width="100%">
                 <Text>Team 2: Aidan Eyre, Brendan Lewis, Eli Brignac, Jonathan Ma</Text>
             </Box>
         </Box>

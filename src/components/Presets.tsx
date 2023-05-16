@@ -55,9 +55,15 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                     <AccordionPanel pb={4}>
                         {presets.length > 0 ? 
                             <Box>
-                                <Box maxHeight="65vh" overflowY="scroll">
+                                <Box
+                                    maxHeight="65vh"
+                                    overflowY="scroll"
+                                    alignItems="center"
+                                    display="flex"
+                                    flexDirection="column"
+                                >
                                     {presets.map((x: Preset) => (
-                                        <div key={x._id as unknown as React.Key}>
+                                        <Box key={x._id as unknown as React.Key} w='90%'>
                                             <DragPreset 
                                                 ThemeFile={x.ThemeFile}
                                                 name={x.name}
@@ -67,7 +73,7 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                                                 isUserTheme={false}
                                                 userId={""}
                                             />
-                                        </div>
+                                        </Box>
                                     ))
                                     }
                                 </Box>
@@ -92,9 +98,15 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                         {user === null ? <Text>Login to load and save presets!</Text> : 
                             userThemes.length > 0 ? 
                                 <Box>
-                                    <Box maxHeight="65vh" overflowY="scroll">
+                                    <Box 
+                                        maxHeight="65vh"
+                                        overflowY="scroll"
+                                        alignItems="center"
+                                        display="flex"
+                                        flexDirection="column"
+                                    >
                                         {userThemes.map((x: Preset) => (
-                                            <div key={x._id as unknown as React.Key}>
+                                            <Box key={x._id as unknown as React.Key} w="90%">
                                                 <DragPreset 
                                                     ThemeFile={x.ThemeFile}
                                                     name={x.name}
@@ -104,7 +116,7 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                                                     isUserTheme={true}
                                                     userId={user.id}
                                                 />
-                                            </div>
+                                            </Box>
                                         ))
                                         }
                                     </Box>

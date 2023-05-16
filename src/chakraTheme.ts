@@ -3,7 +3,7 @@ export const chakraTheme = {
         global: {
             body: {
                 color: "yellow.50", 
-                bg: "blue.700"
+                bg: "blue.800"
             },
         },
     },
