@@ -50,6 +50,7 @@ export default function Edit({user, setUser}: PageProps){
                         user={user}
                         setUser={setUser}
                         page={"edit"}
+                        setThemeFile={setThemeFile}
                     /> 
                 </Box>
             </Grid>

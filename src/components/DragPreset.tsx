@@ -32,6 +32,7 @@ interface DragPresetProps{
     _id: ObjectId;
     isUserTheme: boolean;
     userId: string;
+    setThemeFile: (x: ThemeFile) => void;
 }
 
 export default function DragPreset({
@@ -41,7 +42,8 @@ export default function DragPreset({
     upvotes,
     _id,
     userId,
-    isUserTheme
+    isUserTheme,
+    setThemeFile,
 }: DragPresetProps){
     const [upvoted, setUpvoted] = useState<boolean>(false);
     const [localUpvotes, setLocalUpvotes] = useState<number>(upvotes);
@@ -70,6 +72,7 @@ export default function DragPreset({
             _hover={{boxShadow: `0 0 20px ${ThemeFile.bg}`,
                 transition: "box-shadow 0.1s ease-in-out"
             }}
+            onClick={()=>setThemeFile(ThemeFile)}
         >
             <CardBody>
                 <Flex>

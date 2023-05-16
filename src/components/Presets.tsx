@@ -13,7 +13,6 @@ import LoginButton from "./LoginButton";
 import PostUserTheme from "./PostUserTheme";
 import DeleteUserPreset from "./DeleteUserPreset";
 import DeletePreset from "./DeletePreset";
-import { User } from "realm-web";
 import CentralToUser from "./CentralToUser";
 import fetch_user_presets from "../functions/fetch_user_presets";
 
@@ -30,9 +29,10 @@ interface PresetsProps{
     user: Realm.User | null;
     setUser: (x: Realm.User | null) => void;
     page: string;
+    setThemeFile: (x: ThemeFile) => void;
 }
 
-export default function Presets({themeFile, presets, setPresets, user, setUser, page}: PresetsProps):JSX.Element{
+export default function Presets({themeFile, presets, setPresets, user, setUser, page, setThemeFile}: PresetsProps):JSX.Element{
     const [userThemes, setUserThemes] = useState<Preset[]>([]);
     
     // hook triggers on page load.
@@ -66,6 +66,7 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                                                 _id={x._id}
                                                 isUserTheme={false}
                                                 userId={""}
+                                                setThemeFile={setThemeFile}
                                             />
                                         </div>
                                     ))
@@ -103,6 +104,7 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                                                     _id={x._id}
                                                     isUserTheme={true}
                                                     userId={user.id}
+                                                    setThemeFile={setThemeFile}
                                                 />
                                             </div>
                                         ))
