@@ -90,7 +90,7 @@ export default function RegisterUserButton({setUser, setUserThemes}: RegisterUse
                                     type={show ? "text" : "password"}
                                     placeholder='Enter password'
                                     onChange={(e) => setPassword(e.target.value as string)}
-                                    isInvalid={(password.length < 7)}
+                                    isInvalid={(password.length < 7 && password.length !== 0)}
                                 />
                                 <InputRightElement width='4.5rem'>
                                     <Button colorScheme="black" h='1.75rem' size='sm' onClick={()=>setShow(!show)}>
@@ -109,8 +109,11 @@ export default function RegisterUserButton({setUser, setUserThemes}: RegisterUse
                     <Flex p="2" alignItems="center" justifyContent="center">
                         <RegisterUserAlerts apiError={apiError}></RegisterUserAlerts>
                         <Spacer/>
-                        <Button colorScheme="green" isLoading={submitting}
+                        <Button 
+                            colorScheme="green"
+                            isLoading={submitting}
                             onClick={(e)=>handleSubmit(e)}
+                            isDisabled={!valid || password.length < 7}
                         >Register User
                         </Button>
                     </Flex>

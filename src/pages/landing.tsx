@@ -66,6 +66,7 @@ export default function Landing({user, setUser}: PageProps) {
                             user={user}
                             setUser={setUser}
                             page={"landing"}
+                            setThemeFile={setThemeFile}
                         /> 
                         
                     </Box>

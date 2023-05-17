@@ -68,13 +68,14 @@ export default function Edit({user, setUser}: PageProps){
                             user={user}
                             setUser={setUser}
                             page={"edit"}
+                            setThemeFile={setThemeFile}
                         /> 
                     </Box>
                 </Grid>
             </div>
-            <Flex as="footer" p={4} bg="blue.300" textAlign="center" width="100%">
+            <Box as="footer" p={4} bg="blue.300" textAlign="center" width="100%">
                 <Text>Team 2: Aidan Eyre, Brendan Lewis, Eli Brignac, Jonathan Ma</Text>
-            </Flex>
+            </Box>
         </Box>
     );
 }

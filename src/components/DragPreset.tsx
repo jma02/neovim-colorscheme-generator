@@ -34,6 +34,7 @@ interface DragPresetProps{
     isUserTheme: boolean;
     userId: string;
     editable: boolean;
+    setThemeFile: (x: ThemeFile) => void;
 }
 
 export default function DragPreset({
@@ -45,6 +46,7 @@ export default function DragPreset({
     userId,
     isUserTheme,
     editable,
+    setThemeFile,
 }: DragPresetProps){
     const [upvoted, setUpvoted] = useState<boolean>(false);
     const [localUpvotes, setLocalUpvotes] = useState<number>(upvotes);
@@ -56,7 +58,8 @@ export default function DragPreset({
         })
     }));
 
-    function handleClick(){
+    function handleClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>){
+        e.stopPropagation();
         setUpvoted(true);
         setLocalUpvotes(localUpvotes+1);
         // ../functions/upvote_theme.ts
@@ -77,7 +80,8 @@ export default function DragPreset({
                 zIndex: 1000
             }}
             overflowY="hidden"
-
+            onClick={()=>setThemeFile(ThemeFile)}
+            zIndex={99}
         >
             <CardBody>
                 <Flex>
@@ -91,41 +95,33 @@ export default function DragPreset({
                         <Text fontSize="10">{description}</Text>
                     </Box>
                     <Spacer/>
-                    <Box>
-                        <Flex direction="row">
-                            <Flex
-                                alignItems="center"
-                                justifyItems="center"
-                                textAlign="center"
-                                direction="column"
-                            >
-                                <Button 
-                                    h="100%"
-                                    w="0"
-                                    colorScheme="transparent"
-                                    isDisabled={upvoted}
-                                    onClick={handleClick}
-                                >
-                                    <ArrowUpIcon
-                                        color={upvoted ? "lime" : "green"}
-                                    />
-                                </Button>
-                                <Box h="100%" w="100%">
-                                    <Text fontWeight="extrabold" fontSize="10">
-                                        {localUpvotes}
-                                    </Text>
-                                </Box>
-                            </Flex>
-                            {editable && 
+                    <Flex alignItems="center" justifyItems="center" textAlign="center">
+                        <Box>
+                            <Text fontWeight="extrabold" fontSize="10">
+                                {localUpvotes}
+                            </Text>
+                        </Box>
+                        <Button 
+                            h="0"
+                            w="0"
+                            bg="transparent"
+                            isDisabled={upvoted}
+                            onClick={(e)=>handleClick(e)}
+                            zIndex={100}
+                        >
+                            <ArrowUpIcon
+                                color={upvoted ? "lime" : "green"}
+                            />
+                        </Button>
+                    </Flex>
+                    {editable && 
                             <Flex direction="column">
                                 <Box h="20%"></Box>
                                 <Button h="100%" w="0" colorScheme="transparent">
                                     <EditPreset/>
                                 </Button>
                             </Flex>
-                            }
-                        </Flex>
-                    </Box>
+                    }
                 </Flex>
             </CardBody>
         </Card> 
