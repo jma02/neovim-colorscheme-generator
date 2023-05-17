@@ -25,6 +25,7 @@ export default function RegisterUserButton({setUser, setUserThemes}: RegisterUse
     const [show, setShow] = useState<boolean>(false);
     const [apiError, setApiError] = useState<boolean | null>(null); // alert logic
     const [submitting, setSubmitting] = useState<boolean>(false);
+    const [valid, setValid] = useState<boolean>(false);
 
     function handleSubmit(event: React.FormEvent<HTMLFormElement | HTMLButtonElement>): void {
         event.preventDefault();
@@ -45,6 +46,16 @@ export default function RegisterUserButton({setUser, setUserThemes}: RegisterUse
             });
     }
 
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>){
+        setEmail(e.target.value as string);
+        setValid(validateEmailAddress(e.target.value));
+    }
+
+    function validateEmailAddress(email: string) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
     return(
         <Box>
             <Popover strategy="fixed" placement="start-start">
@@ -56,9 +67,14 @@ export default function RegisterUserButton({setUser, setUserThemes}: RegisterUse
                     <PopoverCloseButton />
                     <FormControl>
                         <FormLabel>Email address</FormLabel>
-                        <Input type='email' onChange={(e)=> setEmail(e.target.value as string)}/>
-                        {/* TODO: Implement email address validator */}
-                        <FormHelperText>Please enter a valid email address.</FormHelperText>
+                        <Input 
+                            type='email'
+                            onChange={(e) => handleChange(e)}
+                            isInvalid={!valid && email !== ""}
+                        />
+                        {!validateEmailAddress(email) && (
+                            <FormHelperText>Please enter a valid email address.</FormHelperText>
+                        )}
                     </FormControl>
                     <Box p="5" justifyContent="center" alignItems="center">
                         <Box w="100%" h="1px" bg="gray" opacity=".70"/>
@@ -74,6 +90,7 @@ export default function RegisterUserButton({setUser, setUserThemes}: RegisterUse
                                     type={show ? "text" : "password"}
                                     placeholder='Enter password'
                                     onChange={(e) => setPassword(e.target.value as string)}
+                                    isInvalid={(password.length < 7)}
                                 />
                                 <InputRightElement width='4.5rem'>
                                     <Button colorScheme="black" h='1.75rem' size='sm' onClick={()=>setShow(!show)}>
@@ -81,7 +98,9 @@ export default function RegisterUserButton({setUser, setUserThemes}: RegisterUse
                                     </Button>
                                 </InputRightElement>
                             </InputGroup>
+                            {(password.length < 7) &&
                             <FormHelperText>Passsword must be more than 6 characters!</FormHelperText>
+                            }
                         </FormControl>
                     </form>
                     <Box p="5" justifyContent="center" alignItems="center">
