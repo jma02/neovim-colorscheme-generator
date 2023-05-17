@@ -89,6 +89,7 @@ export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetPr
                     collectedProps.canDrop ? "0 0 10px 5px rgba(255, 0, 0, 0.5)" 
                         : "0 0 10px 5px rgba(255, 255, 255, 0.5)" 
                     : "none"}
+                p="4"
             >
               Drag a theme here to delete it!
             </Flex>
@@ -126,12 +127,10 @@ export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetPr
                             </AlertDialogFooter>
                         </Box>
                             :
-                            <Box p="10">
-                                <Alert status='success'>
-                                    <AlertIcon textColor="blue.800"/>
-                                    <Text textColor="blue.800">Theme successfully deleted.</Text>
-                                </Alert>
-                            </Box>
+                            <Alert status='success'>
+                                <AlertIcon textColor="blue.800"/>
+                                <Text textColor="blue.800">Theme successfully deleted.</Text>
+                            </Alert>
                         }
                     </AlertDialogContent>
                 </AlertDialogOverlay>

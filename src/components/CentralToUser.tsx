@@ -52,7 +52,7 @@ export default function CentralToUser({user, setUserThemes}: CentralToUserProps)
         collect: (monitor)=>({
             canDrop: monitor.canDrop() && monitor.isOver(),
         }),
-    }));
+    }), [user]);
     return (
         <h2>
             <AccordionButton
@@ -66,7 +66,7 @@ export default function CentralToUser({user, setUserThemes}: CentralToUserProps)
                         : "0 0 10px 5px rgba(255, 255, 255, 0.5)"
                     : "none"}
                 _hover={{ textShadow: "0px 0px 1px #ccc" }}
-                zIndex="100"
+                zIndex="1000"
             >
                 <Box 
                     as="span" 

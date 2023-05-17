@@ -51,24 +51,7 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
         if(user !== null) fetch_user_presets(user.id, setUserThemes);
     }, []);
     return(
-
         <div>
-            <div>
-                <InputGroup>
-                    <InputLeftElement
-                        pointerEvents="none"
-                        
-                    />
-                    <Input
-                        type="text"
-                        placeholder="Search by name..."
-                        value={searchTerm}
-                        onChange={handleSearchChange}
-                    />
-                </InputGroup>
-
-            </div>
-
             <Accordion defaultIndex={[0]}>
                 <AccordionItem>
                     <h2>
@@ -80,25 +63,47 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                         </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
+                        <Box pl="2" pr="2" pb="2">
+                            {/* search bar */}
+                            <InputGroup>
+                                <InputLeftElement
+                                    pointerEvents="none">
+                                    <SearchIcon color="gray.300" />
+                                </InputLeftElement>
+                                <Input
+                                    type="text"
+                                    placeholder="Search by preset name"
+                                    value={searchTerm}
+                                    onChange={handleSearchChange}
+                                />
+                            </InputGroup>
+                        </Box>
                         {filteredPresets.length > 0 ?
-                            <Box>
-                                <Box maxHeight="65vh" overflowY="scroll">
-                                    {filteredPresets.map((x: Preset) => (
-                                        <div key={x._id as unknown as React.Key}>
-                                            <DragPreset 
-                                                ThemeFile={x.ThemeFile}
-                                                name={x.name}
-                                                description={x.description}
-                                                upvotes={x.upvotes}
-                                                _id={x._id}
-                                                isUserTheme={false}
-                                                userId={""}
-                                                setThemeFile={setThemeFile}
-                                            />
-                                        </div>
-                                    ))
-                                    }
-                                </Box>
+                            <Box
+                                maxHeight="65vh"
+                                overflowY="scroll"
+                                alignItems="center"
+                                display="flex"
+                                flexDirection="column"
+                            >
+                                {filteredPresets.map((x: Preset) => (
+                                    <Box key={x._id as unknown as React.Key} w='90%'>
+                                        <DragPreset 
+                                            ThemeFile={x.ThemeFile}
+                                            name={x.name}
+                                            description={x.description}
+                                            upvotes={x.upvotes}
+                                            _id={x._id}
+                                            isUserTheme={false}
+                                            userId={""}
+                                            editable={page === "edit"}
+                                            setThemeFile={setThemeFile}
+                                            setUserThemes={setUserThemes}
+                                            setPresets={setPresets}
+                                        />
+                                    </Box>
+                                ))
+                                }
                                 {page === "edit" && 
                                 <Flex p="3" pb='-1' direction="column" alignContent="center" justifyContent="center">
                                     <DeletePreset setThemes={setPresets} />
@@ -106,10 +111,17 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                                 }
                             </Box>
                             : <Box textAlign="center">
-                                {/*<Spinner />*/} 
-                                <Text fontSize="16" fontWeight="medium">
+                                {presets.length > 0  ?
+                                    <Text fontSize="16" fontWeight="medium">
                                         No Presets Found! <br/>
-                                </Text>
+                                    </Text> :
+                                    <Box>
+                                        <Spinner /> 
+                                        <Text fontSize="16" fontWeight="medium">
+                                        Loading Presets...
+                                        </Text>
+                                    </Box>
+                                }
                             </Box>
                         }
                     </AccordionPanel>
@@ -120,9 +132,15 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                         {user === null ? <Text>Login to load and save presets!</Text> : 
                             userThemes.length > 0 ? 
                                 <Box>
-                                    <Box maxHeight="65vh" overflowY="scroll">
+                                    <Box 
+                                        maxHeight="65vh"
+                                        overflowY="scroll"
+                                        alignItems="center"
+                                        display="flex"
+                                        flexDirection="column"
+                                    >
                                         {userThemes.map((x: Preset) => (
-                                            <div key={x._id as unknown as React.Key}>
+                                            <Box key={x._id as unknown as React.Key} w="90%">
                                                 <DragPreset 
                                                     ThemeFile={x.ThemeFile}
                                                     name={x.name}
@@ -131,9 +149,12 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                                                     _id={x._id}
                                                     isUserTheme={true}
                                                     userId={user.id}
+                                                    editable={true}
                                                     setThemeFile={setThemeFile}
+                                                    setUserThemes={setUserThemes}
+                                                    setPresets={setPresets}
                                                 />
-                                            </div>
+                                            </Box>
                                         ))
                                         }
                                     </Box>

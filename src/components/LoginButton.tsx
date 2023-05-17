@@ -1,11 +1,19 @@
 import { Box, Button, Flex, FormControl, 
     FormLabel, Input, InputGroup, InputRightElement, Popover, PopoverArrow,
-    PopoverCloseButton, PopoverContent, PopoverTrigger, Spacer } from "@chakra-ui/react";
+    PopoverCloseButton, PopoverContent, PopoverTrigger, Spacer, useDisclosure } from "@chakra-ui/react";
 import React, { useState } from "react";
 import fetch_user_presets from "../functions/fetch_user_presets";
 import login_user from "../functions/login_user";
 import { Preset } from "./Common";
 import LoginAlerts from "./LoginAlerts";
+
+
+/**
+ * Login component. 
+   *
+   * @param setUser - state function for setting Realm.User.
+   * @param setUserTheme - called upon fetching user saved themes.
+   */
 
 
 /**
@@ -21,6 +29,8 @@ interface LoginButtonProps{
 }
 
 export default function LoginButton({setUser, setUserThemes}: LoginButtonProps){
+    const { isOpen, onToggle, onClose } = useDisclosure();    
+
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [show, setShow] = useState<boolean>(false);
@@ -36,6 +46,7 @@ export default function LoginButton({setUser, setUserThemes}: LoginButtonProps){
                 setApiError(false);
                 setSubmitting(false);
                 fetch_user_presets(success.id as string, setUserThemes);
+                onToggle();
             })
             .catch((error: Error) => {
                 setApiError(true);
@@ -45,9 +56,14 @@ export default function LoginButton({setUser, setUserThemes}: LoginButtonProps){
 
     return(
         <Box>
-            <Popover strategy="fixed" placement="start-start">
+            <Popover 
+                strategy="fixed"
+                placement="start-start"        
+                isOpen={isOpen}
+                onClose={onClose}
+            >
                 <PopoverTrigger>
-                    <Button colorScheme="green" w="100%" size="lg">Login</Button>
+                    <Button colorScheme="green" w="100%" size="lg" onClick={onToggle}>Login</Button>
                 </PopoverTrigger>
                 <PopoverContent bg="blue.800" p="5" w="110%">
                     <PopoverArrow />
