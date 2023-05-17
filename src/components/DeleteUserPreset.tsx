@@ -127,12 +127,10 @@ export default function DeleteUserPreset({setThemes, userId}: DeleteUserPresetPr
                             </AlertDialogFooter>
                         </Box>
                             :
-                            <Box p="10">
-                                <Alert status='success'>
-                                    <AlertIcon textColor="blue.800"/>
-                                    <Text textColor="blue.800">Theme successfully deleted.</Text>
-                                </Alert>
-                            </Box>
+                            <Alert status='success'>
+                                <AlertIcon textColor="blue.800"/>
+                                <Text textColor="blue.800">Theme successfully deleted.</Text>
+                            </Alert>
                         }
                     </AlertDialogContent>
                 </AlertDialogOverlay>

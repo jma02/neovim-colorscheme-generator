@@ -153,9 +153,7 @@ export default function DeletePreset({setThemes}: DeletePresetProps){
                             </AlertDialogFooter>
                         </Box>
                             :
-                            <Box p="10">
-                                <DeletePresetAlerts apiError={apiError}/>
-                            </Box>
+                            <DeletePresetAlerts apiError={apiError}/>
                         }
                     </AlertDialogContent>
                 </AlertDialogOverlay>
