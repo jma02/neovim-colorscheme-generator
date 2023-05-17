@@ -14,13 +14,13 @@ PASS src/Tests/ColorPicker.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------|---------|----------|---------|---------|-------------------
-All files                 |    3.29 |    11.89 |    4.29 |    3.55 |                   
+All files                 |    3.25 |    11.89 |    4.24 |    3.49 |                   
  src                      |       0 |        0 |       0 |       0 |                   
   App.tsx                 |       0 |      100 |       0 |       0 | 7-8               
   chakraTheme.ts          |       0 |      100 |     100 |       0 | 1                 
   index.tsx               |       0 |      100 |     100 |       0 | 11-33             
   reportWebVitals.ts      |       0 |        0 |       0 |       0 | 3-10              
- src/components           |    4.81 |    12.29 |    6.03 |    5.38 |                   
+ src/components           |    4.72 |    12.29 |    5.93 |    5.26 |                   
   CentralToUser.tsx       |       0 |        0 |       0 |       0 | 25-56             
   ColorBucket.tsx         |       0 |        0 |       0 |       0 | 24-56             
   ColorPicker.tsx         |       0 |      100 |       0 |       0 | 19-28             
@@ -38,7 +38,7 @@ All files                 |    3.29 |    11.89 |    4.29 |    3.55 |
   PostUserTheme.tsx       |       0 |        0 |       0 |       0 | 28-57             
   PresetLoader.tsx        |       0 |        0 |       0 |       0 | 15-32             
   PresetPostButton.tsx    |       0 |        0 |       0 |       0 | 26-58             
-  Presets.tsx             |       0 |        0 |       0 |       0 | 36-143            
+  Presets.tsx             |       0 |        0 |       0 |       0 | 37-170            
   Preview.tsx             |       0 |        0 |       0 |       0 | 13-172            
   PreviewButtonsGroup.tsx |       0 |      100 |       0 |       0 | 25-69             
   RegisterUserAlerts.tsx  |       0 |        0 |       0 |       0 | 16                
@@ -57,11 +57,11 @@ All files                 |    3.29 |    11.89 |    4.29 |    3.55 |
   upvote_theme.ts         |       0 |      100 |       0 |       0 | 21-36             
  src/pages                |       0 |      100 |       0 |       0 |                   
   edit.tsx                |       0 |      100 |       0 |       0 | 16-30             
-  landing.tsx             |       0 |      100 |       0 |       0 | 18-33             
+  landing.tsx             |       0 |      100 |       0 |       0 | 17-32             
 --------------------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 9 passed, 9 total
 Tests:       21 passed, 21 total
 Snapshots:   0 total
-Time:        7.112 s
+Time:        7.786 s
 Ran all test suites.
