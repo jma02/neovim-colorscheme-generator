@@ -38,11 +38,11 @@ export default function PreviewButtonsGroup({themeFile, setThemeFile}: PreviewBu
                     </PopoverTrigger>
                     <PopoverContent bg='blue.200' color='white'>
                         <PopoverHeader fontWeight='semibold'>Installation</PopoverHeader>
-                        <PopoverArrow bg='red.500' />
+                        <PopoverArrow bg='blue.500' />
                         <PopoverCloseButton bg='purple.300' />
                         <PopoverBody>
                             After downloading your theme file, move your theme file to the directory
-                            <Text as="mark" color="white" bgColor="gray.800" fontFamily="monospace"> ~/.config/colors</Text>, and append the line
+                            <Text as="mark" color="white" bgColor="gray.800" fontFamily="monospace"> ~/.config/nvim/colors</Text>, and append the line
                             <Text as="mark" color="white" bgColor="gray.800" fontFamily="monospace"> colorscheme [theme_file_name]</Text> to your 
                             <Text as="mark" color="white" bgColor="gray.800" fontFamily="monospace"> init.lua / init.vim </Text>
                         </PopoverBody>
@@ -58,7 +58,7 @@ export default function PreviewButtonsGroup({themeFile, setThemeFile}: PreviewBu
                                 Download .lua File
                         </Button>
                     </PopoverTrigger>
-                    <PopoverContent bg="purple.900">
+                    <PopoverContent bg="blue.700">
                         <PopoverArrow />
                         <PopoverCloseButton zIndex="100"/>
                         <PopoverBody>
