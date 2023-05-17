@@ -14,13 +14,13 @@ PASS src/Tests/ColorPicker.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------|---------|----------|---------|---------|-------------------
-All files                 |    3.25 |    11.89 |    4.24 |    3.49 |                   
+All files                 |    3.06 |    10.94 |    3.74 |    3.28 |                   
  src                      |       0 |        0 |       0 |       0 |                   
   App.tsx                 |       0 |      100 |       0 |       0 | 7-8               
   chakraTheme.ts          |       0 |      100 |     100 |       0 | 1                 
   index.tsx               |       0 |      100 |     100 |       0 | 11-33             
   reportWebVitals.ts      |       0 |        0 |       0 |       0 | 3-10              
- src/components           |    4.72 |    12.29 |    5.93 |    5.26 |                   
+ src/components           |    4.34 |    11.28 |    5.18 |    4.79 |                   
   CentralToUser.tsx       |       0 |        0 |       0 |       0 | 25-56             
   ColorBucket.tsx         |       0 |        0 |       0 |       0 | 24-56             
   ColorPicker.tsx         |       0 |      100 |       0 |       0 | 19-28             
@@ -29,16 +29,18 @@ All files                 |    3.25 |    11.89 |    4.24 |    3.49 |
   DeletePresetAlerts.tsx  |     100 |      100 |     100 |     100 |                   
   DeleteUserPreset.tsx    |       0 |        0 |       0 |       0 | 28-76             
   DragColor.tsx           |       0 |      100 |       0 |       0 | 17-24             
-  DragPreset.tsx          |       0 |        0 |       0 |       0 | 48-99             
+  DragPreset.tsx          |       0 |        0 |       0 |       0 | 55-87             
   DragTutorial.tsx        |     100 |      100 |     100 |     100 |                   
+  EditPreset.tsx          |       0 |        0 |       0 |       0 | 40-150            
+  EditPresetAlerts.tsx    |       0 |        0 |       0 |       0 | 15                
   Editor.tsx              |       0 |      100 |       0 |       0 | 22-68             
   LoginAlerts.tsx         |     100 |      100 |     100 |     100 |                   
-  LoginButton.tsx         |      40 |       50 |   33.33 |      40 | 31-42,63,75-89    
+  LoginButton.tsx         |    40.9 |       50 |   33.33 |    40.9 | 41-53,79,91-105   
   PostButtonAlerts.tsx    |     100 |      100 |     100 |     100 |                   
   PostUserTheme.tsx       |       0 |        0 |       0 |       0 | 28-57             
   PresetLoader.tsx        |       0 |        0 |       0 |       0 | 15-32             
   PresetPostButton.tsx    |       0 |        0 |       0 |       0 | 26-58             
-  Presets.tsx             |       0 |        0 |       0 |       0 | 37-170            
+  Presets.tsx             |       0 |        0 |       0 |       0 | 37-191            
   Preview.tsx             |       0 |        0 |       0 |       0 | 13-172            
   PreviewButtonsGroup.tsx |       0 |      100 |       0 |       0 | 25-69             
   RegisterUserAlerts.tsx  |       0 |        0 |       0 |       0 | 16                
@@ -48,6 +50,7 @@ All files                 |    3.25 |    11.89 |    4.24 |    3.49 |
   delete_preset.ts        |       0 |      100 |       0 |       0 | 18-32             
   delete_user_preset.ts   |       0 |      100 |       0 |       0 | 13-28             
   download.ts             |       0 |        0 |       0 |       0 | 13-61             
+  edit_preset.ts          |       0 |      100 |       0 |       0 | 25-39             
   fetch_presets.ts        |       0 |      100 |       0 |       0 | 11-23             
   fetch_user_presets.ts   |       0 |      100 |       0 |       0 | 10-23             
   login_user.ts           |       0 |      100 |       0 |       0 | 10-21             
@@ -63,5 +66,5 @@ All files                 |    3.25 |    11.89 |    4.24 |    3.49 |
 Test Suites: 9 passed, 9 total
 Tests:       21 passed, 21 total
 Snapshots:   0 total
-Time:        7.786 s
+Time:        10.923 s
 Ran all test suites.
