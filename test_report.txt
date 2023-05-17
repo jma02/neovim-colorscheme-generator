@@ -6,21 +6,21 @@ PASS src/Tests/LoginButton.test.tsx
 PASS src/Tests/DragTutorial.test.tsx
 PASS src/Tests/LoginAlerts.test.tsx
 PASS src/Tests/DeletePresetAlerts.test.tsx
+PASS src/Tests/PostButtonAlerts.test.tsx
 PASS src/Tests/download.test.ts
 PASS src/App.test.tsx
 PASS src/Tests/DragPreset.test.tsx
 PASS src/Tests/ColorPicker.test.tsx
-PASS src/Tests/ColorBucket.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------|---------|----------|---------|---------|-------------------
-All files                 |    3.02 |     7.56 |    3.68 |    3.25 |                   
+All files                 |    3.29 |    11.89 |    4.29 |    3.55 |                   
  src                      |       0 |        0 |       0 |       0 |                   
   App.tsx                 |       0 |      100 |       0 |       0 | 7-8               
   chakraTheme.ts          |       0 |      100 |     100 |       0 | 1                 
   index.tsx               |       0 |      100 |     100 |       0 | 11-33             
   reportWebVitals.ts      |       0 |        0 |       0 |       0 | 3-10              
- src/components           |    4.41 |     7.82 |    5.17 |    4.93 |                   
+ src/components           |    4.81 |    12.29 |    6.03 |    5.38 |                   
   CentralToUser.tsx       |       0 |        0 |       0 |       0 | 25-56             
   ColorBucket.tsx         |       0 |        0 |       0 |       0 | 24-56             
   ColorPicker.tsx         |       0 |      100 |       0 |       0 | 19-28             
@@ -34,7 +34,7 @@ All files                 |    3.02 |     7.56 |    3.68 |    3.25 |
   Editor.tsx              |       0 |      100 |       0 |       0 | 22-68             
   LoginAlerts.tsx         |     100 |      100 |     100 |     100 |                   
   LoginButton.tsx         |      40 |       50 |   33.33 |      40 | 31-42,63,75-89    
-  PostButtonAlerts.tsx    |       0 |        0 |       0 |       0 | 15                
+  PostButtonAlerts.tsx    |     100 |      100 |     100 |     100 |                   
   PostUserTheme.tsx       |       0 |        0 |       0 |       0 | 28-57             
   PresetLoader.tsx        |       0 |        0 |       0 |       0 | 15-32             
   PresetPostButton.tsx    |       0 |        0 |       0 |       0 | 26-58             
@@ -61,7 +61,7 @@ All files                 |    3.02 |     7.56 |    3.68 |    3.25 |
 --------------------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 9 passed, 9 total
-Tests:       19 passed, 19 total
+Tests:       21 passed, 21 total
 Snapshots:   0 total
-Time:        6.786 s
+Time:        7.112 s
 Ran all test suites.
