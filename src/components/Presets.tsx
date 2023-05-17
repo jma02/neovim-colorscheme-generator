@@ -72,6 +72,7 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                                                 _id={x._id}
                                                 isUserTheme={false}
                                                 userId={""}
+                                                editable={page === "edit"}
                                             />
                                         </Box>
                                     ))
@@ -115,6 +116,7 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                                                     _id={x._id}
                                                     isUserTheme={true}
                                                     userId={user.id}
+                                                    editable={true}
                                                 />
                                             </Box>
                                         ))
