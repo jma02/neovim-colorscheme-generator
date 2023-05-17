@@ -7,6 +7,7 @@ import edit_preset from "../functions/edit_preset";
 import fetch_user_presets from "../functions/fetch_user_presets";
 import { Preset } from "./Common";
 import fetch_presets from "../functions/fetch_presets";
+import EditPresetAlerts from "./EditPresetAlerts";
 
 /**
  * An edit button component which provides UI for editing a preset
@@ -41,7 +42,8 @@ export default function EditPreset({
     const [submitting, setSubmitting] = useState<boolean>(false); // submit button spinner
     const [apiKey, setApiKey] = useState<string>("");
     const [apiError, setApiError] = useState<boolean | null>(null); // alert logic
-    
+    const [alertBuffer, setAlertBuffer] = useState<boolean>(false); // conditionally renders a success message.
+ 
     const [newName, setNewName] = useState<string>(name);
     const [newDesc, setNewDesc] = useState<string>(description);
                                                                     
@@ -58,31 +60,47 @@ export default function EditPreset({
     
     function handleSubmit(){
         setSubmitting(true);
-        if(isUserTheme){
+        if(isUserTheme){ // if we are editing a central item list, use the api key secret
             const super_key = process.env.REACT_APP_MONGO_REALM_API_KEY as string;
             edit_preset(_id.toString(), userId, newName, newDesc, super_key)
                 .then((success) =>{
                     fetch_user_presets(userId, setUserThemes);
-                    sleep(300)
-                        .then(()=>onClose());
+                    setSubmitting(false);
+                    setAlertBuffer(true);
                 })
                 .catch((error)=>{
+                    setAlertBuffer(true);
                     setApiError(true);
                     console.error(error);
                     setSubmitting(false);
+                })
+                .finally(()=>{
+                    sleep(1000)
+                        .then(()=>{
+                            setAlertBuffer(false);
+                            onClose();
+                        });
                 });
-        } else{
+        } else{ // otherwise, we use what the user inputs
             edit_preset(_id.toString(), "", newName, newDesc, apiKey)
                 .then((success) =>{
                     fetch_presets(setPresets);
-                    sleep(300)
-                        .then(()=>onClose());
+                    setSubmitting(false);
+                    setAlertBuffer(true);
                 })
                 .catch((error)=>{
+                    setAlertBuffer(true);
                     setApiError(true);
                     console.error(error);
                     setSubmitting(false);
-                });;
+                })
+                .finally(()=>{
+                    sleep(1000)
+                        .then(()=>{
+                            setAlertBuffer(false);
+                            onClose();
+                        });
+                });
         }
     }
 
@@ -102,69 +120,73 @@ export default function EditPreset({
                         <AlertDialogHeader fontSize='lg' fontWeight='bold'>
                     Update theme:
                         </AlertDialogHeader>            
-                        <Box>
-                            <AlertDialogBody>
+                        {!alertBuffer ?
+                            <Box>
+                                <AlertDialogBody>
                         Enter some new details for your theme! <br/>
-                                <Box p="4">
-                                    <Box  bg="blue.700" padding="3" borderRadius="10">
-                                        <FormControl isRequired={newName===""}>
-                                            <FormLabel fontSize="12">
+                                    <Box p="4">
+                                        <Box  bg="blue.700" padding="3" borderRadius="10">
+                                            <FormControl isRequired={newName===""}>
+                                                <FormLabel fontSize="12">
                                                 Name:
-                                            </FormLabel>
+                                                </FormLabel>
                                    
-                                            <Input 
-                                                type='string' 
-                                                value={newName}
-                                                onChange={(e)=>setNewName(e.target.value as string)}
-                                            />
-                                        </FormControl>
-                                    </Box>
-                                    <Box  bg="blue.700" padding="3" borderRadius="10">
-                                        <FormControl isRequired={newDesc===""}>
-                                            <FormLabel fontSize="12">
+                                                <Input 
+                                                    type='string' 
+                                                    value={newName}
+                                                    onChange={(e)=>setNewName(e.target.value as string)}
+                                                />
+                                            </FormControl>
+                                        </Box>
+                                        <Box  bg="blue.700" padding="3" borderRadius="10">
+                                            <FormControl isRequired={newDesc===""}>
+                                                <FormLabel fontSize="12">
                                                 Description:
-                                            </FormLabel>
+                                                </FormLabel>
 
-                                            <Input 
-                                                type='string' 
-                                                value={newDesc}
-                                                onChange={(e)=>setNewDesc(e.target.value as string)}
-                                            />
-                                        </FormControl>
-                                    </Box>
-                                    {!isUserTheme && <Box bg="blue.700" padding="3" borderRadius="10">
-                                        <FormControl isRequired={apiKey===""}>
-                                            <FormLabel fontSize="12">
-                                                <Link href='https://www.mongodb.com/docs/atlas/app-services/authentication/api-key/' isExternal> 
+                                                <Input 
+                                                    type='string' 
+                                                    value={newDesc}
+                                                    onChange={(e)=>setNewDesc(e.target.value as string)}
+                                                />
+                                            </FormControl>
+                                        </Box>
+                                        {!isUserTheme && <Box bg="blue.700" padding="3" borderRadius="10">
+                                            <FormControl isRequired={apiKey===""}>
+                                                <FormLabel fontSize="12">
+                                                    <Link href='https://www.mongodb.com/docs/atlas/app-services/authentication/api-key/' isExternal> 
                                             An API Key is required for this action: <ExternalLinkIcon mx='2px' />
-                                                </Link>
-                                            </FormLabel>
+                                                    </Link>
+                                                </FormLabel>
                                    
-                                            <Input 
-                                                type='password' 
-                                                value={apiKey}
-                                                onChange={handleApiKeyChange}
-                                            />
-                                        </FormControl>
+                                                <Input 
+                                                    type='password' 
+                                                    value={apiKey}
+                                                    onChange={handleApiKeyChange}
+                                                />
+                                            </FormControl>
+                                        </Box>
+                                        }
                                     </Box>
-                                    }
-                                </Box>
-                            </AlertDialogBody>
-                            <AlertDialogFooter>
-                                <Button ref={cancelRef} onClick={onClose}>
+                                </AlertDialogBody>
+                                <AlertDialogFooter>
+                                    <Button ref={cancelRef} onClick={onClose}>
                                 Cancel
-                                </Button>
-                                <Button 
-                                    colorScheme='green'
-                                    isLoading={submitting}
-                                    ml={3}
-                                    isDisabled={!isUserTheme && (apiKey === "")}
-                                    onClick={handleSubmit}
-                                >
+                                    </Button>
+                                    <Button 
+                                        colorScheme='green'
+                                        isLoading={submitting}
+                                        ml={3}
+                                        isDisabled={!isUserTheme && (apiKey === "")}
+                                        onClick={handleSubmit}
+                                    >
                                 Update
-                                </Button>
-                            </AlertDialogFooter>
-                        </Box>
+                                    </Button>
+                                </AlertDialogFooter>
+                            </Box>
+                            :
+                            <EditPresetAlerts apiError={apiError}/>
+                        }
                     </AlertDialogContent>
                 </AlertDialogOverlay>
             </AlertDialog>
