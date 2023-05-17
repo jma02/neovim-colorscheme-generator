@@ -81,7 +81,6 @@ export default function DragPreset({
             }}
             overflowY="hidden"
             onClick={()=>setThemeFile(ThemeFile)}
-            zIndex={1}
         >
             <CardBody>
                 <Flex>
