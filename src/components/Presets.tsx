@@ -52,20 +52,6 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
     }, []);
     return(
         <div>
-            <div>
-                <InputGroup>
-                    <InputLeftElement
-                        pointerEvents="none"
-                        
-                    />
-                    <Input
-                        type="text"
-                        placeholder="Search by preset name"
-                        value={searchTerm}
-                        onChange={handleSearchChange}
-                    />
-                </InputGroup>
-            </div>
             <Accordion defaultIndex={[0]}>
                 <AccordionItem>
                     <h2>
@@ -77,6 +63,20 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                         </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
+                        <Box pl="2" pr="2" pb="2">
+                            <InputGroup>
+                                <InputLeftElement
+                                    pointerEvents="none">
+                                    <SearchIcon color="gray.300" />
+                                </InputLeftElement>
+                                <Input
+                                    type="text"
+                                    placeholder="Search by preset name"
+                                    value={searchTerm}
+                                    onChange={handleSearchChange}
+                                />
+                            </InputGroup>
+                        </Box>
                         {filteredPresets.length > 0 ?
                             <Box
                                 maxHeight="65vh"
