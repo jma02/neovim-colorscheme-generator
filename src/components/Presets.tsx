@@ -57,7 +57,7 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                 <InputGroup>
                     <InputLeftElement
                         pointerEvents="none"
-                        //children={<SearchIcon color="gray.300" />}
+                        
                     />
                     <Input
                         type="text"
@@ -80,7 +80,7 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                         </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                        {filteredPresets.length > 0 ? 
+                        {filteredPresets.length > 0 ?
                             <Box>
                                 <Box maxHeight="65vh" overflowY="scroll">
                                     {filteredPresets.map((x: Preset) => (
@@ -106,9 +106,9 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                                 }
                             </Box>
                             : <Box textAlign="center">
-                                <Spinner /> 
+                                {/*<Spinner />*/} 
                                 <Text fontSize="16" fontWeight="medium">
-                                        Loading Presets...
+                                        No Presets Found! <br/>
                                 </Text>
                             </Box>
                         }
