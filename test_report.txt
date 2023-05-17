@@ -1,5 +1,5 @@
 
-> neovim-theme-generator@0.1.0 test
+> neovim-colorscheme-generator@0.1.0 test
 > react-scripts test --coverage
 
 PASS src/Tests/LoginButton.test.tsx
@@ -66,5 +66,5 @@ All files                 |    3.06 |    10.94 |    3.74 |    3.28 |
 Test Suites: 9 passed, 9 total
 Tests:       21 passed, 21 total
 Snapshots:   0 total
-Time:        10.923 s
+Time:        10.717 s
 Ran all test suites.
