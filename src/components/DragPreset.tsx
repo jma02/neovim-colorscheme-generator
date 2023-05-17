@@ -77,11 +77,11 @@ export default function DragPreset({
                 boxShadow: `0 0 2px ${ThemeFile.bg}`,
                 transform: "scale(1.05)",
                 transition: "transform 0.2s, box-shadow 0.2s",
-                zIndex: 1000
+                zIndex: "2"
             }}
             overflowY="hidden"
             onClick={()=>setThemeFile(ThemeFile)}
-            zIndex={99}
+            zIndex={1}
         >
             <CardBody>
                 <Flex>
