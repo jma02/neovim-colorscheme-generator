@@ -1,5 +1,5 @@
 {
-  "name": "neovim-theme-generator",
+  "name": "neovim-colorscheme-generator",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
