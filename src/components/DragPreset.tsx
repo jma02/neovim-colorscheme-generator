@@ -95,32 +95,41 @@ export default function DragPreset({
                         <Text fontSize="10">{description}</Text>
                     </Box>
                     <Spacer/>
-                    <Flex alignItems="center" justifyItems="center" textAlign="center">
-                        <Box>
-                            <Text fontWeight="extrabold" fontSize="10">
-                                {localUpvotes}
-                            </Text>
-                        </Box>
-                        <Button 
-                            h="0"
-                            w="0"
-                            bg="transparent"
-                            isDisabled={upvoted}
-                            onClick={(e)=>handleClick(e)}
-                        >
-                            <ArrowUpIcon
-                                color={upvoted ? "lime" : "green"}
-                            />
-                        </Button>
-                    </Flex>
-                    {editable && 
+                    <Box>
+                        <Flex direction="row">
+                            <Flex
+                                alignItems="center"
+                                justifyItems="center"
+                                textAlign="center"
+                                direction="column"
+                            >
+                                <Button 
+                                    h="100%"
+                                    w="0"
+                                    colorScheme="transparent"
+                                    isDisabled={upvoted}
+                                    onClick={handleClick}
+                                >
+                                    <ArrowUpIcon
+                                        color={upvoted ? "lime" : "green"}
+                                    />
+                                </Button>
+                                <Box h="100%" w="100%">
+                                    <Text fontWeight="extrabold" fontSize="10">
+                                        {localUpvotes}
+                                    </Text>
+                                </Box>
+                            </Flex>
+                            {editable && 
                             <Flex direction="column">
                                 <Box h="20%"></Box>
                                 <Button h="100%" w="0" colorScheme="transparent">
                                     <EditPreset/>
                                 </Button>
                             </Flex>
-                    }
+                            }
+                        </Flex>
+                    </Box>
                 </Flex>
             </CardBody>
         </Card> 
