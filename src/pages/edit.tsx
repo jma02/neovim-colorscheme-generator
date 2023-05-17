@@ -50,7 +50,7 @@ export default function Edit({user, setUser}: PageProps){
                 <Grid templateColumns="repeat(3, 1fr)" gap={6}>
                     <Box>
                         <Flex>
-                            <Heading height="100%" fontSize="32">Preset Creator (Admin)</Heading>
+                            <Heading height="100%" fontSize="32">Admin List</Heading>
                             <Spacer/>
                             <PresetPostButton ThemeFile={themeFile} setPresets={setPresets}/>
                         </Flex>
