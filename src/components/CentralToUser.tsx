@@ -52,7 +52,7 @@ export default function CentralToUser({user, setUserThemes}: CentralToUserProps)
         collect: (monitor)=>({
             canDrop: monitor.canDrop() && monitor.isOver(),
         }),
-    }));
+    }), [user]);
     return (
         <h2>
             <AccordionButton
