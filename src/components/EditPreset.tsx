@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { EditIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import { AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader,
-    AlertDialogOverlay, Box, Button, FormControl, FormLabel, Input, Link, useDisclosure } from "@chakra-ui/react";
+    AlertDialogOverlay, Box, Button, Flex, FormControl, FormLabel, Input, Link, useDisclosure } from "@chakra-ui/react";
 import {ObjectId} from "bson";
 import edit_preset from "../functions/edit_preset";
 import fetch_user_presets from "../functions/fetch_user_presets";
@@ -124,7 +124,7 @@ export default function EditPreset({
                             <Box>
                                 <AlertDialogBody>
                         Enter some new details for your theme! <br/>
-                                    <Box p="4">
+                                    <Flex p="4" direction="column" gap="5">
                                         <Box  bg="blue.700" padding="3" borderRadius="10">
                                             <FormControl isRequired={newName===""}>
                                                 <FormLabel fontSize="12">
@@ -167,7 +167,7 @@ export default function EditPreset({
                                             </FormControl>
                                         </Box>
                                         }
-                                    </Box>
+                                    </Flex>
                                 </AlertDialogBody>
                                 <AlertDialogFooter>
                                     <Button ref={cancelRef} onClick={onClose}>
