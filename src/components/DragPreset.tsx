@@ -107,7 +107,6 @@ export default function DragPreset({
                             bg="transparent"
                             isDisabled={upvoted}
                             onClick={(e)=>handleClick(e)}
-                            zIndex={100}
                         >
                             <ArrowUpIcon
                                 color={upvoted ? "lime" : "green"}
