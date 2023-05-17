@@ -6,7 +6,7 @@ import DragPreset from "./DragPreset";
 
 import { Preset, ThemeFile } from "./Common";
 import {useState, useEffect} from "react";
-
+import { SearchIcon } from "@chakra-ui/icons";
 import fetch_presets from "../functions/fetch_presets";
 import RegisterUserButton from "./RegisterUserButton";
 import LoginButton from "./LoginButton";
@@ -16,6 +16,7 @@ import DeletePreset from "./DeletePreset";
 import { User } from "realm-web";
 import CentralToUser from "./CentralToUser";
 import fetch_user_presets from "../functions/fetch_user_presets";
+import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 
 /**
  * Wrapper component for Preset viewing, loading, and posting, as well as user login.
@@ -35,13 +36,39 @@ interface PresetsProps{
 export default function Presets({themeFile, presets, setPresets, user, setUser, page}: PresetsProps):JSX.Element{
     const [userThemes, setUserThemes] = useState<Preset[]>([]);
     
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(event.target.value);
+    };
+
+    const filteredPresets = presets.filter(preset =>
+        preset.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
     // hook triggers on page load.
     useEffect(() => {
         fetch_presets(setPresets);
         if(user !== null) fetch_user_presets(user.id, setUserThemes);
     }, []);
     return(
+
         <div>
+            <div>
+                <InputGroup>
+                    <InputLeftElement
+                        pointerEvents="none"
+                        //children={<SearchIcon color="gray.300" />}
+                    />
+                    <Input
+                        type="text"
+                        placeholder="Search by name..."
+                        value={searchTerm}
+                        onChange={handleSearchChange}
+                    />
+                </InputGroup>
+
+            </div>
+
             <Accordion defaultIndex={[0]}>
                 <AccordionItem>
                     <h2>
@@ -53,10 +80,10 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                         </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                        {presets.length > 0 ? 
+                        {filteredPresets.length > 0 ? 
                             <Box>
                                 <Box maxHeight="65vh" overflowY="scroll">
-                                    {presets.map((x: Preset) => (
+                                    {filteredPresets.map((x: Preset) => (
                                         <div key={x._id as unknown as React.Key}>
                                             <DragPreset 
                                                 ThemeFile={x.ThemeFile}
