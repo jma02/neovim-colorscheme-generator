@@ -72,9 +72,9 @@ export default function Edit({user, setUser}: PageProps){
                     </Box>
                 </Grid>
             </div>
-            <Box as="footer" p={4} bg="blue.300" textAlign="center" width="100%">
+            <Flex as="footer" p={4} bg="blue.300" textAlign="center" width="100%">
                 <Text>Team 2: Aidan Eyre, Brendan Lewis, Eli Brignac, Jonathan Ma</Text>
-            </Box>
+            </Flex>
         </Box>
     );
 }

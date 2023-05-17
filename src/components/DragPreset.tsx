@@ -6,6 +6,7 @@ import { DroppedPreset, ThemeFile } from "./Common";
 import { ArrowUpIcon, EditIcon } from "@chakra-ui/icons";
 import { ObjectId } from "bson";
 import upvote_theme from "../functions/upvote_theme";
+import EditPreset from "./EditPreset";
 
 /**
   * Draggable component which holds a preset payload.
@@ -119,9 +120,8 @@ export default function DragPreset({
                             <Flex direction="column">
                                 <Box h="20%"></Box>
                                 <Button h="100%" w="0" colorScheme="transparent">
-                                    <EditIcon color="black"/>
+                                    <EditPreset/>
                                 </Button>
-                            
                             </Flex>
                             }
                         </Flex>
