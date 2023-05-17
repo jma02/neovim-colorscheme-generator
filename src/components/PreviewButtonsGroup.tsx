@@ -36,10 +36,10 @@ export default function PreviewButtonsGroup({themeFile, setThemeFile}: PreviewBu
                             }}
                         />
                     </PopoverTrigger>
-                    <PopoverContent bg='red.400' color='white'>
+                    <PopoverContent bg='blue.200' color='white'>
                         <PopoverHeader fontWeight='semibold'>Installation</PopoverHeader>
                         <PopoverArrow bg='red.500' />
-                        <PopoverCloseButton bg='purple.500' />
+                        <PopoverCloseButton bg='purple.300' />
                         <PopoverBody>
                             After downloading your theme file, move your theme file to the directory
                             <Text as="mark" color="white" bgColor="gray.800" fontFamily="monospace"> ~/.config/colors</Text>, and append the line
