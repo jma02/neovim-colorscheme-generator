@@ -64,6 +64,7 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                     </h2>
                     <AccordionPanel pb={4}>
                         <Box pl="2" pr="2" pb="2">
+                            {/* search bar */}
                             <InputGroup>
                                 <InputLeftElement
                                     pointerEvents="none">
@@ -110,9 +111,17 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                                 }
                             </Box>
                             : <Box textAlign="center">
-                                <Text fontSize="16" fontWeight="medium">
+                                {presets.length > 0  ?
+                                    <Text fontSize="16" fontWeight="medium">
                                         No Presets Found! <br/>
-                                </Text>
+                                    </Text> :
+                                    <Box>
+                                        <Spinner /> 
+                                        <Text fontSize="16" fontWeight="medium">
+                                        Loading Presets...
+                                        </Text>
+                                    </Box>
+                                }
                             </Box>
                         }
                     </AccordionPanel>
