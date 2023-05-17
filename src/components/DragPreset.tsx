@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Card, CardBody, Flex, Box, 
     Heading, Text, Spacer, Button} from "@chakra-ui/react";
 import { useDrag } from "react-dnd";
-import { DroppedPreset, ThemeFile } from "./Common";
-import { ArrowUpIcon, EditIcon } from "@chakra-ui/icons";
+import { DroppedPreset, Preset, ThemeFile } from "./Common";
+import { ArrowUpIcon } from "@chakra-ui/icons";
 import { ObjectId } from "bson";
 import upvote_theme from "../functions/upvote_theme";
 import EditPreset from "./EditPreset";
@@ -35,6 +35,8 @@ interface DragPresetProps{
     userId: string;
     editable: boolean;
     setThemeFile: (x: ThemeFile) => void;
+    setUserThemes: (x: Preset[]) => void;
+    setPresets: (x: Preset[]) => void;
 }
 
 export default function DragPreset({
@@ -47,6 +49,8 @@ export default function DragPreset({
     isUserTheme,
     editable,
     setThemeFile,
+    setUserThemes,
+    setPresets,
 }: DragPresetProps){
     const [upvoted, setUpvoted] = useState<boolean>(false);
     const [localUpvotes, setLocalUpvotes] = useState<number>(upvotes);
@@ -96,6 +100,20 @@ export default function DragPreset({
                     <Spacer/>
                     <Box>
                         <Flex direction="row">
+                            {editable && 
+                            <Flex direction="column" marginRight="-2">
+                                <Box h="20%"/>
+                                <EditPreset
+                                    isUserTheme={isUserTheme}
+                                    name={name}
+                                    description={description}
+                                    _id={_id}
+                                    userId={userId}
+                                    setUserThemes={setUserThemes}
+                                    setPresets={setPresets}
+                                />
+                            </Flex>
+                            }
                             <Flex
                                 alignItems="center"
                                 justifyItems="center"
@@ -119,14 +137,6 @@ export default function DragPreset({
                                     </Text>
                                 </Box>
                             </Flex>
-                            {editable && 
-                            <Flex direction="column">
-                                <Box h="20%"></Box>
-                                <Button h="100%" w="0" colorScheme="transparent">
-                                    <EditPreset/>
-                                </Button>
-                            </Flex>
-                            }
                         </Flex>
                     </Box>
                 </Flex>
