@@ -6,7 +6,7 @@ import DragPreset from "./DragPreset";
 
 import { Preset, ThemeFile } from "./Common";
 import {useState, useEffect} from "react";
-
+import { SearchIcon } from "@chakra-ui/icons";
 import fetch_presets from "../functions/fetch_presets";
 import RegisterUserButton from "./RegisterUserButton";
 import LoginButton from "./LoginButton";
@@ -15,6 +15,7 @@ import DeleteUserPreset from "./DeleteUserPreset";
 import DeletePreset from "./DeletePreset";
 import CentralToUser from "./CentralToUser";
 import fetch_user_presets from "../functions/fetch_user_presets";
+import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 
 /**
  * Wrapper component for Preset viewing, loading, and posting, as well as user login.
@@ -35,6 +36,15 @@ interface PresetsProps{
 export default function Presets({themeFile, presets, setPresets, user, setUser, page, setThemeFile}: PresetsProps):JSX.Element{
     const [userThemes, setUserThemes] = useState<Preset[]>([]);
     
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(event.target.value);
+    };
+
+    const filteredPresets = presets.filter(preset =>
+        preset.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
     // hook triggers on page load.
     useEffect(() => {
         fetch_presets(setPresets);
@@ -42,6 +52,20 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
     }, []);
     return(
         <div>
+            <div>
+                <InputGroup>
+                    <InputLeftElement
+                        pointerEvents="none"
+                        
+                    />
+                    <Input
+                        type="text"
+                        placeholder="Search by preset name"
+                        value={searchTerm}
+                        onChange={handleSearchChange}
+                    />
+                </InputGroup>
+            </div>
             <Accordion defaultIndex={[0]}>
                 <AccordionItem>
                     <h2>
@@ -53,34 +77,32 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                         </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                        {presets.length > 0 ? 
-                            <Box>
-                                <Box
-                                    maxHeight="65vh"
-                                    overflowY="scroll"
-                                    alignItems="center"
-                                    display="flex"
-                                    flexDirection="column"
-                                >
-                                    {presets.map((x: Preset) => (
-                                        <Box key={x._id as unknown as React.Key} w='90%'>
-                                            <DragPreset 
-                                                ThemeFile={x.ThemeFile}
-                                                name={x.name}
-                                                description={x.description}
-                                                upvotes={x.upvotes}
-                                                _id={x._id}
-                                                isUserTheme={false}
-                                                userId={""}
-                                                editable={page === "edit"}
-                                                setThemeFile={setThemeFile}
-                                                setUserThemes={setUserThemes}
-                                                setPresets={setPresets}
-                                            />
-                                        </Box>
-                                    ))
-                                    }
-                                </Box>
+                        {filteredPresets.length > 0 ?
+                            <Box
+                                maxHeight="65vh"
+                                overflowY="scroll"
+                                alignItems="center"
+                                display="flex"
+                                flexDirection="column"
+                            >
+                                {filteredPresets.map((x: Preset) => (
+                                    <Box key={x._id as unknown as React.Key} w='90%'>
+                                        <DragPreset 
+                                            ThemeFile={x.ThemeFile}
+                                            name={x.name}
+                                            description={x.description}
+                                            upvotes={x.upvotes}
+                                            _id={x._id}
+                                            isUserTheme={false}
+                                            userId={""}
+                                            editable={page === "edit"}
+                                            setThemeFile={setThemeFile}
+                                            setUserThemes={setUserThemes}
+                                            setPresets={setPresets}
+                                        />
+                                    </Box>
+                                ))
+                                }
                                 {page === "edit" && 
                                 <Flex p="3" pb='-1' direction="column" alignContent="center" justifyContent="center">
                                     <DeletePreset setThemes={setPresets} />
@@ -88,9 +110,8 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                                 }
                             </Box>
                             : <Box textAlign="center">
-                                <Spinner /> 
                                 <Text fontSize="16" fontWeight="medium">
-                                        Loading Presets...
+                                        No Presets Found! <br/>
                                 </Text>
                             </Box>
                         }

@@ -8,7 +8,6 @@ import Presets from "../components/Presets";
 import { Preset, ThemeFile } from "../components/Common";
 
 import { Link } from "react-router-dom";
-
 interface PageProps{
     user: Realm.User | null;
     setUser: (x: Realm.User | null) => void; 
@@ -68,7 +67,6 @@ export default function Landing({user, setUser}: PageProps) {
                             page={"landing"}
                             setThemeFile={setThemeFile}
                         /> 
-                        
                     </Box>
                 </Grid>
             </div>
