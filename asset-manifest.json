@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/neovim-colorscheme-generator/static/css/main.0cb98ae4.css",
-    "main.js": "/neovim-colorscheme-generator/static/js/main.e4d0531e.js",
+    "main.js": "/neovim-colorscheme-generator/static/js/main.a66861a7.js",
     "static/js/787.e24cd12a.chunk.js": "/neovim-colorscheme-generator/static/js/787.e24cd12a.chunk.js",
     "static/media/tutorial_2.png": "/neovim-colorscheme-generator/static/media/tutorial_2.ad361e7c9b277a0e3757.png",
     "static/media/tutorial_3.png": "/neovim-colorscheme-generator/static/media/tutorial_3.a12f4e7f51dbb8a38d1e.png",
     "static/media/tutorial_1.png": "/neovim-colorscheme-generator/static/media/tutorial_1.8a93d97ee4fa6ff51487.png",
     "index.html": "/neovim-colorscheme-generator/index.html",
     "main.0cb98ae4.css.map": "/neovim-colorscheme-generator/static/css/main.0cb98ae4.css.map",
-    "main.e4d0531e.js.map": "/neovim-colorscheme-generator/static/js/main.e4d0531e.js.map",
+    "main.a66861a7.js.map": "/neovim-colorscheme-generator/static/js/main.a66861a7.js.map",
     "787.e24cd12a.chunk.js.map": "/neovim-colorscheme-generator/static/js/787.e24cd12a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0cb98ae4.css",
-    "static/js/main.e4d0531e.js"
+    "static/js/main.a66861a7.js"
   ]
 }
