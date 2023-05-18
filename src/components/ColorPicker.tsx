@@ -20,7 +20,6 @@ export default function ColorPicker() {
     return (
         <Flex alignItems="center">
             <DragColor 
-                role="DragColor"
                 fillColor={color}></DragColor>
             <Spacer/>
             <Box p="3.5" pr="5">
