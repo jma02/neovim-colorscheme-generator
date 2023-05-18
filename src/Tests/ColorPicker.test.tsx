@@ -15,17 +15,20 @@ new MatchMediaMock();
 
 export function renderColorPicker(){
     const chakTheme = extendTheme(chakraTheme);
-    <>
-        <React.StrictMode>
-            <ChakraProvider theme={chakTheme}>
-                <DndProvider backend={HTML5Backend}>
-                    <HashRouter>
-                        <ColorPicker/>
-                    </HashRouter>
-                </DndProvider>
-            </ChakraProvider>
-        </React.StrictMode>
-    </>;
+    const colPic = render(
+        <>
+            <React.StrictMode>
+                <ChakraProvider theme={chakTheme}>
+                    <DndProvider backend={HTML5Backend}>
+                        <HashRouter>
+                            <ColorPicker/>
+                        </HashRouter>
+                    </DndProvider>
+                </ChakraProvider>
+            </React.StrictMode>
+        </>
+    );
+    return colPic;
 }
 
 describe("ColorPicker", () => {
@@ -69,5 +72,4 @@ describe("ColorPicker", () => {
         expect("#000000");
     }
     );
-
 });

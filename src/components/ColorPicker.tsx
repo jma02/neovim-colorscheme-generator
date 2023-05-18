@@ -19,7 +19,9 @@ export default function ColorPicker() {
     const [color, setColor] = useState<string>("#000000");
     return (
         <Flex alignItems="center">
-            <DragColor fillColor={color}></DragColor>
+            <DragColor 
+                role="DragColor"
+                fillColor={color}></DragColor>
             <Spacer/>
             <Box p="3.5" pr="5">
                 <ChromePicker

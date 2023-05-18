@@ -2,7 +2,6 @@ import React from "react";
 import { render } from "@testing-library/react";
 import DeletePresetAlerts from "../components/DeletePresetAlerts";
 
-
 describe("<DeletePresetAlerts />", () => {
     it("should render error alert when apiError prop is true", () => {
         const { getByText } = render(<DeletePresetAlerts apiError={true} />);

@@ -72,6 +72,7 @@ export default function ColorBucket({theme, setThemeFile, prop}: ColorBucketProp
         >
             <CardBody
                 ref={drag} 
+                role = {"Draggable-Color"}
                 backgroundColor={fillColor} 
                 height="10vh"
                 width="100%"
