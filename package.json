@@ -67,19 +67,19 @@
     "eslint-plugin-react": "^7.32.2"
   },
   "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.ts",
-      "src/**/*.tsx",
-      "!src/index.tsx",
-      "!src/reportWebVitals.ts",
-      "!src/react-app-env.d.ts"
-    ],
-    "transformIgnorePatterns": [
-      "/node_modules/(?!react-dnd|core-dnd|@react-dnd|dnd-core|react-dnd-html5-backend)"
-    ]
+      "collectCoverageFrom": [
+          "src/**/*.ts",
+          "src/**/*.tsx",
+          "!src/index.tsx",
+          "!src/reportWebVitals.ts",
+          "!src/react-app-env.d.ts"
+      ],
+      "transformIgnorePatterns": [
+          "/node_modules/(?!react-dnd|core-dnd|@react-dnd|dnd-core|react-dnd-html5-backend)"
+      ]
   },
   "resetMocks": false,
   "setupFiles": [
-    "jest-localstorage-mock"
+      "jest-localstorage-mock"
   ]
 }
