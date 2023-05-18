@@ -7,10 +7,11 @@ import { chakraTheme } from "../chakraTheme";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
 import { HashRouter } from "react-router-dom";
+import { ChromePicker } from "react-color";
+import DragColor from "../components/DragColor";
+import MatchMediaMock from "jest-matchmedia-mock";
 
-
-
-
+new MatchMediaMock();
 
 export function renderColorPicker(){
     const chakTheme = extendTheme(chakraTheme);
@@ -27,11 +28,46 @@ export function renderColorPicker(){
     </>;
 }
 
-
-
-
 describe("ColorPicker", () => {
-    it("calls the post_preset function when clicked", () => {
-        //Place holder
+    test("renders properly", () => {
+        const cp =  renderColorPicker();
+        expect(cp);
     });
+
+    test("renders the color wheel with correct starting color", () => {
+        const cp =  renderColorPicker();
+        expect(<ChromePicker color = {"#000000"}/>);
+    }
+    );
+
+    test("renders the Drag Color", () => {
+        const cp =  renderColorPicker();
+        expect(<DragColor fillColor = {"#000000"}/>);
+    }
+    );
+
+    //Check if all states of the color wheel render
+    test("renders hex", () => {
+        const cp =  renderColorPicker();
+        expect("Hex");
+    }
+    );
+    test("renders RGB", () => {
+        const cp =  renderColorPicker();
+        expect("RGB");
+    }
+    );
+    test("renders HSL", () => {
+        const cp =  renderColorPicker();
+        expect("HSL");
+    }
+    );
+
+
+    test("Hex key is shown", () => {
+        const cp =  renderColorPicker();
+        expect("#000000");
+    }
+    );
+
 });
