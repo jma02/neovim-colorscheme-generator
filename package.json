@@ -17,6 +17,7 @@
     "@types/react-dom": "^18.0.11",
     "framer-motion": "^10.11.5",
     "gh-pages": "^5.0.0",
+    "jest-matchmedia-mock": "^1.1.0",
     "js-tokens": "^8.0.1",
     "react": "^18.2.0",
     "react-color": "^2.19.3",
@@ -64,5 +65,21 @@
     "@typescript-eslint/parser": "^5.57.1",
     "eslint": "^8.37.0",
     "eslint-plugin-react": "^7.32.2"
-  }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "!src/index.tsx",
+      "!src/reportWebVitals.ts",
+      "!src/react-app-env.d.ts"
+    ],
+    "transformIgnorePatterns": [
+      "/node_modules/(?!react-dnd|core-dnd|@react-dnd|dnd-core|react-dnd-html5-backend)"
+    ]
+  },
+  "resetMocks": false,
+  "setupFiles": [
+    "jest-localstorage-mock"
+  ]
 }
