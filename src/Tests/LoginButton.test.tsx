@@ -1,9 +1,9 @@
 import { fireEvent, getByLabelText, getByRole, getByTestId, render, screen, waitFor } from "@testing-library/react";
 import LoginAlerts from "../components/LoginAlerts";
 import React from "react";
-import LoginButton from "../components/LoginButton";
 import { Preset } from "../components/Common";
 import userEvent from "@testing-library/user-event";
+import LoginButton from "../components/LoginButton";
 
 describe("LoginAlerts", () => {
     it("renders without errors", () => {
@@ -34,5 +34,39 @@ describe("LoginAlerts", () => {
         expect(emailInput).toBeInTheDocument();
         expect(passwordInput).toBeInTheDocument();
     });
+    
+    test("test show button", () => {
+        const { getByLabelText } = render(<LoginButton setUser={() => {}} setUserThemes={() => {}} />);
+        const emailInput = getByLabelText(/email address/i);
+        const passwordInput = getByLabelText(/password/i);
+      
+        fireEvent.change(emailInput, { target: { value: "test@example.com" } });
+        fireEvent.change(passwordInput, { target: { value: "password" } });
+      
+        expect(emailInput).toHaveValue("test@example.com");
+        expect(passwordInput).toHaveValue("password");
+        const show = screen.getByText("Show");
+        expect(show).not.toBeDisabled();
+        fireEvent.click(show);
+        expect(passwordInput).toHaveAttribute("type", "text");
+        fireEvent.click(show);
+        expect(passwordInput).toHaveAttribute("type", "password");
+    });
+
+    test("test Valid email", () => {
+        const { getByLabelText } = render(<LoginButton setUser={() => {}} setUserThemes={() => {}} />);
+        const emailInput = getByLabelText(/email address/i);
+        const passwordInput = getByLabelText(/password/i);
+      
+        fireEvent.change(emailInput, { target: { value: "test@example.com" } });
+        fireEvent.change(passwordInput, { target: { value: "password" } });
+      
+        expect(emailInput).toHaveValue("test@example.com");
+        expect(passwordInput).toHaveValue("password");
+        const register = screen.getByText("Login!");
+        expect(register).not.toBeDisabled();
+    });
+
+
       
 });

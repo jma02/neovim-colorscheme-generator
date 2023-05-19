@@ -87,7 +87,7 @@ export default function Presets({themeFile, presets, setPresets, user, setUser, 
                                 flexDirection="column"
                             >
                                 {filteredPresets.map((x: Preset) => (
-                                    <Box role="presetBox" key={x._id as unknown as React.Key} w='90%'>
+                                    <Box key={x._id as unknown as React.Key} w='90%'>
                                         <DragPreset 
                                             ThemeFile={x.ThemeFile}
                                             name={x.name}
