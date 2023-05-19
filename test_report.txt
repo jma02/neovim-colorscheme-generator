@@ -2,8 +2,11 @@
 > neovim-colorscheme-generator@0.1.0 test
 > react-scripts test --coverage
 
+PASS src/Tests/Register.test.tsx
 PASS src/Tests/LoginButton.test.tsx
 PASS src/Tests/ColorBucket.test.tsx
+PASS src/Tests/EditPreset.test.tsx
+PASS src/Tests/preview.test.tsx
 PASS src/Tests/ColorPicker.test.tsx
   ● Console
 
@@ -1883,315 +1886,44 @@ PASS src/Tests/ColorPicker.test.tsx
       at renderColorPicker (src/Tests/ColorPicker.test.tsx:18:26)
       at Object.<anonymous> (src/Tests/ColorPicker.test.tsx:71:21)
 
-PASS src/Tests/DragTutorial.test.tsx
 PASS src/Tests/DragPreset.test.tsx
-  ● Console
-
-    console.error
-      Error: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
-          at module.exports (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
-          at HTMLCanvasElementImpl.getContext (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
-          at HTMLCanvasElement.getContext (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
-          at render (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-color/lib/helpers/checkboard.js:15:20)
-          at Object.get (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-color/lib/helpers/checkboard.js:35:20)
-          at Checkboard (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-color/lib/components/common/Checkboard.js:41:41)
-          at renderWithHooks (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
-          at mountIndeterminateComponent (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
-          at beginWork (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
-          at beginWork$1 (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
-          at performUnitOfWork (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
-          at workLoopSync (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
-          at renderRootSync (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
-          at performConcurrentWorkOnRoot (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:25738:74)
-          at flushActQueue (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react/cjs/react.development.js:2667:24)
-          at act (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react/cjs/react.development.js:2582:11)
-          at /home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/@testing-library/react/dist/act-compat.js:63:25
-          at renderRoot (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/@testing-library/react/dist/pure.js:159:26)
-          at render (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/@testing-library/react/dist/pure.js:246:10)
-          at renderDragPreset (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/src/Tests/DragPreset.test.tsx:18:26)
-          at Object.<anonymous> (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/src/Tests/DragPreset.test.tsx:36:21)
-          at Promise.then.completed (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/utils.js:391:28)
-          at new Promise (<anonymous>)
-          at callAsyncCircusFn (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusTest (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:218:40)
-          at _runTest (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:155:3)
-          at _runTestsForDescribeBlock (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:66:9)
-          at _runTestsForDescribeBlock (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:60:9)
-          at run (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:25:3)
-          at runAndTransformResultsToJestFormat (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
-          at jestAdapter (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
-          at runTestInternal (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-runner/build/runTest.js:389:16)
-          at runTest (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-runner/build/runTest.js:475:34) undefined
-
-      16 | export function renderDragPreset(){
-      17 |     const chakTheme = extendTheme(chakraTheme);
-    > 18 |     const colPic = render(
-         |                          ^
-      19 |         <>
-      20 |             <React.StrictMode>
-      21 |                 <ChakraProvider theme={chakTheme}>
-
-      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
-      at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
-      at HTMLCanvasElementImpl.getContext (node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
-      at HTMLCanvasElement.getContext (node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
-      at render (node_modules/react-color/lib/helpers/checkboard.js:15:20)
-      at Object.get (node_modules/react-color/lib/helpers/checkboard.js:35:20)
-      at Checkboard (node_modules/react-color/lib/components/common/Checkboard.js:41:41)
-      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:16305:18)
-      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:20074:13)
-      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:21587:16)
-      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:27426:14)
-      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26560:12)
-      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26466:5)
-      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26434:7)
-      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25738:74)
-      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
-      at act (node_modules/react/cjs/react.development.js:2582:11)
-      at node_modules/@testing-library/react/dist/act-compat.js:63:25
-      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
-      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
-      at renderDragPreset (src/Tests/DragPreset.test.tsx:18:26)
-      at Object.<anonymous> (src/Tests/DragPreset.test.tsx:36:21)
-
-    console.error
-      Error: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
-          at module.exports (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
-          at HTMLCanvasElementImpl.getContext (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
-          at HTMLCanvasElement.getContext (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
-          at render (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-color/lib/helpers/checkboard.js:15:20)
-          at Object.get (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-color/lib/helpers/checkboard.js:35:20)
-          at Checkboard (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-color/lib/components/common/Checkboard.js:41:41)
-          at renderWithHooks (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
-          at mountIndeterminateComponent (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:20145:19)
-          at beginWork (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
-          at beginWork$1 (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
-          at performUnitOfWork (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
-          at workLoopSync (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
-          at renderRootSync (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
-          at performConcurrentWorkOnRoot (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:25738:74)
-          at flushActQueue (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react/cjs/react.development.js:2667:24)
-          at act (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react/cjs/react.development.js:2582:11)
-          at /home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/@testing-library/react/dist/act-compat.js:63:25
-          at renderRoot (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/@testing-library/react/dist/pure.js:159:26)
-          at render (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/@testing-library/react/dist/pure.js:246:10)
-          at renderDragPreset (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/src/Tests/DragPreset.test.tsx:18:26)
-          at Object.<anonymous> (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/src/Tests/DragPreset.test.tsx:36:21)
-          at Promise.then.completed (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/utils.js:391:28)
-          at new Promise (<anonymous>)
-          at callAsyncCircusFn (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusTest (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:218:40)
-          at _runTest (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:155:3)
-          at _runTestsForDescribeBlock (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:66:9)
-          at _runTestsForDescribeBlock (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:60:9)
-          at run (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:25:3)
-          at runAndTransformResultsToJestFormat (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
-          at jestAdapter (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
-          at runTestInternal (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-runner/build/runTest.js:389:16)
-          at runTest (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-runner/build/runTest.js:475:34) undefined
-
-      16 | export function renderDragPreset(){
-      17 |     const chakTheme = extendTheme(chakraTheme);
-    > 18 |     const colPic = render(
-         |                          ^
-      19 |         <>
-      20 |             <React.StrictMode>
-      21 |                 <ChakraProvider theme={chakTheme}>
-
-      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
-      at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
-      at HTMLCanvasElementImpl.getContext (node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
-      at HTMLCanvasElement.getContext (node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
-      at render (node_modules/react-color/lib/helpers/checkboard.js:15:20)
-      at Object.get (node_modules/react-color/lib/helpers/checkboard.js:35:20)
-      at Checkboard (node_modules/react-color/lib/components/common/Checkboard.js:41:41)
-      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:16305:18)
-      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:20145:19)
-      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:21587:16)
-      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:27426:14)
-      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26560:12)
-      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26466:5)
-      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26434:7)
-      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25738:74)
-      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
-      at act (node_modules/react/cjs/react.development.js:2582:11)
-      at node_modules/@testing-library/react/dist/act-compat.js:63:25
-      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
-      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
-      at renderDragPreset (src/Tests/DragPreset.test.tsx:18:26)
-      at Object.<anonymous> (src/Tests/DragPreset.test.tsx:36:21)
-
-    console.error
-      Error: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
-          at module.exports (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
-          at HTMLCanvasElementImpl.getContext (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
-          at HTMLCanvasElement.getContext (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
-          at render (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-color/lib/helpers/checkboard.js:15:20)
-          at Object.get (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-color/lib/helpers/checkboard.js:35:20)
-          at Checkboard (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-color/lib/components/common/Checkboard.js:41:41)
-          at renderWithHooks (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
-          at mountIndeterminateComponent (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
-          at beginWork (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
-          at beginWork$1 (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
-          at performUnitOfWork (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
-          at workLoopSync (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
-          at renderRootSync (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
-          at performConcurrentWorkOnRoot (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:25738:74)
-          at flushActQueue (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react/cjs/react.development.js:2667:24)
-          at act (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react/cjs/react.development.js:2582:11)
-          at /home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/@testing-library/react/dist/act-compat.js:63:25
-          at renderRoot (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/@testing-library/react/dist/pure.js:159:26)
-          at render (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/@testing-library/react/dist/pure.js:246:10)
-          at renderDragPreset (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/src/Tests/DragPreset.test.tsx:18:26)
-          at Object.<anonymous> (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/src/Tests/DragPreset.test.tsx:36:21)
-          at Promise.then.completed (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/utils.js:391:28)
-          at new Promise (<anonymous>)
-          at callAsyncCircusFn (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusTest (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:218:40)
-          at _runTest (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:155:3)
-          at _runTestsForDescribeBlock (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:66:9)
-          at _runTestsForDescribeBlock (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:60:9)
-          at run (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:25:3)
-          at runAndTransformResultsToJestFormat (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
-          at jestAdapter (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
-          at runTestInternal (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-runner/build/runTest.js:389:16)
-          at runTest (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-runner/build/runTest.js:475:34) undefined
-
-      16 | export function renderDragPreset(){
-      17 |     const chakTheme = extendTheme(chakraTheme);
-    > 18 |     const colPic = render(
-         |                          ^
-      19 |         <>
-      20 |             <React.StrictMode>
-      21 |                 <ChakraProvider theme={chakTheme}>
-
-      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
-      at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
-      at HTMLCanvasElementImpl.getContext (node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
-      at HTMLCanvasElement.getContext (node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
-      at render (node_modules/react-color/lib/helpers/checkboard.js:15:20)
-      at Object.get (node_modules/react-color/lib/helpers/checkboard.js:35:20)
-      at Checkboard (node_modules/react-color/lib/components/common/Checkboard.js:41:41)
-      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:16305:18)
-      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:20074:13)
-      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:21587:16)
-      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:27426:14)
-      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26560:12)
-      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26466:5)
-      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26434:7)
-      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25738:74)
-      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
-      at act (node_modules/react/cjs/react.development.js:2582:11)
-      at node_modules/@testing-library/react/dist/act-compat.js:63:25
-      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
-      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
-      at renderDragPreset (src/Tests/DragPreset.test.tsx:18:26)
-      at Object.<anonymous> (src/Tests/DragPreset.test.tsx:36:21)
-
-    console.error
-      Error: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
-          at module.exports (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
-          at HTMLCanvasElementImpl.getContext (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
-          at HTMLCanvasElement.getContext (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
-          at render (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-color/lib/helpers/checkboard.js:15:20)
-          at Object.get (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-color/lib/helpers/checkboard.js:35:20)
-          at Checkboard (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-color/lib/components/common/Checkboard.js:41:41)
-          at renderWithHooks (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
-          at mountIndeterminateComponent (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:20145:19)
-          at beginWork (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
-          at beginWork$1 (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
-          at performUnitOfWork (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
-          at workLoopSync (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
-          at renderRootSync (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
-          at performConcurrentWorkOnRoot (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react-dom/cjs/react-dom.development.js:25738:74)
-          at flushActQueue (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react/cjs/react.development.js:2667:24)
-          at act (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/react/cjs/react.development.js:2582:11)
-          at /home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/@testing-library/react/dist/act-compat.js:63:25
-          at renderRoot (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/@testing-library/react/dist/pure.js:159:26)
-          at render (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/@testing-library/react/dist/pure.js:246:10)
-          at renderDragPreset (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/src/Tests/DragPreset.test.tsx:18:26)
-          at Object.<anonymous> (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/src/Tests/DragPreset.test.tsx:36:21)
-          at Promise.then.completed (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/utils.js:391:28)
-          at new Promise (<anonymous>)
-          at callAsyncCircusFn (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusTest (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:218:40)
-          at _runTest (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:155:3)
-          at _runTestsForDescribeBlock (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:66:9)
-          at _runTestsForDescribeBlock (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:60:9)
-          at run (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/run.js:25:3)
-          at runAndTransformResultsToJestFormat (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
-          at jestAdapter (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
-          at runTestInternal (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-runner/build/runTest.js:389:16)
-          at runTest (/home/runner/work/neovim-colorscheme-generator/neovim-colorscheme-generator/node_modules/jest-runner/build/runTest.js:475:34) undefined
-
-      16 | export function renderDragPreset(){
-      17 |     const chakTheme = extendTheme(chakraTheme);
-    > 18 |     const colPic = render(
-         |                          ^
-      19 |         <>
-      20 |             <React.StrictMode>
-      21 |                 <ChakraProvider theme={chakTheme}>
-
-      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
-      at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
-      at HTMLCanvasElementImpl.getContext (node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
-      at HTMLCanvasElement.getContext (node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
-      at render (node_modules/react-color/lib/helpers/checkboard.js:15:20)
-      at Object.get (node_modules/react-color/lib/helpers/checkboard.js:35:20)
-      at Checkboard (node_modules/react-color/lib/components/common/Checkboard.js:41:41)
-      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:16305:18)
-      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:20145:19)
-      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:21587:16)
-      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:27426:14)
-      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26560:12)
-      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26466:5)
-      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26434:7)
-      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25738:74)
-      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
-      at act (node_modules/react/cjs/react.development.js:2582:11)
-      at node_modules/@testing-library/react/dist/act-compat.js:63:25
-      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
-      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
-      at renderDragPreset (src/Tests/DragPreset.test.tsx:18:26)
-      at Object.<anonymous> (src/Tests/DragPreset.test.tsx:36:21)
-
+PASS src/Tests/DragTutorial.test.tsx
+PASS src/Tests/PostButtonAlerts.test.tsx
 PASS src/Tests/LoginAlerts.test.tsx
 PASS src/Tests/DeletePresetAlerts.test.tsx
-PASS src/Tests/PostButtonAlerts.test.tsx
-PASS src/Tests/download.test.ts
 PASS src/App.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------|---------|----------|---------|---------|-------------------
-All files                 |    8.49 |    18.27 |   10.27 |    8.07 |                   
+All files                 |   26.45 |    46.19 |   26.48 |   25.78 |                   
  src                      |   33.33 |      100 |       0 |   33.33 |                   
   App.tsx                 |       0 |      100 |       0 |       0 | 7-8               
   chakraTheme.ts          |     100 |      100 |     100 |     100 |                   
- src/components           |   11.37 |    18.46 |   14.07 |   11.07 |                   
+ src/components           |   36.12 |    46.66 |   36.29 |   36.16 |                   
   CentralToUser.tsx       |       0 |        0 |       0 |       0 | 25-56             
   ColorBucket.tsx         |     100 |      100 |     100 |     100 |                   
   ColorPicker.tsx         |   66.66 |      100 |      50 |   66.66 | 29                
   Common.ts               |       0 |        0 |       0 |       0 |                   
-  DeletePreset.tsx        |       0 |        0 |       0 |       0 | 30-83             
+  DeletePreset.tsx        |   43.75 |    41.66 |   33.33 |   42.85 | 46-48,58-79       
   DeletePresetAlerts.tsx  |     100 |      100 |     100 |     100 |                   
   DeleteUserPreset.tsx    |       0 |        0 |       0 |       0 | 28-76             
   DragColor.tsx           |     100 |      100 |     100 |     100 |                   
   DragPreset.tsx          |       0 |        0 |       0 |       0 | 55-87             
   DragTutorial.tsx        |     100 |      100 |     100 |     100 |                   
-  EditPreset.tsx          |       0 |        0 |       0 |       0 | 40-150            
+  EditPreset.tsx          |   34.88 |     62.5 |   29.41 |   36.58 | 53,62-101         
   EditPresetAlerts.tsx    |       0 |        0 |       0 |       0 | 15                
   Editor.tsx              |       0 |      100 |       0 |       0 | 22-68             
   LoginAlerts.tsx         |     100 |      100 |     100 |     100 |                   
-  LoginButton.tsx         |    40.9 |       50 |   33.33 |    40.9 | 41-53,79,91-105   
+  LoginButton.tsx         |   45.45 |      100 |   44.44 |   45.45 | 41-53,79,105      
   PostButtonAlerts.tsx    |     100 |      100 |     100 |     100 |                   
   PostUserTheme.tsx       |       0 |        0 |       0 |       0 | 28-57             
-  PresetLoader.tsx        |       0 |        0 |       0 |       0 | 15-32             
+  PresetLoader.tsx        |      75 |       40 |      80 |   66.66 | 18-19             
   PresetPostButton.tsx    |       0 |        0 |       0 |       0 | 26-58             
   Presets.tsx             |       0 |        0 |       0 |       0 | 37-191            
-  Preview.tsx             |       0 |        0 |       0 |       0 | 13-172            
-  PreviewButtonsGroup.tsx |       0 |      100 |       0 |       0 | 25-69             
-  RegisterUserAlerts.tsx  |       0 |        0 |       0 |       0 | 16                
-  RegisterUserButton.tsx  |       0 |        0 |       0 |       0 | 23-115            
+  Preview.tsx             |   76.92 |    59.45 |      80 |      75 | 74-77,141-142,172 
+  PreviewButtonsGroup.tsx |      50 |      100 |   33.33 |      60 | 68-69             
+  RegisterUserAlerts.tsx  |     100 |     37.5 |     100 |     100 | 23-31             
+  RegisterUserButton.tsx  |   53.84 |      100 |      50 |   53.84 | 31-45,83,115      
   UserPostAlerts.tsx      |       0 |        0 |       0 |       0 | 17                
  src/functions            |       0 |        0 |       0 |       0 |                   
   delete_preset.ts        |       0 |      100 |       0 |       0 | 18-32             
@@ -2210,8 +1942,8 @@ All files                 |    8.49 |    18.27 |   10.27 |    8.07 |
   landing.tsx             |       0 |      100 |       0 |       0 | 17-32             
 --------------------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 10 passed, 10 total
-Tests:       29 passed, 29 total
+Test Suites: 12 passed, 12 total
+Tests:       43 passed, 43 total
 Snapshots:   0 total
-Time:        11.594 s
+Time:        20.412 s
 Ran all test suites.
