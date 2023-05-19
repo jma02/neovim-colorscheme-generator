@@ -1,8 +1,7 @@
 import React from "react";
-import { render, fireEvent, waitFor, screen} from "@testing-library/react";
-import ColorPicker from "../components/ColorPicker";
-import { ChakraProvider } from "@chakra-ui/provider";
-import { extendTheme } from "@chakra-ui/theme-utils";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import Preview from "../components/Preview";
 import { chakraTheme } from "../chakraTheme";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
@@ -16,10 +15,24 @@ import { Preset, ThemeFile } from "../components/Common";
 import delete_preset from "../functions/delete_preset";
 import fetch_presets from "../functions/fetch_presets";
 import Presets from "../components/Presets";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 new MatchMediaMock();
+const themeFile = {
+    // Mock themeFile object
+    bg: "white",
+    fg: "black",
+    ui: "gray",
+    accent: "blue",
+    string: "green",
+    func: "purple",
+    operator: "yellow",
+    comment: "gray",
+    error: "red",
+};
 
-export function renderDragPreset(){
+export function renderPreview(){
+    
     const chakTheme = extendTheme(chakraTheme);
     const colPic = render(
         <>
@@ -27,8 +40,9 @@ export function renderDragPreset(){
                 <ChakraProvider theme={chakTheme}>
                     <DndProvider backend={HTML5Backend}>
                         <HashRouter>
-                            <DeletePreset setThemes={function (x: Preset[]): void {
-                            } }/>
+                            <Preview themeFile={themeFile} setThemeFile={function (x: ThemeFile): void {
+                                
+                            } } />
                         </HashRouter>
                     </DndProvider>
                 </ChakraProvider>
@@ -38,19 +52,24 @@ export function renderDragPreset(){
     return colPic;
 }
 
-describe("PresetPostButton", () => {
-    
-    test("renders", () => {
-        const dp =  renderDragPreset();
-        expect(dp);
-    });
 
-    
+describe("Preview", () => {
+    const themeFile = {
+    // Mock themeFile object
+        bg: "white",
+        fg: "black",
+        ui: "gray",
+        accent: "blue",
+        string: "green",
+        func: "purple",
+        operator: "yellow",
+        comment: "gray",
+        error: "red",
+    };
 
-    test("displays the \"Drag a preset here to delete it!\" message", () => {
-        const dp = renderDragPreset();
-        const delHere = dp.getByRole("flex");
-        expect(delHere).toHaveTextContent("Drag a preset here to delete it!");
+    test("renders preview with the provided theme", () => {
+        const previewElement = renderPreview();
+        expect(previewElement);
     });
 
 });

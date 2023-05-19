@@ -5,7 +5,6 @@ import { useDisclosure, Button, AlertDialog, AlertDialogOverlay,
 import React, { useRef, useState } from "react";
 import { useDragLayer, useDrop } from "react-dnd";
 import { DroppedPreset, Preset } from "./Common";
-
 import { ObjectId } from "bson";
 import delete_preset from "../functions/delete_preset";
 import fetch_presets from "../functions/fetch_presets";
@@ -83,6 +82,7 @@ export default function DeletePreset({setThemes}: DeletePresetProps){
     return (
         <>
             <Flex 
+                role = "flex"
                 bg='maroon'
                 h="10vh"
                 textAlign="center"
@@ -102,6 +102,7 @@ export default function DeletePreset({setThemes}: DeletePresetProps){
             </Flex>
       
             <AlertDialog
+                data-testid="deletePreset"
                 isOpen={isOpen}
                 motionPreset="slideInBottom"
                 leastDestructiveRef={cancelRef}
@@ -116,7 +117,7 @@ export default function DeletePreset({setThemes}: DeletePresetProps){
                         {/* Conditionally render a confirmation message, or a success message */}
             
                         {!alertBuffer ? <Box>
-                            <AlertDialogBody>
+                            <AlertDialogBody role = "AlertDialogBody">
                         Are you sure you want to delete this preset? This action is irreversible. <br/>
                                 <Box p="4">
                                     <Box bg="blue.700" padding="3" borderRadius="10">
@@ -147,6 +148,7 @@ export default function DeletePreset({setThemes}: DeletePresetProps){
                                     onClick={handleSubmit}
                                     ml={3}
                                     isDisabled={apiKey===""}
+                                    role = "delButton"
                                 >
                       Delete
                                 </Button>
