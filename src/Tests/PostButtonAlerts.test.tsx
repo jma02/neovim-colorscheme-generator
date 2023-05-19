@@ -1,5 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 import PostButtonAlerts from "../components/PostButtonAlerts";
 
 describe("PostButtonAlerts", () => {

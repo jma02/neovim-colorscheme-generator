@@ -23,25 +23,6 @@ describe("LoginAlerts", () => {
         expect(passwordInput).toHaveValue("password");
     });
 
-    // I can't get this test to work beacuse I can't find the Show Password button
-    // it("password can be shown when show password button is clicked", async () => {
-    //     const { getByLabelText, getByRole } = render(<LoginButton setUser={() => {}} setUserThemes={() => {}} />);
-      
-    //     const passwordInput = getByLabelText(/password/i);
-
-    //     fireEvent.change(passwordInput, { target: { value: "password" } });
-    //     expect(passwordInput).toHaveValue("password");
-
-    //     const showPasswordButton = getByLabelText(/show/i);
-      
-    //     fireEvent.click(showPasswordButton);
-    //     expect(passwordInput).toHaveAttribute("type", "text");
-      
-    //     fireEvent.click(showPasswordButton);
-    //     expect(passwordInput).toHaveAttribute("type", "password");
-    // });
-      
-
     it("contains two input fields for email and password", () => {
         render(<LoginButton setUser={function (x: Realm.User<Realm.DefaultFunctionsFactory, SimpleObject, Realm.DefaultUserProfileData>): void {
             throw new Error("Function not implemented.");
