@@ -22,7 +22,8 @@ describe("Edit Preset", () => {
 
         } } setPresets={function (x: Preset[]): void {
         } } />);
-        const button = screen.getByRole("button", { colorScheme: /"transparent"/i });
+        const button = screen.getByRole("button", { colorScheme: /"transparent"/i } as any);
+
         fireEvent.click(button);
         
         const name = getByLabelText(/name/i);
@@ -40,7 +41,8 @@ describe("Edit Preset", () => {
 
         } } setPresets={function (x: Preset[]): void {
         } } />);
-        const button = screen.getByRole("button", { colorScheme: /"transparent"/i });
+        const button = screen.getByRole("button", { colorScheme: /"transparent"/i } as any);
+
         fireEvent.click(button);
         
         const name = getByLabelText(/name/i);
