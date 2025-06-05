@@ -1,3 +1,7 @@
+# If you've reached this repo. Hello!
+# The backend for this website is down, but all the frontend JavaScript works. Check it out here!
+[Link](https://jma02.github.io/neovim-colorscheme-generator/)
+
 ## Neovim Theme Generator
 
 A CISC275 Project by ...
